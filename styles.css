@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
+.navBar
+{
+    background-color: #6E7B51;
+    overflow: hidden;
+}
 .poller-one
 {
     font-family: "Poller One", serif;
