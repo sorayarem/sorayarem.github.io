@@ -4,7 +4,6 @@
     background-color: #6E7B51;
     max-width: 100%;
     overflow: fit-content;
-    margin-right: 1%;
 }
 .poller-one
 {
@@ -17,5 +16,6 @@ body
 {
     background: #FFFFFF;
     font-family: "Poller One", serif;
-    margin: 40px;
+    margin: 0px;
 }
+
