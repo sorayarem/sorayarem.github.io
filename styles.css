@@ -1,7 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
 .navBar-header
 {
     font-size: 64px;
+    color:#FFFFFF;
+}
+
+.navBar-pages
+{
+    font-size: 34px;
+    font-family: "Epilogue"; 
     color:#FFFFFF;
 }
 .poller-one
