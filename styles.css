@@ -3,6 +3,7 @@
 .navBar-header
 {
     font-size: 64px;
+    text-align: right;
     color:#FFFFFF;
 }
 
@@ -10,6 +11,7 @@
 {
     font-size: 34px;
     font-family: "Epilogue"; 
+    text-align: left;
     color:#FFFFFF;
 }
 .poller-one
