@@ -2,7 +2,8 @@
 .navBar
 {
     background-color: #6E7B51;
-    overflow: hidden;
+    max-width: 100%;
+    overflow: fit-content;
 }
 .poller-one
 {
