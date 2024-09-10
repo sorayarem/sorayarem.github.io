@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
-.navbar-custom
+.navBar-header
 {
-    background-color: #6E7B51;
+    font-size: 64px;
+    color:#FFFFFF;
 }
 .poller-one
 {
