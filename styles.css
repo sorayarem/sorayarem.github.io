@@ -5,12 +5,18 @@
     font-size: 53px;
     margin-left: 20px;
     text-align: right;
+    text-decoration: none;
     color:#FFFFFF;
 }
 
 .navbar-nav a:hover
 {
     color: #E49311;
+}
+
+.navBar-header a:hover
+{
+    color: #FFFFFF;
 }
 
 .navBar-pages
