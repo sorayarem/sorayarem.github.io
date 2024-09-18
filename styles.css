@@ -35,6 +35,12 @@
     text-align: left;
     color:#FFFFFF;
 }
+
+a:active
+{
+    color:#E49311;
+}
+
 .poller-one
 {
     font-family: "Poller One", serif;
