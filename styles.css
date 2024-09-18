@@ -24,9 +24,14 @@
     color: #FFFFFF;
 }
 
+.navbar-brand
+{
+    margin-left: 20px;
+}
+
 .navBar-pages
 {
-    font-size: 36px;
+    font-size: 33px;
     text-decoration: none;
     font-weight: 700;
     font-family: "Epilogue"; 
