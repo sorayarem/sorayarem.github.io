@@ -3,6 +3,7 @@
 .navBar-header
 {
     font-size: 53px;
+    font-family: "Poller One", serif;
     text-align: right;
     text-decoration: none;
     color:#FFFFFF;
@@ -60,7 +61,7 @@ body
 {
     background: #FFFFFF;
     font-family: "Epilogue"; 
-    margin: 0px;
+    margin: 20px;
 }
 
 
