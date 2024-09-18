@@ -36,10 +36,18 @@
     color:#FFFFFF;
 }
 
-:active
+.navBar-pages-active
 {
+    font-size: 33px;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: "Epilogue"; 
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: left;
     color:#E49311;
 }
+
 
 .poller-one
 {
@@ -51,7 +59,7 @@
 body
 {
     background: #FFFFFF;
-    font-family: "Poller One", serif;
+    font-family: "Epilogue"; 
     margin: 0px;
 }
 
