@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
 .navBar-header
 {
-    font-size: 59px;
+    font-size: 53px;
+    margin-left: 20px;
     text-align: right;
     color:#FFFFFF;
 }
@@ -11,8 +12,8 @@
 {
     font-size: 34px;
     font-family: "Epilogue"; 
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
     text-align: left;
     color:#FFFFFF;
 }
@@ -29,4 +30,5 @@ body
     font-family: "Poller One", serif;
     margin: 0px;
 }
+
 
