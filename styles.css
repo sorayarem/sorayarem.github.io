@@ -16,6 +16,8 @@
 .navBar-pages
 {
     font-size: 34px;
+    text-decoration: none;
+    font-weight: 700;
     font-family: "Epilogue"; 
     margin-left: 25px;
     margin-right: 25px;
