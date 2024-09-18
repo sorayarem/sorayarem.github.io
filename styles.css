@@ -10,6 +10,7 @@
 .navBar-pages
 {
     font-size: 34px;
+    float: left;
     font-family: "Epilogue"; 
     text-align: left;
     color:#FFFFFF;
