@@ -75,7 +75,9 @@ body
 .rheader-text
 {
     font-weight: 800;
-    margin-left: 20px;
+    margin-left: 40px;
+    margin-top: 40px;
+    font-size: 45px;
 }
 
 
