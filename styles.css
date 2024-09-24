@@ -76,8 +76,8 @@ body
 .rheader-text-left
 {
     font-weight: 800;
-    margin-left: 30px;
-    margin-top: 30px;
+    margin-left: 50px;
+    margin-top: 50px;
     font-size: 55px;
     text-align: left;
 }
@@ -85,8 +85,8 @@ body
 .rheader-text-right
 {
     font-weight: 800;
-    margin-right: 30px;
-    margin-top: 30px;
+    margin-right: 50px;
+    margin-top: 50px;
     font-size: 55px;
     text-align: right;
 }
@@ -94,7 +94,7 @@ body
 .rheader-smaller-text-left
 {
     font-weight: 700;
-    margin-left: 30px;
+    margin-left: 50px;
     font-size: 27px;
     color: #6E7B51;
     text-align: left;
@@ -103,10 +103,29 @@ body
 .rheader-smaller-text-right
 {
     font-weight: 700;
-    margin-right: 30px;
+    margin-right: 50px;
     font-size: 27px;
     color: #6E7B51;
     text-align: right;
 }
+
+welcome{
+    font-weight:700;
+    font-size: 100px;
+    color: #6E7B51;
+    animation: 3s infinite alternate slidein;
+}
+
+@keyframes slidein {
+    from {
+      translate: 150vw 0;
+      scale: 200% 1;
+    }
+  
+    to {
+      translate: 0 0;
+      scale: 100% 1;
+    }
+  }
 
 
