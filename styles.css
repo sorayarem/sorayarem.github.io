@@ -109,23 +109,18 @@ body
     text-align: right;
 }
 
-welcome{
-    font-weight:700;
-    font-size: 100px;
-    color: #6E7B51;
-    animation: 3s infinite alternate slidein;
+.projects 
+{ 
+    display:flex; 
+    flex-wrap:wrap; 
 }
 
-@keyframes slidein {
-    from {
-      translate: 150vw 0;
-      scale: 200% 1;
-    }
-  
-    to {
-      translate: 0 0;
-      scale: 100% 1;
-    }
-  }
-
+.project 
+{
+width: 30%;
+margin: 10px;
+padding: 20px 10px;
+background: white;
+border-radius: 25%;
+}
 
