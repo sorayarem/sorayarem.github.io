@@ -124,3 +124,16 @@ background: white;
 border-radius: 25%;
 }
 
+a:link 
+{
+    color: #E49311;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #5E7782;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
