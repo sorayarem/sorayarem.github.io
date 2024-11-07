@@ -23,6 +23,7 @@
 .navBar-header:hover
 {
     color: #FFFFFF;
+    text-decoration: none;
 }
 
 .navBar-pages
@@ -50,6 +51,28 @@
     text-decoration: underline;
 }
 
+.button 
+{
+    border: none;
+    background-color: #6E7B51;
+    color:white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 50px;
+    display: inline-block;
+    font-size: 35px;
+    font-weight:600;
+    margin: 4px 2px;
+    border-radius:12px;
+    cursor: pointer;
+}
+
+.button:hover 
+{
+    background-color: #E49311;
+    color: white;
+}
 
 .poller-one
 {
