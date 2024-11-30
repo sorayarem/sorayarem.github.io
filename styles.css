@@ -159,6 +159,28 @@ a:hover {
     text-decoration: underline;
 }
 
+.tiles-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding : 70px;
+    gap: 130px;
+}
+
+.tile {
+    border: 5px solid #5E7782;
+    flex: 1 0 300px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+    text-align : center;
+}
+
+.tile:hover {
+    transform: scale(1.05);
+}
+  
 footer {
     text-align: center;
     position:absolute;
