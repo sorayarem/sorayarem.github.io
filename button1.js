@@ -6,9 +6,9 @@ document.getElementById("button1").addEventListener("click", function() {
 
     if (currentDisplay === "none") {
         content.style.display = "block";
-        document.getElementById("button1").style.backgroundColor = "#6E7B51";
+        document.getElementById("button1").style.backgroundColor = "#E49311";
     } else {
         content.style.display = "none";
-        document.getElementById("button1").style.backgroundColor = "#E49311";
+        document.getElementById("button1").style.backgroundColor = "#6E7B51";
     }
 });

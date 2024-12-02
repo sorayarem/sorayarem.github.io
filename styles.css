@@ -87,6 +87,18 @@ body
     margin: 0px;
 }
 
+#content1{
+    margin-top: 10px;
+    margin-left:50px;
+    padding: 10px;
+}
+
+.projHead{
+    color: #6E7B51;
+    font-weight: 800;
+    font-size: 75px;
+}
+
 .rproject
 {
     background: #FFFFFF;
@@ -159,6 +171,12 @@ a:hover {
     text-decoration: underline;
 }
 
+.docLink:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
 .tiles-container {
     display: flex;
     flex-wrap: wrap;
@@ -182,21 +200,15 @@ a:hover {
     text-decoration: none;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-    flex-wrap: wrap;
-    margin:auto;
-}
-
 .dropdown-button {
-    background-color: #E49311;
+    background-color: #6E7B51;
     margin-left: 50px;
     margin-top: 50px;
     color: #FFFFFF;
     padding: 10px 20px;
-    font-size: 45px;
-    font-weight:600;
+    font-size: 40px;
+    font-weight:700;
+    letter-spacing: 2px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
@@ -214,7 +226,6 @@ a:hover {
     border-radius: 8px;
 }
 
-/* Dropdown content - text and images */
 .dropdown-content img {
     width: 100%;
     height: auto;
@@ -227,11 +238,6 @@ a:hover {
     color: #333;
     font-size: 18px;
 }
-
-/* Show the dropdown on hover */
-/*.dropdown:hover .dropdown-content {
-    display:block;
-}*/
   
 footer {
     text-align: center;
