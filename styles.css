@@ -171,12 +171,6 @@ a:hover {
     text-decoration: underline;
 }
 
-.docLink:hover {
-    color: red;
-    background-color: transparent;
-    text-decoration: underline;
-}
-
 .tiles-container {
     display: flex;
     flex-wrap: wrap;
@@ -204,6 +198,7 @@ a:hover {
     background-color: #6E7B51;
     margin-left: 50px;
     margin-top: 50px;
+    margin-right:500px;
     color: #FFFFFF;
     padding: 10px 20px;
     font-size: 40px;
