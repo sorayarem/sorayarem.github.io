@@ -170,7 +170,7 @@ a:hover {
     border: 5px solid #5E7782;
     flex: 1 0 300px;
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px #5E7782;
     padding: 50px;
     border-radius: 15px;
     transition: transform 0.3s ease-in-out;
@@ -179,7 +179,59 @@ a:hover {
 
 .tile:hover {
     transform: scale(1.05);
+    text-decoration: none;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    flex-wrap: wrap;
+    margin:auto;
+}
+
+.dropdown-button {
+    background-color: #E49311;
+    margin-left: 50px;
+    margin-top: 50px;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    font-size: 45px;
+    font-weight:600;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    margin-left: 50px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Dropdown content - text and images */
+.dropdown-content img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.dropdown-content p {
+    margin: 10px 0;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Show the dropdown on hover */
+/*.dropdown:hover .dropdown-content {
+    display:block;
+}*/
   
 footer {
     text-align: center;
