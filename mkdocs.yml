@@ -1,0 +1,31 @@
+site_name: Soraya Remaili's Personal Website
+site_url: https://sorayarem.com
+theme:
+  name: material
+  font:
+    text: Merriweather Sans
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+      primary: green
+      accent: deep purple
+
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+      primary: blue
+      accent: deep orange
+  features:
+    - navigation.footer
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+copyright: Copyright &copy; 2025 Soraya Remaili
+
+
