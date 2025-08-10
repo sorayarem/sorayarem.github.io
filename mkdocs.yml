@@ -1,7 +1,14 @@
-site_name: Soraya Remaili's Personal Website
+site_name: Soraya Remaili
 site_url: https://sorayarem.com
+nav:
+  - Home: index.md
+  - Research: research.md
+  - Projects: projects.md
+  - Contact Me: contact.md
 theme:
   name: material
+  icon:
+    logo: material/star
   font:
     text: Merriweather Sans
   palette:
@@ -16,11 +23,16 @@ theme:
       toggle:
         icon: material/weather-night
         name: Light mode
-      primary: blue
+      primary: green
       accent: deep orange
   features:
     - navigation.footer
 
+extra:
+  social:
+    - icon: fontawesome/solid/envelope
+      link: mailto:sremaili@email.sc.edu
+    
 markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
