@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Soraya Remaili</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-pill pointer-events-auto relative flex rounded-lg border border-neutral-200 bg-white/70 p-1 shadow-md backdrop-blur-md">
+                <div class="absolute left-0 -z-10 h-7 rounded bg-neutral-200 backdrop-blur transition-[width,transform,opacity]" style="transition-duration: 150ms; opacity: 0; width: 67.3438px; transform: translate(197.615px);"></div>
+                <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-400" href="index.html">About Me</a>
+                <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-400" href="research.html">Research</a>
+                <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-400" href="projects.html">Projects</a>
+                <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-400" href="contact.html">Contact</a>
+                <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-900" href="cv.html" aria-current="page">CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="cv-page cv-page--lead">
+            <div class="container cv-page-container">
+                <div id="cv-interactive" class="cv-interactive"></div>
+                <p class="cv-download-note">
+                    <a href="cv.pdf" class="method-link" target="_blank" rel="noopener noreferrer">Download PDF version</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <div id="cv-modal" class="cv-modal" hidden>
+        <div class="cv-modal-backdrop"></div>
+        <div class="cv-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
+            <button type="button" class="cv-modal-close" aria-label="Close">&times;</button>
+            <h2 id="cv-modal-title" class="cv-modal-title"></h2>
+            <div id="cv-modal-body" class="cv-modal-body"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2026 Soraya Remaili</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:sremaili@email.sc.edu" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://github.com/sorayarem" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://scholar.google.com" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="script.js"></script>
+    <script src="cv-interactive.js" defer></script>
+</body>
+</html>

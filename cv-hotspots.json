@@ -1,0 +1,47 @@
+{
+  "hotspots": [
+    {
+      "id": "education",
+      "page": 1,
+      "label": "Education",
+      "region": { "left": 3, "top": 10, "width": 94, "height": 15 },
+      "popup": {
+        "title": "Education",
+        "description": "B.S. in Computer Science, Statistics, and Biology at the University of South Carolina Honors College (expected May 2027, GPA 4.0). Also attended Thomas Jefferson High School for Science and Technology and Sciences Po.",
+        "images": [],
+        "files": [],
+        "links": [
+          { "label": "USC Honors College", "url": "https://www.sc.edu" }
+        ]
+      }
+    },
+    {
+      "id": "honors",
+      "page": 1,
+      "label": "Honors and grants",
+      "region": { "left": 3, "top": 25, "width": 94, "height": 22 },
+      "popup": {
+        "title": "Honors & Grants",
+        "description": "Scholarships and research funding including Magellan Mini, Honors College research grants, and the Provost AI Undergraduate Fellowship.",
+        "images": [],
+        "files": [],
+        "links": []
+      }
+    },
+    {
+      "id": "presentations",
+      "page": 1,
+      "label": "Presentations",
+      "region": { "left": 3, "top": 47, "width": 94, "height": 50 },
+      "popup": {
+        "title": "Posters & Presentations",
+        "description": "Conference talks on marine acoustics, sclerochronology, and proxy system modeling. See the Research page for the full list.",
+        "images": [],
+        "files": [],
+        "links": [
+          { "label": "Research page", "url": "research.html" }
+        ]
+      }
+    }
+  ]
+}
