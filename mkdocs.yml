@@ -3,7 +3,6 @@ site_url: https://sorayarem.com
 nav:
   - Home: index.md
   - Research: research.md
-  - Projects: projects.md
   - Contact Me: contact.md
 theme:
   name: material
