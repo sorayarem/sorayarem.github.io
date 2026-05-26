@@ -2,6 +2,7 @@ site_name: Soraya Remaili
 site_url: https://sorayarem.com
 nav:
   - Home: index.md
+  - About Me: about.md
   - Research: research.md
   - Contact Me: contact.md
 theme:

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Soraya Remaili</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-pill pointer-events-auto relative flex rounded-lg border border-neutral-200 bg-white/70 p-1 shadow-md backdrop-blur-md">
+                <div class="absolute left-0 -z-10 h-7 rounded bg-neutral-200 backdrop-blur transition-[width,transform,opacity]" style="transition-duration: 150ms; opacity: 0;"></div>
+                <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-400" href="index.html">Home</a>
+                <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-900" href="about.html" aria-current="page">About Me</a>
+                <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-400" href="research.html">Research</a>
+                <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-400" href="contact.html">Contact</a>
+                <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-400" href="cv.html" aria-label="CV">CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="about-page about-page--lead">
+            <div class="container">
+                <div class="about-page-content">
+                    <div class="about-page-text">
+                        <h1 class="about-page-title">About Me</h1>
+                        <p class="hero-description">
+                            When I’m not on my computer or contemplating the work that I should be doing at my computer, I love to spend my free time reading. My goal of 90 books on Goodreads this year is my loftiest yet, but my latest <a href="#reading-globe-heading" class="hero-inline-link">challenge</a> for myself has helped me find some great new reads.
+                        </p>
+                        <p class="hero-description">
+                            I was born and raised in Northern Virginia, but I love to travel and explore new cities both within and outside the US, and I’m always on the hunt for good gluten-free food wherever I go. Keep scrolling to see a bit more!
+                        </p>
+                        <div class="hero-actions">
+                            <a href="research.html" class="btn btn-primary">View My Research</a>
+                            <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+                        </div>
+                    </div>
+                    <div class="about-page-visual">
+                        <img src="soraya-profilepic.JPG" alt="Soraya Remaili" class="about-page-photo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="reading-globe-section" aria-labelledby="reading-globe-heading">
+            <div class="container container--wide">
+                <h2 id="reading-globe-heading" class="reading-globe-heading">Reading around the world</h2>
+                <p class="reading-globe-hint">I’m currently trying to diversify my reading by challenging myself to read a book from every country, whether it’s set there or written by an author from there. I’ve been using <a href="https://ayearofreadingtheworld.com/thelist/" target="_blank" rel="noopener noreferrer">this list</a> as general inspiration, and am making my way through the world, albeit slowly.  Feel free to explore!</p>
+                <div class="reading-globe-layout">
+                    <div id="reading-globe" class="reading-globe-stage" role="img" aria-label="Interactive globe of countries"></div>
+                    <aside class="reading-globe-panel">
+                        <div class="reading-globe-search">
+                            <label class="reading-globe-search-label" for="country-search">Find a country</label>
+                            <div class="reading-globe-search-row">
+                                <input
+                                    type="text"
+                                    id="country-search"
+                                    class="reading-globe-search-input"
+                                    placeholder="e.g. France, Japan, Nigeria"
+                                    autocomplete="off"
+                                    spellcheck="false"
+                                >
+                                <button type="button" id="country-search-go" class="btn btn-secondary">Go</button>
+                            </div>
+                        </div>
+                        <div id="reading-globe-panel" class="reading-globe-panel-body" aria-live="polite"></div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2026 Soraya Remaili</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:sremaili@email.sc.edu" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://github.com/sorayarem" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://scholar.google.com" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="books-by-country.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/globe.gl"></script>
+    <script src="reading-globe.js"></script>
+</body>
+</html>

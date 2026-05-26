@@ -1,6 +1,12 @@
+function currentNavPage(pathname) {
+    const segment = pathname.split('/').pop();
+    if (!segment || segment === '') return 'index.html';
+    return segment;
+}
+
 // Navigation Active State Management with sliding indicator
 function updateActiveNavLink() {
-    const currentPath = window.location.pathname;
+    const currentPage = currentNavPage(window.location.pathname);
     const navLinks = document.querySelectorAll('.nav-pill a:not([target="_blank"])');
     const indicator = document.querySelector('.nav-pill .absolute');
     
@@ -9,7 +15,7 @@ function updateActiveNavLink() {
         link.classList.add('text-neutral-400');
         
         const linkPath = link.getAttribute('href');
-        if (currentPath.includes(linkPath) || (currentPath === '/' && linkPath === 'index.html')) {
+        if (currentPage === linkPath) {
             link.classList.remove('text-neutral-400');
             link.classList.add('text-neutral-900');
             
