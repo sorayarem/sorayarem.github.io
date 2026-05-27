@@ -11,9 +11,11 @@
     const CAP_HAS_BOOK = 'rgba(176, 125, 98, 0.78)';
     const CAP_NO_BOOK = 'rgba(197, 212, 188, 0.35)';
     const CAP_CURRENT_STOP = 'rgba(92, 122, 138, 0.78)';
+    const CAP_ON_THE_DOCKET = 'rgba(122, 107, 143, 0.78)';
     const CAP_HOVER = 'rgba(95, 109, 84, 0.72)';
     const CAP_HOVER_BOOK = 'rgba(143, 99, 73, 0.9)';
     const CAP_HOVER_CURRENT_STOP = 'rgba(72, 100, 116, 0.9)';
+    const CAP_HOVER_ON_THE_DOCKET = 'rgba(95, 83, 115, 0.9)';
     const POLYGON_ALT = 0.01;
     const STROKE_COLOR = '#a8b89e';
     const MIN_ZOOM_FACTOR = 0.36;
@@ -39,6 +41,9 @@
     let panelCountryKey = null;
     let panelBookIndex = 0;
     let panelBookAnimating = false;
+    let panelBooksMode = 'visited';
+    /** GeoJSON properties for the active panel (null = full current-stop carousel). */
+    let panelContextProperties = null;
 
     function initReadingGlobe() {
         const stageEl = document.getElementById('reading-globe');
@@ -308,12 +313,15 @@
     function capColor(feat) {
         const props = feat.properties;
         const isCurrentStop = window.isCurrentStopCountry(props);
+        const isOnTheDocket = window.isOnTheDocketCountry(props);
 
         if (feat === activeFeature()) {
             if (isCurrentStop) return CAP_HOVER_CURRENT_STOP;
+            if (isOnTheDocket) return CAP_HOVER_ON_THE_DOCKET;
             return window.countryHasBook(props) ? CAP_HOVER_BOOK : CAP_HOVER;
         }
         if (isCurrentStop) return CAP_CURRENT_STOP;
+        if (isOnTheDocket) return CAP_ON_THE_DOCKET;
         return window.countryHasBook(props) ? CAP_HAS_BOOK : CAP_NO_BOOK;
     }
 
@@ -340,15 +348,69 @@
         });
     }
 
-    function getCurrentStopBook() {
-        return window.CURRENT_STOP || null;
+    function getCurrentStopBooks(properties) {
+        if (typeof window.getCurrentStopBooks === 'function') {
+            return window.getCurrentStopBooks(properties);
+        }
+        if (!window.CURRENT_STOP) return [];
+        return Array.isArray(window.CURRENT_STOP) ? window.CURRENT_STOP : [window.CURRENT_STOP];
     }
 
-    function renderCurrentStopTagHtml() {
-        return '<span class="book-panel-tag">CURRENT STOP</span>';
+    function renderStatusTagHtml(modifier, label) {
+        return `<span class="book-panel-tag book-panel-tag--${modifier}">${escapeHtml(label)}</span>`;
     }
 
-    function renderCurrentStopSlideHtml(book) {
+    function bookCountryKey(book) {
+        return book.iso || book.country || '';
+    }
+
+    function carouselHasDistinctCountries(books) {
+        if (!books || books.length < 2) return false;
+        const keys = new Set();
+        for (const book of books) {
+            const key = bookCountryKey(book);
+            if (key) keys.add(key);
+        }
+        return keys.size > 1;
+    }
+
+    function renderMultiBookSlideHtml(book, contentHtml, countryName) {
+        const name = countryName || book.country || '';
+        return `
+            <p class="book-panel-eyebrow">${escapeHtml(name)}</p>
+            ${contentHtml}
+        `;
+    }
+
+    function renderCarouselSlideInner(book, contentHtml, countryName, distinctCountries) {
+        if (distinctCountries) {
+            return renderMultiBookSlideHtml(book, contentHtml, countryName);
+        }
+        return contentHtml;
+    }
+
+    function renderMultiCarouselStackHtml(book, contentHtml, countryName, books) {
+        const distinctCountries = carouselHasDistinctCountries(books);
+        const eyebrow = distinctCountries
+            ? ''
+            : `<p class="book-panel-eyebrow">${escapeHtml(countryName)}</p>`;
+
+        return `
+            <div class="book-panel-stack">
+                ${eyebrow}
+                <div class="book-panel-viewport">
+                    <div class="book-panel-slide">${renderCarouselSlideInner(
+                        book,
+                        contentHtml,
+                        countryName,
+                        distinctCountries
+                    )}</div>
+                </div>
+            </div>
+        `;
+    }
+
+    function renderStatusBookSlideHtml(book, tagModifier, tagLabel) {
         const coverHtml = book.cover
             ? `<img class="book-panel-cover" src="${escapeAttr(book.cover)}" alt="Cover of ${escapeAttr(book.title)}" loading="lazy">`
             : '';
@@ -359,14 +421,13 @@
                 <div class="book-panel-info">
                     <p class="book-panel-line-title">${escapeHtml(book.title)}</p>
                     <p class="book-panel-line-author">${escapeHtml(book.author)}</p>
-                    ${renderCurrentStopTagHtml()}
+                    ${renderStatusTagHtml(tagModifier, tagLabel)}
                 </div>
             </div>
         `;
     }
 
-    function showCurrentStopPanel(panelEl) {
-        const book = getCurrentStopBook();
+    function showStatusBookPanel(panelEl, book, tagModifier, tagLabel) {
         panelCountryKey = null;
         panelBookIndex = 0;
         panelBookAnimating = false;
@@ -376,16 +437,120 @@
             return;
         }
 
-        const countryName = book.country;
         panelEl.innerHTML = `
             <div class="book-panel-shell">
                 <article class="book-panel book-panel--book">
-                    <p class="book-panel-eyebrow">${escapeHtml(countryName)}</p>
-                    ${renderCurrentStopSlideHtml(book)}
+                    <p class="book-panel-eyebrow">${escapeHtml(book.country)}</p>
+                    ${renderStatusBookSlideHtml(book, tagModifier, tagLabel)}
                 </article>
             </div>
         `;
         bindBookCoverFade(panelEl);
+    }
+
+    function showStatusBooksPanel(panelEl, properties, books, tagModifier, tagLabel, bookIndex) {
+        if (!books || books.length === 0) {
+            clearBookPanel(panelEl);
+            return;
+        }
+
+        const key = properties
+            ? `${countryPanelKey(properties)}|${tagModifier}`
+            : `__${tagModifier}_all__`;
+        if (key !== panelCountryKey) {
+            panelCountryKey = key;
+            panelBookIndex = 0;
+        }
+        if (Number.isFinite(bookIndex)) {
+            panelBookIndex =
+                ((bookIndex % books.length) + books.length) % books.length;
+        }
+
+        const book = books[panelBookIndex];
+        const countryName = book.country || (properties && properties.ADMIN) || 'Current reads';
+        const multi = books.length > 1;
+        const prevBtn = multi
+            ? `<button type="button" class="book-panel-arrow book-panel-arrow--prev" data-dir="-1" aria-label="Previous book">‹</button>`
+            : '';
+        const nextBtn = multi
+            ? `<button type="button" class="book-panel-arrow book-panel-arrow--next" data-dir="1" aria-label="Next book">›</button>`
+            : '';
+
+        if (multi) {
+            panelEl.innerHTML = `
+                <div class="book-panel-shell book-panel-shell--multi">
+                    ${prevBtn}
+                    ${renderMultiCarouselStackHtml(
+                        book,
+                        renderStatusBookSlideHtml(book, tagModifier, tagLabel),
+                        countryName,
+                        books
+                    )}
+                    ${nextBtn}
+                </div>
+            `;
+            bindBookPanelArrows(panelEl, properties);
+        } else {
+            panelEl.innerHTML = `
+                <div class="book-panel-shell">
+                    <article class="book-panel book-panel--book">
+                        <p class="book-panel-eyebrow">${escapeHtml(countryName)}</p>
+                        ${renderStatusBookSlideHtml(book, tagModifier, tagLabel)}
+                    </article>
+                </div>
+            `;
+        }
+
+        bindBookCoverFade(panelEl);
+        panelBookAnimating = false;
+    }
+
+    function showCurrentStopPanel(panelEl, properties, bookIndex) {
+        panelBooksMode = 'current-stop';
+        panelContextProperties = properties || null;
+        showStatusBooksPanel(
+            panelEl,
+            properties || null,
+            getCurrentStopBooks(panelContextProperties),
+            'current-stop',
+            'CURRENT STOP',
+            bookIndex
+        );
+    }
+
+    function showOnTheDocketPanel(panelEl, properties, bookIndex) {
+        panelBooksMode = 'on-the-docket';
+        panelContextProperties = properties;
+        showStatusBooksPanel(
+            panelEl,
+            properties,
+            window.getOnTheDocketBooks(properties),
+            'on-the-docket',
+            'ON THE DOCKET',
+            bookIndex
+        );
+    }
+
+    function getActivePanelBooks() {
+        if (panelBooksMode === 'current-stop') {
+            return getCurrentStopBooks(panelContextProperties);
+        }
+        if (panelBooksMode === 'on-the-docket') {
+            return window.getOnTheDocketBooks(panelContextProperties);
+        }
+        return window.getBooksForCountry(panelContextProperties);
+    }
+
+    function refreshPanelForMode(panelEl, bookIndex) {
+        if (panelBooksMode === 'on-the-docket') {
+            showOnTheDocketPanel(panelEl, panelContextProperties, bookIndex);
+            return;
+        }
+        if (panelBooksMode === 'current-stop') {
+            showCurrentStopPanel(panelEl, panelContextProperties, bookIndex);
+            return;
+        }
+        updateBookPanel(panelEl, panelContextProperties, bookIndex);
     }
 
     function countryPanelKey(properties) {
@@ -426,16 +591,16 @@
                 e.stopPropagation();
                 if (panelBookAnimating) return;
                 const dir = Number(btn.getAttribute('data-dir'));
-                switchBookWithSwipe(panelEl, properties, panelBookIndex + dir, dir);
+                switchBookWithSwipe(panelEl, panelBookIndex + dir, dir);
             });
         });
     }
 
-    function switchBookWithSwipe(panelEl, properties, targetIndex, dir) {
-        const books = window.getBooksForCountry(properties);
+    function switchBookWithSwipe(panelEl, targetIndex, dir) {
+        const books = getActivePanelBooks();
         const slide = panelEl.querySelector('.book-panel-slide');
         if (!slide || books.length < 2) {
-            updateBookPanel(panelEl, properties, targetIndex);
+            refreshPanelForMode(panelEl, targetIndex);
             return;
         }
 
@@ -447,6 +612,8 @@
             dir > 0 ? 'book-panel-slide--out-left' : 'book-panel-slide--out-right';
         const fromClass =
             dir > 0 ? 'book-panel-slide--from-right' : 'book-panel-slide--from-left';
+        const isDocket = panelBooksMode === 'on-the-docket';
+        const isCurrentStop = panelBooksMode === 'current-stop';
 
         panelBookAnimating = true;
 
@@ -456,7 +623,19 @@
 
         const finishIn = () => {
             panelBookIndex = newIndex;
-            slide.innerHTML = renderBookSlideHtml(books[newIndex]);
+            const book = books[newIndex];
+            const slideContent = isDocket
+                ? renderStatusBookSlideHtml(book, 'on-the-docket', 'ON THE DOCKET')
+                : isCurrentStop
+                    ? renderStatusBookSlideHtml(book, 'current-stop', 'CURRENT STOP')
+                    : renderBookSlideHtml(book);
+            const distinctCountries = carouselHasDistinctCountries(books);
+            slide.innerHTML = renderCarouselSlideInner(
+                book,
+                slideContent,
+                book.country,
+                distinctCountries
+            );
             bindBookCoverFade(slide);
             slide.classList.remove(outClass);
             slide.classList.add(fromClass);
@@ -490,12 +669,18 @@
             return;
         }
 
+        panelBooksMode = 'visited';
+        panelContextProperties = properties;
         const books = window.getBooksForCountry(properties);
         const countryName = books[0] ? books[0].country : properties.ADMIN;
 
         if (books.length === 0) {
             if (window.isCurrentStopCountry(properties)) {
-                showCurrentStopPanel(panelEl);
+                showCurrentStopPanel(panelEl, properties);
+                return;
+            }
+            if (window.isOnTheDocketCountry(properties)) {
+                showOnTheDocketPanel(panelEl, properties);
                 return;
             }
             panelCountryKey = null;
@@ -535,12 +720,12 @@
             panelEl.innerHTML = `
                 <div class="book-panel-shell book-panel-shell--multi">
                     ${prevBtn}
-                    <div class="book-panel-stack">
-                        <p class="book-panel-eyebrow">${escapeHtml(countryName)}</p>
-                        <div class="book-panel-viewport">
-                            <div class="book-panel-slide">${renderBookSlideHtml(book)}</div>
-                        </div>
-                    </div>
+                    ${renderMultiCarouselStackHtml(
+                        book,
+                        renderBookSlideHtml(book),
+                        countryName,
+                        books
+                    )}
                     ${nextBtn}
                 </div>
             `;

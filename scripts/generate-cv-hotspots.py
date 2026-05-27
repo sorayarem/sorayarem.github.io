@@ -22,7 +22,19 @@ def region(top, height, width=None):
     }
 
 
-def item(item_id, page, label, top, height, title, description, links=None, width=None, group=None):
+def item(
+    item_id,
+    page,
+    label,
+    top,
+    height,
+    title,
+    description,
+    links=None,
+    images=None,
+    width=None,
+    group=None,
+):
     entry = {
         "id": item_id,
         "page": page,
@@ -31,7 +43,7 @@ def item(item_id, page, label, top, height, title, description, links=None, widt
         "popup": {
             "title": title,
             "description": description,
-            "images": [],
+            "images": images or [],
             "files": [],
             "links": links or [],
         },
@@ -81,7 +93,25 @@ hotspots = [
     item("honor-vlahoplus", 1, "Vlahoplus Scholarship", 43.5, 1.6, "Vlahoplus Engineering Honors Scholarship", "Vlahoplus Engineering Honors Scholarship, 2025–2026, $1,000."),
     item("honor-provost-ai", 1, "Provost AI Fellowship", 45.0, 1.6, "Provost AI Undergraduate Fellowship", "Provost AI Undergraduate Fellowship, 2026, $5,000."),
     item("honor-magellan-mini", 1, "Magellan Mini Grant", 46.5, 1.6, "Magellan Mini Research Grant", "Magellan Mini Research Grant, 2026, $750."),
-    item("honor-seamamms-award", 1, "SEAMAMMS award", 48.3, 1.5, "SEAMAMMS Runner-Up", "SEAMAMMS Runner-Up Best Undergraduate Long Talk, 2026."),
+    item(
+        "honor-seamamms-award",
+        1,
+        "SEAMAMMS award",
+        48.3,
+        1.5,
+        "SEAMAMMS Runner-Up",
+        "SEAMAMMS Runner-Up Best Undergraduate Long Talk, 2026.",
+        images=[
+            {
+                "src": "IMG_6203.jpg",
+                "alt": "Soraya Remaili and mentor Abby Kreuser at the SEAMAMMS awards ceremony",
+                "captionHtml": (
+                    'My amazing mentor <a href="https://abigailkreuser.weebly.com/">'
+                    "Abby Kreuser</a> and I after the awards ceremony!"
+                ),
+            }
+        ],
+    ),
     # --- Presentations page 1 (positions from current cv.pdf) ---
     item(
         "pres-isc-gulf-maine",

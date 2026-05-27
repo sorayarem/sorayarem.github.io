@@ -216,8 +216,14 @@ window.CV_HOTSPOTS_CONFIG = {
       },
       "popup": {
         "title": "SEAMAMMS Runner-Up",
-        "description": "SEAMAMMS Runner-Up Best Undergraduate Long Talk, 2026.",
-        "images": [],
+        "description": "SEAMAMMS26 Runner-Up Award",
+        "images": [
+          {
+            "src": "IMG_6203.jpg",
+            "alt": "Soraya Remaili and mentor Abby Kreuser at the SEAMAMMS awards ceremony",
+            "captionHtml": "My amazing mentor <a href=\"https://abigailkreuser.weebly.com/\">Abby</a> and I after the awards ceremony!"
+          }
+        ],
         "files": [],
         "links": []
       }

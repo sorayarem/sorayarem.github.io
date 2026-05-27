@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <a href="index.html" class="site-logo" aria-label="Soraya Remaili — Home">
+        <img src="logo2.png" alt="" class="site-logo-img" width="180" height="36">
+    </a>
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-pill pointer-events-auto relative flex rounded-lg border border-neutral-200 bg-white/70 p-1 shadow-md backdrop-blur-md">
@@ -24,19 +27,21 @@
     <main>
         <section class="cv-page cv-page--lead">
             <div class="container cv-page-container">
-                <div id="cv-interactive" class="cv-interactive"></div>
+                <div id="cv-layout" class="cv-layout">
+                    <div id="cv-layout-hint" class="cv-layout-hint"></div>
+                    <div class="cv-layout-row">
+                        <div class="cv-layout-main">
+                            <div id="cv-interactive" class="cv-interactive"></div>
+                        </div>
+                        <aside id="cv-detail-panel" class="cv-detail-panel" hidden>
+                            <button type="button" class="cv-detail-close" aria-label="Close details">&times;</button>
+                            <div id="cv-detail-body" class="cv-detail-body"></div>
+                        </aside>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-
-    <div id="cv-modal" class="cv-modal" hidden>
-        <div class="cv-modal-backdrop"></div>
-        <div class="cv-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
-            <button type="button" class="cv-modal-close" aria-label="Close">&times;</button>
-            <h2 id="cv-modal-title" class="cv-modal-title"></h2>
-            <div id="cv-modal-body" class="cv-modal-body"></div>
-        </div>
-    </div>
 
     <footer class="footer">
         <div class="container">

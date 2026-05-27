@@ -290,21 +290,88 @@ window.BOOKS_BY_COUNTRY = {
     }
 };
 
-/** Shown in the panel when no country is selected (not on the globe book list). */
-window.CURRENT_STOP = {
-    iso: 'SL',
-    country: 'Sierra Leone',
-    title: 'A Long Way Gone',
-    author: 'Ishmael Beah',
-    cover: 'https://m.media-amazon.com/images/I/81ZLZRpqAUL._UF1000,1000_QL80_.jpg'
-};
+/**
+ * Shown in the panel when no country is selected (not on the globe book list).
+ * Multiple entries with the same iso/country show as a carousel in the panel.
+ */
+window.CURRENT_STOP = [
+    {
+        iso: 'SL',
+        country: 'Sierra Leone',
+        title: 'A Long Way Gone',
+        author: 'Ishmael Beah',
+        cover: 'https://m.media-amazon.com/images/I/81ZLZRpqAUL._UF1000,1000_QL80_.jpg'
+    },
+    {
+        iso: 'BY',
+        country: 'Belarus',
+        title: "King Stakh's Wild Hunt",
+        author: 'Uladzimir Karatkievich',
+        cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1353422518i/16161256.jpg'
+    }
+];
+
+function currentStopEntries() {
+    if (!window.CURRENT_STOP) return [];
+    return Array.isArray(window.CURRENT_STOP) ? window.CURRENT_STOP : [window.CURRENT_STOP];
+}
 
 window.isCurrentStopCountry = function isCurrentStopCountry(properties) {
-    const stop = window.CURRENT_STOP;
-    if (!stop || !properties) return false;
+    return window.getCurrentStopBooks(properties).length > 0;
+};
+
+window.getCurrentStopBooks = function getCurrentStopBooks(properties) {
+    if (!properties) return currentStopEntries();
+    return currentStopEntries().filter((entry) => matchesReadingQueueEntry(entry, properties));
+};
+
+/**
+ * Queued reads — highlighted on the globe but not in BOOKS_BY_COUNTRY until finished.
+ * Multiple entries with the same iso/country show as a carousel in the panel.
+ */
+window.ON_THE_DOCKET = [
+    {
+        iso: 'IL',
+        country: 'Israel',
+        title: 'Sadness Is a White Bird',
+        author: 'Moriel Rothman-Zecher',
+        cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1502042251i/35297191.jpg'
+    },
+    {
+        iso: 'AF',
+        country: 'Afghanistan',
+        title: 'A Thousand Splendid Suns',
+        author: 'Khaled Hosseini',
+        cover: 'https://m.media-amazon.com/images/I/81LLI8IPUWL._AC_UF350,350_QL50_.jpg'
+    },
+    {
+        iso: 'CO',
+        country: 'Colombia',
+        title: 'Love in the Time of Cholera',
+        author: 'Gabriel García Márquez',
+        cover: 'https://m.media-amazon.com/images/I/711nFirM9SL._AC_UF1000,1000_QL80_.jpg'
+    }
+];
+
+function matchesReadingQueueEntry(entry, properties) {
+    if (!entry || !properties) return false;
     const iso = window.resolveCountryIso(properties);
-    if (stop.iso && iso === stop.iso) return true;
-    return Boolean(stop.country && properties.ADMIN === stop.country);
+    if (entry.iso && iso === entry.iso) return true;
+    return Boolean(entry.country && properties.ADMIN === entry.country);
+}
+
+window.getOnTheDocketBooks = function getOnTheDocketBooks(properties) {
+    if (!properties || !window.ON_THE_DOCKET) return [];
+    return window.ON_THE_DOCKET.filter((entry) => matchesReadingQueueEntry(entry, properties));
+};
+
+window.getOnTheDocketBook = function getOnTheDocketBook(properties) {
+    const books = window.getOnTheDocketBooks(properties);
+    return books[0] || null;
+};
+
+window.isOnTheDocketCountry = function isOnTheDocketCountry(properties) {
+    return window.getOnTheDocketBooks(properties).length > 0;
 };
 
 window.resolveCountryIso = function resolveCountryIso(properties) {
