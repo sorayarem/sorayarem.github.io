@@ -29,19 +29,17 @@
 
     const container = document.getElementById('cv-interactive');
 
-    const modal = document.getElementById('cv-modal');
+    const layout = document.getElementById('cv-layout');
 
-    if (!container || !modal) return;
+    const layoutHint = document.getElementById('cv-layout-hint');
 
+    const detailPanel = document.getElementById('cv-detail-panel');
 
+    const detailBody = document.getElementById('cv-detail-body');
 
-    const modalTitle = document.getElementById('cv-modal-title');
+    const detailClose = document.querySelector('.cv-detail-close');
 
-    const modalBody = document.getElementById('cv-modal-body');
-
-    const modalClose = modal.querySelector('.cv-modal-close');
-
-    const modalBackdrop = modal.querySelector('.cv-modal-backdrop');
+    if (!container || !layout || !detailPanel || !detailBody || !detailClose) return;
 
 
 
@@ -191,11 +189,24 @@
 
     function pageWidth() {
 
-        const root = container.closest('.cv-page-container') || container;
+        const root =
+            layout.querySelector('.cv-layout-main') ||
+            container.closest('.cv-page-container') ||
+            container;
 
         const w = root.getBoundingClientRect().width;
 
-        return Math.min(Math.max(Math.floor(w), 400), CV_PAGE_MAX_WIDTH);
+        return Math.min(Math.max(Math.floor(w), 280), CV_PAGE_MAX_WIDTH);
+
+    }
+
+    function scheduleRerender() {
+
+        requestAnimationFrame(() => {
+
+            if (pdfDoc && pagesRoot) renderAllPages();
+
+        });
 
     }
 
@@ -371,7 +382,10 @@
 
         container.innerHTML = '';
 
-        container.appendChild(buildHint());
+        if (layoutHint) {
+            layoutHint.innerHTML = '';
+            layoutHint.appendChild(buildHint());
+        }
 
 
 
@@ -571,7 +585,7 @@
 
     function bindHotspot(btn, hotspot) {
 
-        btn.addEventListener('click', () => openModal(hotspot));
+        btn.addEventListener('click', () => openDetailPanel(hotspot));
 
         if (!hotspot.group) return;
 
@@ -639,25 +653,23 @@
 
 
 
-    function openModal(hotspot) {
+    function openDetailPanel(hotspot) {
 
         const popup = hotspot.popup || {};
 
-        modalTitle.textContent = popup.title || hotspot.label || 'Details';
+        detailBody.innerHTML = '';
 
-        modalBody.innerHTML = '';
+        const eyebrowText = popup.description || popup.title || hotspot.label || '';
 
+        if (eyebrowText) {
 
+            const eyebrow = document.createElement('p');
 
-        if (popup.description) {
+            eyebrow.className = 'book-panel-eyebrow cv-detail-eyebrow';
 
-            const p = document.createElement('p');
+            eyebrow.textContent = eyebrowText;
 
-            p.className = 'cv-modal-description';
-
-            p.textContent = popup.description;
-
-            modalBody.appendChild(p);
+            detailBody.appendChild(eyebrow);
 
         }
 
@@ -670,18 +682,35 @@
             gallery.className = 'cv-modal-gallery';
 
             popup.images.forEach((img) => {
+                const figure = document.createElement('figure');
+                figure.className = 'cv-modal-figure';
 
                 const el = document.createElement('img');
-
                 el.src = img.src;
-
                 el.alt = img.alt || '';
+                figure.appendChild(el);
 
-                gallery.appendChild(el);
+                if (img.captionHtml || img.caption) {
+                    const cap = document.createElement('figcaption');
+                    cap.className = 'cv-modal-caption';
+                    if (img.captionHtml) {
+                        cap.innerHTML = img.captionHtml;
+                        cap.querySelectorAll('a[href]').forEach((a) => {
+                            if (a.href.startsWith('http')) {
+                                a.target = '_blank';
+                                a.rel = 'noopener noreferrer';
+                            }
+                        });
+                    } else {
+                        cap.textContent = img.caption;
+                    }
+                    figure.appendChild(cap);
+                }
 
+                gallery.appendChild(figure);
             });
 
-            modalBody.appendChild(gallery);
+            detailBody.appendChild(gallery);
 
         }
 
@@ -713,7 +742,7 @@
 
             });
 
-            modalBody.appendChild(files);
+            detailBody.appendChild(files);
 
         }
 
@@ -749,37 +778,41 @@
 
             });
 
-            modalBody.appendChild(links);
+            detailBody.appendChild(links);
 
         }
 
 
 
-        if (!modalBody.innerHTML) {
+        if (!detailBody.innerHTML) {
 
-            modalBody.innerHTML =
+            detailBody.innerHTML =
 
-                '<p class="cv-modal-description">Add content for this section in cv-hotspots.json.</p>';
+                '<p class="book-panel-eyebrow cv-detail-eyebrow">Add content for this section in cv-hotspots.json.</p>';
 
         }
 
 
 
-        modal.hidden = false;
+        detailPanel.hidden = false;
 
-        document.body.classList.add('cv-modal-open');
+        layout.classList.add('cv-layout--open');
 
-        modalClose.focus();
+        scheduleRerender();
+
+        detailClose.focus();
 
     }
 
 
 
-    function closeModal() {
+    function closeDetailPanel() {
 
-        modal.hidden = true;
+        detailPanel.hidden = true;
 
-        document.body.classList.remove('cv-modal-open');
+        layout.classList.remove('cv-layout--open');
+
+        scheduleRerender();
 
     }
 
@@ -879,13 +912,11 @@
 
 
 
-        modalClose.addEventListener('click', closeModal);
-
-        modalBackdrop.addEventListener('click', closeModal);
+        detailClose.addEventListener('click', closeDetailPanel);
 
         document.addEventListener('keydown', (e) => {
 
-            if (e.key === 'Escape' && !modal.hidden) closeModal();
+            if (e.key === 'Escape' && !detailPanel.hidden) closeDetailPanel();
 
         });
 

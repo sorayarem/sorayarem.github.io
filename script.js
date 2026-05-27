@@ -144,18 +144,33 @@ function initContactForm() {
     });
 }
 
-// Soften navbar edges when it overlaps page content on scroll
-function initNavbarScroll() {
-    const navbar = document.querySelector('.navbar');
+const SITE_LOGO_SRC = 'logo2.png';
 
-    if (!navbar) return;
+function initSiteLogo() {
+    let logo = document.querySelector('.site-logo');
+    if (!logo) {
+        logo = document.createElement('a');
+        logo.className = 'site-logo';
+        logo.href = 'index.html';
+        logo.setAttribute('aria-label', 'Soraya Remaili — Home');
+        const img = document.createElement('img');
+        img.className = 'site-logo-img';
+        img.width = 180;
+        img.height = 36;
+        img.alt = '';
+        logo.appendChild(img);
+    }
 
-    const updateNavbarOverlap = () => {
-        navbar.classList.toggle('is-over-content', window.scrollY > 24);
-    };
+    const img = logo.querySelector('img');
+    if (img) {
+        img.src = new URL(SITE_LOGO_SRC, window.location.href).href;
+    }
 
-    updateNavbarOverlap();
-    window.addEventListener('scroll', updateNavbarOverlap, { passive: true });
+    if (logo.parentElement !== document.body) {
+        document.body.insertBefore(logo, document.body.firstChild);
+    } else if (document.body.firstChild !== logo) {
+        document.body.insertBefore(logo, document.body.firstChild);
+    }
 }
 
 // Intersection Observer for animations
@@ -257,12 +272,12 @@ function initThemeToggle() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    initSiteLogo();
     updateActiveNavLink();
     initNavHoverEffects();
     initSmoothScrolling();
     initProjectFiltering();
     initContactForm();
-    initNavbarScroll();
     initScrollAnimations();
     initHeroTitleAnimation();
     initFloatingElements();
