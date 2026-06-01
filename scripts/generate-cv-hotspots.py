@@ -11,14 +11,17 @@ OUT = ROOT / "cv-hotspots.json"
 # Body text starts ~22%; longest lines/dates extend to ~91% (see scripts/dump_cv_page1.py)
 LEFT, WIDTH = 21, 71
 BOTTOM_PAD = 0.2
+# Slight gap above first line for Posters/Presentations and everything below
+TOP_PAD = 0.4
+_TOP_PAD_PREFIXES = ("pres-", "research-", "community-", "project-", "skills-")
 
 
-def region(top, height, width=None):
+def region(top, height, width=None, top_pad=0):
     return {
         "left": LEFT,
-        "top": round(top, 1),
+        "top": round(top - top_pad, 1),
         "width": width if width is not None else WIDTH,
-        "height": round(height + BOTTOM_PAD, 1),
+        "height": round(height + top_pad + BOTTOM_PAD, 1),
     }
 
 
@@ -39,7 +42,6 @@ def item(
         "id": item_id,
         "page": page,
         "label": label,
-        "region": region(top, height, width),
         "popup": {
             "title": title,
             "description": description,
@@ -50,6 +52,8 @@ def item(
     }
     if group:
         entry["group"] = group
+    top_pad = TOP_PAD if item_id.startswith(_TOP_PAD_PREFIXES) else 0
+    entry["region"] = region(top, height, width, top_pad)
     return entry
 
 
@@ -100,118 +104,192 @@ hotspots = [
         48.3,
         1.5,
         "SEAMAMMS Runner-Up",
-        "SEAMAMMS Runner-Up Best Undergraduate Long Talk, 2026.",
+        "SEAMAMMS26 Runner-Up Award",
         images=[
             {
                 "src": "IMG_6203.jpg",
                 "alt": "Soraya Remaili and mentor Abby Kreuser at the SEAMAMMS awards ceremony",
                 "captionHtml": (
                     'My amazing mentor <a href="https://abigailkreuser.weebly.com/">'
-                    "Abby Kreuser</a> and I after the awards ceremony!"
+                    "Abby</a> and I after the awards ceremony!"
                 ),
             }
         ],
     ),
-    # --- Presentations page 1 (positions from current cv.pdf) ---
+    # --- Presentations page 1 (top/height from cv.pdf via scripts/dump_cv_page1_pres.py) ---
     item(
         "pres-isc-gulf-maine",
         1,
         "ISC 2026 — Gulf of Maine",
-        50.8,
-        7.6,
+        51.0,
+        7.3,
         "International Sclerochronology Conference (May 2026)",
-        "Geochemical signatures in Arctica islandica show intense warming in the Down East Coastal Region of the Gulf of Maine.",
-        [{"label": "Research page", "url": "research.html"}],
+        "ISC26: Wanamaker et al.",
+        [],
+        images=[
+            {
+                "src": "ISC26Wanamaker.png",
+                "url": "ISC26Wanamaker.pdf",
+                "hoverText": "View Abstract",
+            }
+        ],
     ),
     item(
         "pres-isc-mid-atlantic",
         1,
         "ISC 2026 — Mid-Atlantic",
-        60.3,
-        7.6,
+        60.5,
+        7.3,
         "International Sclerochronology Conference (May 2026)",
-        "Master shell chronology and multi-proxy geochemical records illustrate oceanographic variability in the Mid-Atlantic since 1800 CE.",
-        [{"label": "Research page", "url": "research.html"}],
+        "ISC26: Thatcher et al.",
+        [],
+        images=[
+            {
+                "src": "ISC26Thatcher.png",
+                "url": "ISC26Thatcher.pdf",
+                "hoverText": "View Abstract",
+            }
+        ],
     ),
     item(
         "pres-isc-keynote",
         1,
         "ISC 2026 — Keynote",
-        69.8,
-        12.2,
+        70.0,
+        11.9,
         "International Sclerochronology Conference — Keynote (May 2026)",
-        "Keynote presentation: Utilizing a network of Arctica islandica records and model simulations to investigate past regional ocean dynamics in the western North Atlantic.",
-        [{"label": "Research page", "url": "research.html"}],
+        "ISC26 keynote speaker: Whitney et al.",
+        [],
+        images=[
+            {
+                "src": "ISC26Whitney.png",
+                "url": "ISC26Whitney.pdf",
+                "hoverText": "View Abstract",
+            }
+        ],
     ),
     item(
         "pres-seamamms",
         1,
         "SEAMAMMS 2026 oral",
-        83.9,
-        6.2,
+        84.1,
+        5.8,
         "SEAMAMMS — Wilmington, NC (April 2026)",
-        "Oral presentation: Lessons from real-time and archival acoustic detections of North Atlantic right whales across three platform types.",
+        "SEAMAMMS26 talk: Remaili et al.",
         [{"label": "Research page", "url": "research.html"}],
+        images=[
+            {
+                "src": "SEAMAMMS26.png",
+                "url": "SEAMAMMS26.pdf",
+                "hoverText": "View Abstract",
+            }
+        ],
         group="pres-seamamms",
     ),
     item(
         "pres-seamamms-cont",
         2,
         "SEAMAMMS (continued)",
-        9.2,
-        1.4,
+        9.4,
+        1.2,
         "SEAMAMMS — Wilmington, NC (April 2026)",
-        "Oral presentation: Lessons from real-time and archival acoustic detections of North Atlantic right whales across three platform types.",
+        "SEAMAMMS26 talk: Remaili et al.",
         [{"label": "Research page", "url": "research.html"}],
+        images=[
+            {
+                "src": "SEAMAMMS26.png",
+                "url": "SEAMAMMS26.pdf",
+                "hoverText": "View Abstract",
+            }
+        ],
         group="pres-seamamms",
     ),
     item(
         "pres-discover-2026",
         2,
         "Discover USC 2026",
-        12.5,
-        6.2,
+        12.8,
+        5.8,
         "Discover USC — Columbia, SC (April 2026)",
-        "Poster on real-time and archival acoustic detections of North Atlantic right whales in the Southeast US.",
-        [{"label": "Research page", "url": "research.html"}],
+        "Discover USC26: Remaili et al.",
+        images=[
+            {
+                "src": "SEAMAMMS26.png",
+                "url": "SEAMAMMS26.pdf",
+                "hoverText": "View Abstract",
+            },
+            {
+                "src": "discoverUSC26.png",
+                "url": "discoverUSC26.pdf",
+                "hoverText": "View Poster",
+            },
+        ],
     ),
     item(
         "pres-agu-2025",
         2,
         "AGU 2025",
-        20.5,
-        9.2,
+        20.8,
+        8.8,
         "American Geophysical Union — New Orleans (December 2025)",
-        "Explaining variability in shell-based oxygen isotope ratios in the western North Atlantic using a proxy system model.",
-        [{"label": "Research page", "url": "research.html"}],
+        "AGU25: Remaili et al.",
+        images=[
+            {
+                "src": "AGU25.png",
+                "url": "AGU25.pdf",
+                "hoverText": "View Abstract",
+            },
+            {
+                "src": "AGU25Poster.png",
+                "url": "AGU25Poster.pdf",
+                "hoverText": "View Poster",
+            },
+        ],
     ),
     item(
         "pres-discover-2025",
         2,
         "Discover USC 2025",
-        31.7,
-        7.5,
+        31.9,
+        7.3,
         "Discover USC — Columbia, SC (April 2025)",
-        "Pilot program for glider-based passive acoustic monitoring of right whales in the Southeast US calving ground (2025 version).",
-        [{"label": "Research page", "url": "research.html"}],
+        "Discover USC25: Remaili et al.",
+        images=[
+            {
+                "src": "DiscoverUSC25.png",
+                "url": "DiscoverUSC25.pdf",
+                "hoverText": "View Abstract",
+            },
+            {
+                "src": "discoverUSC25Poster.png",
+                "url": "discoverUSC25Poster.pdf",
+                "hoverText": "View Poster",
+            },
+        ],
     ),
     item(
         "pres-narwc-smm-2024",
         2,
-        "NARWC & SMM 2024",
-        41.0,
-        9.5,
-        "NARWC & Society for Marine Mammalogy (2024)",
-        "Pilot program for glider-based passive acoustic monitoring of right whales in the Southeast US calving ground (2024 version).",
-        [{"label": "Research page", "url": "research.html"}],
+        "NARWC 2024",
+        41.4,
+        7.3,
+        "North Atlantic Right Whale Consortium (October 2024)",
+        "NARWC24: Meyer-Gutbrod et al.",
+        images=[
+            {
+                "src": "NARWC24.png",
+                "url": "NARWC24.pdf",
+                "hoverText": "View Poster",
+            }
+        ],
     ),
-    # --- Research experience (pages 2–3) ---
+    # --- Research experience (pages 2–3; top = entry title y0, height = last line y1 − top) ---
     item(
         "research-active-acoustic",
         2,
         "Fulbright Canada–Mitacs",
-        51.2,
-        16.8,
+        50.0,
+        16.4,
         "Active Acoustic ID of Arctic Fauna",
         "Fulbright Canada–Mitacs internship at Memorial University (May 2026–Present). WBAT acoustic profiles, Echoview/Python processing, unsupervised classification of fish and zooplankton.",
     ),
@@ -219,8 +297,8 @@ hotspots = [
         "research-water-billing",
         2,
         "Nairobi water typologies",
-        69.3,
-        12.8,
+        68.1,
+        11.8,
         "Water and Bill Payment Typologies",
         "USC SEOE with Dr. David Fuente (Feb 2026–Present). Modeled Nairobi billing/payment behavior; Gaussian mixture models for customer typologies.",
     ),
@@ -228,8 +306,8 @@ hotspots = [
         "research-paleo-reu",
         2,
         "Paleoceanographic REU",
-        83.0,
-        7.5,
+        81.7,
+        8.8,
         "Paleoceanographic Modeling — REU",
         "NSF-REU at Shannon Point Marine Center (Summer 2025). Python paleoceanographic modeling and multi-taper spectral analysis with Dr. Nina Whitney.",
         group="research-paleo-reu",
@@ -238,8 +316,8 @@ hotspots = [
         "research-paleo-reu-cont",
         3,
         "Paleoceanographic REU (cont.)",
-        8.8,
-        6.5,
+        9.4,
+        4.2,
         "Paleoceanographic Modeling — REU",
         "Presented at symposiums; skills include Pyleoclim, climate data wrangling, and multi-taper spectral analysis.",
         group="research-paleo-reu",
@@ -248,8 +326,8 @@ hotspots = [
         "research-noaa-workshop",
         3,
         "NOAA workshop",
-        16.5,
-        8.0,
+        15.4,
+        7.3,
         "NOAA Real-Time Analysis Workshop",
         "May 2024. Real-time environmental data analysis with NOAA scientists through simulations and case studies.",
     ),
@@ -257,8 +335,8 @@ hotspots = [
         "research-bioacoustics",
         3,
         "Bioacoustics — Meyer-Gutbrod",
-        25.5,
-        15.5,
+        24.5,
+        14.8,
         "Bioacoustic Data Analysis",
         "USC SEOE with Dr. Erin Meyer-Gutbrod (March 2024–Present). Baleen whale acoustic detection with Python, Raven, R, and LFDCS; real-time processing and conservation-focused evaluation.",
     ),
@@ -266,18 +344,18 @@ hotspots = [
         "research-jellyfish",
         3,
         "Jellyfish bioremediation",
-        42.2,
-        14.5,
+        41.1,
+        13.3,
         "Jellyfish Bioremediation",
         "Thomas Jefferson HS with Dr. Shawn Stickler (2021–2023). Tank maintenance, water quality monitoring, and aquatic ecosystem restoration experiments.",
     ),
-    # --- Community (page 3) ---
+    # --- Community (page 3; tops/heights from cv.pdf page 3 text bounds) ---
     item(
         "community-theta-tau",
         3,
         "Theta Tau service",
-        57.1,
-        6.5,
+        55.7,
+        5.8,
         "Theta Tau — Service & DEI Chair",
         "Spring/Fall 2024. Co-led service and equity committees; managed project budgets and funding.",
     ),
@@ -285,8 +363,8 @@ hotspots = [
         "community-tech-camp",
         3,
         "Technology Adventure Camp",
-        64.6,
-        9.2,
+        63.3,
+        8.8,
         "Technology Adventure Camp Instructor",
         "July 2024, Fairfax County Public Schools. Taught robotics, coding, and sensors to children.",
     ),
@@ -294,8 +372,8 @@ hotspots = [
         "community-touch-tank",
         3,
         "Library touch tank",
-        74.7,
-        3.5,
+        73.4,
+        2.8,
         "Public Library Touch Tank",
         "July 2025, Anacortes & Oak Harbor. Marine habitat learning experience for 100+ children.",
     ),
@@ -303,8 +381,8 @@ hotspots = [
         "community-guardianes",
         3,
         "Guardianes Del Mar",
-        79.2,
-        3.5,
+        77.9,
+        2.8,
         "Guardianes Del Mar STEM Program",
         "June 2025. Intertidal zone and microscopy workshop for middle-school students.",
     ),
@@ -312,8 +390,8 @@ hotspots = [
         "community-narw-festival",
         3,
         "Right Whale Festival",
-        83.8,
-        3.6,
+        82.5,
+        2.7,
         "North Atlantic Right Whale Festival",
         "November 2024. Bioacoustics activities for 300+ visitors.",
     ),
@@ -322,8 +400,8 @@ hotspots = [
         "project-pathways",
         3,
         "Pathways platform",
-        87.8,
-        4.0,
+        86.6,
+        4.3,
         "Pathways: Campus Connection Made Easy",
         "Full-stack student platform: campus navigation, events, courses, calendars, and career tools.",
         group="project-pathways",
@@ -332,8 +410,8 @@ hotspots = [
         "project-pathways-cont",
         4,
         "Pathways (continued)",
-        8.8,
-        5.0,
+        9.3,
+        2.8,
         "Pathways: Campus Connection Made Easy",
         "Built with React, Django REST Framework, Docker, Redis, Celery, and GitHub Actions.",
         [{"label": "GitHub", "url": "https://github.com/sorayarem"}],
@@ -343,8 +421,8 @@ hotspots = [
         "project-degreebetter",
         4,
         "DegreeBetter",
-        15.0,
-        6.5,
+        13.9,
+        5.8,
         "DegreeBetter Academic Management System",
         "Java/JavaFX degree planning system with backend for requirements and degree tracking.",
         [{"label": "GitHub", "url": "https://github.com/sorayarem"}],
@@ -353,8 +431,8 @@ hotspots = [
         "project-portfolio",
         4,
         "Personal website",
-        22.8,
-        4.8,
+        21.4,
+        4.3,
         "Personal Website and Portfolio",
         "Responsive portfolio with HTML, CSS, and JavaScript; hosted on GitHub Pages.",
         [{"label": "This site", "url": "index.html"}],
@@ -363,8 +441,8 @@ hotspots = [
         "project-riscv",
         4,
         "Tiny RISC-V OS",
-        28.8,
-        6.8,
+        27.5,
+        5.8,
         "Tiny RISC-V Operating System",
         "Bare-metal RISC-V OS in C and assembly: program loader, in-memory filesystem, spinlocks, and permissions.",
         [{"label": "GitHub", "url": "https://github.com/sorayarem"}],
@@ -373,21 +451,21 @@ hotspots = [
         "project-f1",
         4,
         "Formula 1 analysis",
-        36.0,
-        8.0,
+        35.0,
+        7.3,
         "Formula 1 Data Analysis",
         "R analysis of constructor performance, race geography, and championship trends.",
         [{"label": "GitHub", "url": "https://github.com/sorayarem"}],
     ),
-    # --- Skills (page 4) ---
-    item("skills-french", 4, "French", 45.1, 1.3, "French", "Professional working proficiency; Virginia State Seal of Biliteracy."),
-    item("skills-darija", 4, "Algerian Darija", 46.6, 1.3, "Algerian Darija", "Limited working proficiency; Johns Hopkins CTY courses."),
+    # --- Skills (page 4; from cv.pdf page 4 text bounds) ---
+    item("skills-french", 4, "French", 43.7, 1.2, "French", "Professional working proficiency; Virginia State Seal of Biliteracy."),
+    item("skills-darija", 4, "Algerian Darija", 45.2, 1.2, "Algerian Darija", "Limited working proficiency; Johns Hopkins CTY courses."),
     item(
         "skills-technical",
         4,
         "Technical skills",
-        48.0,
-        2.9,
+        46.7,
+        2.7,
         "Technical Skills",
         "R/RStudio, Python, C++, Java/JavaFX, SQL, Git & GitHub, Raven, HTML/CSS, FXML, LFDCS, Echoview, MATLAB.",
     ),
@@ -395,8 +473,8 @@ hotspots = [
         "skills-certifications",
         4,
         "CITI & USC certifications",
-        51.0,
-        2.9,
+        49.7,
+        2.8,
         "Research & AI Certifications",
         "CITI physical and social/behavioral RCR; USC Garnet AI Fluency.",
     ),

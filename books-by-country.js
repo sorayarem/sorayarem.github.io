@@ -86,7 +86,7 @@ window.BOOKS_BY_COUNTRY = {
             author: 'Chimamanda Ngozi Adichie',
             year: 2006,
             stars: 5,
-            cover: 'https://images.randomhouse.com/cover/9780676978131',
+            cover: 'https://m.media-amazon.com/images/I/81feTmBztBL.jpg',
             blurb: 'Sisters and lovers swept through the Biafran war.'
         },
         {

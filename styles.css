@@ -120,6 +120,21 @@ body > .site-logo {
     object-fit: contain;
 }
 
+.image-fade-in {
+    opacity: 0;
+    transition: opacity 0.45s ease;
+}
+
+.image-fade-in.image-fade-in--loaded {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .image-fade-in {
+        transition: none;
+    }
+}
+
 /* Navigation with exact Chester.how Tailwind styling - Right Aligned */
 .navbar {
     position: fixed !important;
@@ -1625,7 +1640,8 @@ body > .site-logo {
     position: sticky;
     top: 6rem;
     max-height: calc(100vh - 7rem);
-    overflow-y: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
     padding: 1.35rem 1.25rem 1.5rem;
     background: var(--bg-primary);
     border: 1px solid var(--accent-border);
@@ -1670,10 +1686,123 @@ body > .site-logo {
 .cv-detail-body {
     padding: 0;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .cv-detail-eyebrow {
     margin-bottom: 1rem;
+    text-align: center;
+}
+
+.cv-detail-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    margin-bottom: 0.9rem;
+}
+
+.cv-detail-carousel-shell {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+}
+
+.cv-detail-carousel-viewport {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.cv-popup-slide {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.cv-popup-slide--out-left {
+    transform: translateX(-100%);
+}
+
+.cv-popup-slide--out-right {
+    transform: translateX(100%);
+}
+
+.cv-popup-slide--from-right {
+    transform: translateX(100%);
+    transition: none;
+}
+
+.cv-popup-slide--from-left {
+    transform: translateX(-100%);
+    transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cv-popup-slide {
+        transition: none;
+    }
+}
+
+.cv-popup-media {
+    opacity: 0;
+    transition: opacity 0.45s ease;
+}
+
+.cv-popup-media.cv-popup-media--ready {
+    opacity: 1;
+}
+
+.cv-popup-media:not(.cv-popup-media--ready) .cv-modal-image-link {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cv-popup-media {
+        opacity: 1;
+        transition: none;
+    }
+}
+
+.cv-detail-carousel-btn {
+    flex: 0 0 auto;
+    width: 1.65rem;
+    height: 1.65rem;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: var(--accent-dark);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+}
+
+.cv-detail-carousel-btn:hover,
+.cv-detail-carousel-btn:focus-visible {
+    color: var(--accent);
+    outline: none;
+}
+
+.cv-detail-carousel-count-viewport {
+    width: 100%;
+    margin: 0.35rem 0 0;
+    overflow: hidden;
+}
+
+.cv-detail-carousel-count {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
     text-align: center;
 }
 
@@ -1928,6 +2057,45 @@ body > .site-logo {
     margin: 0 auto;
     border-radius: 0.5rem;
     border: 1px solid var(--accent-border);
+}
+
+.cv-modal-image-link {
+    position: relative;
+    display: inline-block;
+    width: min(100%, 360px);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.cv-modal-image-link img {
+    width: 100%;
+}
+
+.cv-modal-image-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.cv-modal-image-link:hover .cv-modal-image-overlay,
+.cv-modal-image-link:focus-visible .cv-modal-image-overlay {
+    opacity: 1;
+}
+
+.cv-modal-image-cta {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-md);
 }
 
 .cv-modal-caption {
