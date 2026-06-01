@@ -173,6 +173,32 @@ function initSiteLogo() {
     }
 }
 
+function bindImageFadeIn(img) {
+    if (!img || img.dataset.fadeInit === '1') return;
+    img.dataset.fadeInit = '1';
+    img.classList.add('image-fade-in');
+
+    const reveal = () => {
+        requestAnimationFrame(() => {
+            img.classList.add('image-fade-in--loaded');
+        });
+    };
+
+    if (img.complete && img.naturalWidth > 0) {
+        reveal();
+        return;
+    }
+
+    img.addEventListener('load', reveal, { once: true });
+    img.addEventListener('error', reveal, { once: true });
+}
+
+function applyImageFadeIn(root = document) {
+    if (!root || typeof root.querySelectorAll !== 'function') return;
+    root.querySelectorAll('img:not(.site-logo-img):not(.book-panel-cover):not([data-no-fade])')
+        .forEach(bindImageFadeIn);
+}
+
 // Intersection Observer for animations
 function initScrollAnimations() {
     const observerOptions = {
@@ -283,7 +309,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initFloatingElements();
     initMobileMenu();
     initThemeToggle();
+    applyImageFadeIn(document);
 });
+
+window.applyImageFadeIn = applyImageFadeIn;
+window.bindImageFadeIn = bindImageFadeIn;
 
 // Update active nav link when page changes
 window.addEventListener('popstate', updateActiveNavLink);

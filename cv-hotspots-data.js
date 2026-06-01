@@ -5,12 +5,6 @@ window.CV_HOTSPOTS_CONFIG = {
       "id": "edu-usc",
       "page": 1,
       "label": "USC Honors College",
-      "region": {
-        "left": 21,
-        "top": 13.7,
-        "width": 71,
-        "height": 6.6
-      },
       "popup": {
         "title": "University of South Carolina Honors College",
         "description": "B.S. in Computer Science, Statistics, and Biology with Honors. Expected May 2027. GPA 4.0/4.0.",
@@ -22,198 +16,198 @@ window.CV_HOTSPOTS_CONFIG = {
             "url": "https://www.sc.edu"
           }
         ]
+      },
+      "region": {
+        "left": 21,
+        "top": 13.7,
+        "width": 71,
+        "height": 6.6
       }
     },
     {
       "id": "edu-tjhsst",
       "page": 1,
       "label": "Thomas Jefferson High School",
-      "region": {
-        "left": 21,
-        "top": 21.5,
-        "width": 71,
-        "height": 6.4
-      },
       "popup": {
         "title": "Thomas Jefferson High School for Science and Technology",
         "description": "High School Diploma, June 2023. GPA 4.45 (weighted). AP Scholar with Honor.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 21.5,
+        "width": 71,
+        "height": 6.4
       }
     },
     {
       "id": "edu-sciences-po",
       "page": 1,
       "label": "Sciences Po",
-      "region": {
-        "left": 21,
-        "top": 29.2,
-        "width": 71,
-        "height": 6.7
-      },
       "popup": {
         "title": "Sciences Po \u2014 Paris",
         "description": "Summer Certification, July 2022. Final grade 17.75/20. Focus on international negotiation and affairs.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 29.2,
+        "width": 71,
+        "height": 6.7
       }
     },
     {
       "id": "honor-presidents-list",
       "page": 1,
       "label": "President's List",
-      "region": {
-        "left": 21,
-        "top": 36.0,
-        "width": 71,
-        "height": 1.8
-      },
       "popup": {
         "title": "President's List",
         "description": "University of South Carolina President's List, 2023\u2013Present.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 36.0,
+        "width": 71,
+        "height": 1.8
       }
     },
     {
       "id": "honor-excellence-scholar",
       "page": 1,
       "label": "Academic Excellence Scholar",
-      "region": {
-        "left": 21,
-        "top": 37.5,
-        "width": 71,
-        "height": 1.8
-      },
       "popup": {
         "title": "Academic Excellence Scholar",
         "description": "University of South Carolina Academic Excellence Scholar, $2,000/year.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 37.5,
+        "width": 71,
+        "height": 1.8
       }
     },
     {
       "id": "honor-undergrad-scholarship",
       "page": 1,
       "label": "Undergraduate Scholarship",
-      "region": {
-        "left": 21,
-        "top": 39.0,
-        "width": 71,
-        "height": 1.8
-      },
       "popup": {
         "title": "Undergraduate Scholarship",
         "description": "University of South Carolina Undergraduate Scholarship, $25,000/year.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 39.0,
+        "width": 71,
+        "height": 1.8
       }
     },
     {
       "id": "honor-honors-research-grant",
       "page": 1,
       "label": "Honors Research Grant",
-      "region": {
-        "left": 21,
-        "top": 40.5,
-        "width": 71,
-        "height": 1.8
-      },
       "popup": {
         "title": "Honors College Research Grant",
         "description": "South Carolina Honors College Undergraduate Research Grant, 2024\u20132026, $6,000.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 40.5,
+        "width": 71,
+        "height": 1.8
       }
     },
     {
       "id": "honor-carter-bays",
       "page": 1,
       "label": "Carter Bays Scholarship",
-      "region": {
-        "left": 21,
-        "top": 42.0,
-        "width": 71,
-        "height": 1.8
-      },
       "popup": {
         "title": "Carter Bays Scholarship",
         "description": "Carter Bays Endowed Scholarship for Computer Science, 2024\u20132025, $1,000.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 42.0,
+        "width": 71,
+        "height": 1.8
       }
     },
     {
       "id": "honor-vlahoplus",
       "page": 1,
       "label": "Vlahoplus Scholarship",
-      "region": {
-        "left": 21,
-        "top": 43.5,
-        "width": 71,
-        "height": 1.8
-      },
       "popup": {
         "title": "Vlahoplus Engineering Honors Scholarship",
         "description": "Vlahoplus Engineering Honors Scholarship, 2025\u20132026, $1,000.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 43.5,
+        "width": 71,
+        "height": 1.8
       }
     },
     {
       "id": "honor-provost-ai",
       "page": 1,
       "label": "Provost AI Fellowship",
-      "region": {
-        "left": 21,
-        "top": 45.0,
-        "width": 71,
-        "height": 1.8
-      },
       "popup": {
         "title": "Provost AI Undergraduate Fellowship",
         "description": "Provost AI Undergraduate Fellowship, 2026, $5,000.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 45.0,
+        "width": 71,
+        "height": 1.8
       }
     },
     {
       "id": "honor-magellan-mini",
       "page": 1,
       "label": "Magellan Mini Grant",
-      "region": {
-        "left": 21,
-        "top": 46.5,
-        "width": 71,
-        "height": 1.8
-      },
       "popup": {
         "title": "Magellan Mini Research Grant",
         "description": "Magellan Mini Research Grant, 2026, $750.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 46.5,
+        "width": 71,
+        "height": 1.8
       }
     },
     {
       "id": "honor-seamamms-award",
       "page": 1,
       "label": "SEAMAMMS award",
-      "region": {
-        "left": 21,
-        "top": 48.3,
-        "width": 71,
-        "height": 1.7
-      },
       "popup": {
         "title": "SEAMAMMS Runner-Up",
         "description": "SEAMAMMS26 Runner-Up Award",
@@ -226,91 +220,100 @@ window.CV_HOTSPOTS_CONFIG = {
         ],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 48.3,
+        "width": 71,
+        "height": 1.7
       }
     },
     {
       "id": "pres-isc-gulf-maine",
       "page": 1,
       "label": "ISC 2026 \u2014 Gulf of Maine",
-      "region": {
-        "left": 21,
-        "top": 50.8,
-        "width": 71,
-        "height": 7.8
-      },
       "popup": {
         "title": "International Sclerochronology Conference (May 2026)",
-        "description": "Geochemical signatures in Arctica islandica show intense warming in the Down East Coastal Region of the Gulf of Maine.",
-        "images": [],
-        "files": [],
-        "links": [
+        "description": "ISC26: Wanamaker et al.",
+        "images": [
           {
-            "label": "Research page",
-            "url": "research.html"
+            "src": "ISC26Wanamaker.png",
+            "url": "ISC26Wanamaker.pdf",
+            "hoverText": "View Abstract"
           }
-        ]
+        ],
+        "files": [],
+        "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 50.6,
+        "width": 71,
+        "height": 7.9
       }
     },
     {
       "id": "pres-isc-mid-atlantic",
       "page": 1,
       "label": "ISC 2026 \u2014 Mid-Atlantic",
-      "region": {
-        "left": 21,
-        "top": 60.3,
-        "width": 71,
-        "height": 7.8
-      },
       "popup": {
         "title": "International Sclerochronology Conference (May 2026)",
-        "description": "Master shell chronology and multi-proxy geochemical records illustrate oceanographic variability in the Mid-Atlantic since 1800 CE.",
-        "images": [],
-        "files": [],
-        "links": [
+        "description": "ISC26: Thatcher et al.",
+        "images": [
           {
-            "label": "Research page",
-            "url": "research.html"
+            "src": "ISC26Thatcher.png",
+            "url": "ISC26Thatcher.pdf",
+            "hoverText": "View Abstract"
           }
-        ]
+        ],
+        "files": [],
+        "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 60.1,
+        "width": 71,
+        "height": 7.9
       }
     },
     {
       "id": "pres-isc-keynote",
       "page": 1,
       "label": "ISC 2026 \u2014 Keynote",
-      "region": {
-        "left": 21,
-        "top": 69.8,
-        "width": 71,
-        "height": 12.4
-      },
       "popup": {
         "title": "International Sclerochronology Conference \u2014 Keynote (May 2026)",
-        "description": "Keynote presentation: Utilizing a network of Arctica islandica records and model simulations to investigate past regional ocean dynamics in the western North Atlantic.",
-        "images": [],
-        "files": [],
-        "links": [
+        "description": "ISC26 keynote speaker: Whitney et al.",
+        "images": [
           {
-            "label": "Research page",
-            "url": "research.html"
+            "src": "ISC26Whitney.png",
+            "url": "ISC26Whitney.pdf",
+            "hoverText": "View Abstract"
           }
-        ]
+        ],
+        "files": [],
+        "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 69.6,
+        "width": 71,
+        "height": 12.5
       }
     },
     {
       "id": "pres-seamamms",
       "page": 1,
       "label": "SEAMAMMS 2026 oral",
-      "region": {
-        "left": 21,
-        "top": 83.9,
-        "width": 71,
-        "height": 6.4
-      },
       "popup": {
         "title": "SEAMAMMS \u2014 Wilmington, NC (April 2026)",
-        "description": "Oral presentation: Lessons from real-time and archival acoustic detections of North Atlantic right whales across three platform types.",
-        "images": [],
+        "description": "SEAMAMMS26 talk: Remaili et al.",
+        "images": [
+          {
+            "src": "SEAMAMMS26.png",
+            "url": "SEAMAMMS26.pdf",
+            "hoverText": "View Abstract"
+          }
+        ],
         "files": [],
         "links": [
           {
@@ -319,22 +322,28 @@ window.CV_HOTSPOTS_CONFIG = {
           }
         ]
       },
-      "group": "pres-seamamms"
+      "group": "pres-seamamms",
+      "region": {
+        "left": 21,
+        "top": 83.7,
+        "width": 71,
+        "height": 6.4
+      }
     },
     {
       "id": "pres-seamamms-cont",
       "page": 2,
       "label": "SEAMAMMS (continued)",
-      "region": {
-        "left": 21,
-        "top": 9.2,
-        "width": 71,
-        "height": 1.6
-      },
       "popup": {
         "title": "SEAMAMMS \u2014 Wilmington, NC (April 2026)",
-        "description": "Oral presentation: Lessons from real-time and archival acoustic detections of North Atlantic right whales across three platform types.",
-        "images": [],
+        "description": "SEAMAMMS26 talk: Remaili et al.",
+        "images": [
+          {
+            "src": "SEAMAMMS26.png",
+            "url": "SEAMAMMS26.pdf",
+            "hoverText": "View Abstract"
+          }
+        ],
         "files": [],
         "links": [
           {
@@ -343,146 +352,165 @@ window.CV_HOTSPOTS_CONFIG = {
           }
         ]
       },
-      "group": "pres-seamamms"
+      "group": "pres-seamamms",
+      "region": {
+        "left": 21,
+        "top": 9.0,
+        "width": 71,
+        "height": 1.8
+      }
     },
     {
       "id": "pres-discover-2026",
       "page": 2,
       "label": "Discover USC 2026",
-      "region": {
-        "left": 21,
-        "top": 12.5,
-        "width": 71,
-        "height": 6.4
-      },
       "popup": {
         "title": "Discover USC \u2014 Columbia, SC (April 2026)",
-        "description": "Poster on real-time and archival acoustic detections of North Atlantic right whales in the Southeast US.",
-        "images": [],
-        "files": [],
-        "links": [
+        "description": "Discover USC26: Remaili et al.",
+        "images": [
           {
-            "label": "Research page",
-            "url": "research.html"
+            "src": "SEAMAMMS26.png",
+            "url": "SEAMAMMS26.pdf",
+            "hoverText": "View Abstract"
+          },
+          {
+            "src": "discoverUSC26.png",
+            "url": "discoverUSC26.pdf",
+            "hoverText": "View Poster"
           }
-        ]
+        ],
+        "files": [],
+        "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 12.4,
+        "width": 71,
+        "height": 6.4
       }
     },
     {
       "id": "pres-agu-2025",
       "page": 2,
       "label": "AGU 2025",
-      "region": {
-        "left": 21,
-        "top": 20.5,
-        "width": 71,
-        "height": 9.4
-      },
       "popup": {
         "title": "American Geophysical Union \u2014 New Orleans (December 2025)",
-        "description": "Explaining variability in shell-based oxygen isotope ratios in the western North Atlantic using a proxy system model.",
-        "images": [],
-        "files": [],
-        "links": [
+        "description": "AGU25: Remaili et al.",
+        "images": [
           {
-            "label": "Research page",
-            "url": "research.html"
+            "src": "AGU25.png",
+            "url": "AGU25.pdf",
+            "hoverText": "View Abstract"
+          },
+          {
+            "src": "AGU25Poster.png",
+            "url": "AGU25Poster.pdf",
+            "hoverText": "View Poster"
           }
-        ]
+        ],
+        "files": [],
+        "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 20.4,
+        "width": 71,
+        "height": 9.4
       }
     },
     {
       "id": "pres-discover-2025",
       "page": 2,
       "label": "Discover USC 2025",
-      "region": {
-        "left": 21,
-        "top": 31.7,
-        "width": 71,
-        "height": 7.7
-      },
       "popup": {
         "title": "Discover USC \u2014 Columbia, SC (April 2025)",
-        "description": "Pilot program for glider-based passive acoustic monitoring of right whales in the Southeast US calving ground (2025 version).",
-        "images": [],
-        "files": [],
-        "links": [
+        "description": "Discover USC25: Remaili et al.",
+        "images": [
           {
-            "label": "Research page",
-            "url": "research.html"
+            "src": "DiscoverUSC25.png",
+            "url": "DiscoverUSC25.pdf",
+            "hoverText": "View Abstract"
+          },
+          {
+            "src": "discoverUSC25Poster.png",
+            "url": "discoverUSC25Poster.pdf",
+            "hoverText": "View Poster"
           }
-        ]
+        ],
+        "files": [],
+        "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 31.5,
+        "width": 71,
+        "height": 7.9
       }
     },
     {
       "id": "pres-narwc-smm-2024",
       "page": 2,
-      "label": "NARWC & SMM 2024",
+      "label": "NARWC 2024",
+      "popup": {
+        "title": "North Atlantic Right Whale Consortium (October 2024)",
+        "description": "NARWC24: Meyer-Gutbrod et al.",
+        "images": [
+          {
+            "src": "NARWC24.png",
+            "url": "NARWC24.pdf",
+            "hoverText": "View Poster"
+          }
+        ],
+        "files": [],
+        "links": []
+      },
       "region": {
         "left": 21,
         "top": 41.0,
         "width": 71,
-        "height": 9.7
-      },
-      "popup": {
-        "title": "NARWC & Society for Marine Mammalogy (2024)",
-        "description": "Pilot program for glider-based passive acoustic monitoring of right whales in the Southeast US calving ground (2024 version).",
-        "images": [],
-        "files": [],
-        "links": [
-          {
-            "label": "Research page",
-            "url": "research.html"
-          }
-        ]
+        "height": 7.9
       }
     },
     {
       "id": "research-active-acoustic",
       "page": 2,
       "label": "Fulbright Canada\u2013Mitacs",
-      "region": {
-        "left": 21,
-        "top": 51.2,
-        "width": 71,
-        "height": 17.0
-      },
       "popup": {
         "title": "Active Acoustic ID of Arctic Fauna",
         "description": "Fulbright Canada\u2013Mitacs internship at Memorial University (May 2026\u2013Present). WBAT acoustic profiles, Echoview/Python processing, unsupervised classification of fish and zooplankton.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 49.6,
+        "width": 71,
+        "height": 17.0
       }
     },
     {
       "id": "research-water-billing",
       "page": 2,
       "label": "Nairobi water typologies",
-      "region": {
-        "left": 21,
-        "top": 69.3,
-        "width": 71,
-        "height": 13.0
-      },
       "popup": {
         "title": "Water and Bill Payment Typologies",
         "description": "USC SEOE with Dr. David Fuente (Feb 2026\u2013Present). Modeled Nairobi billing/payment behavior; Gaussian mixture models for customer typologies.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 67.7,
+        "width": 71,
+        "height": 12.4
       }
     },
     {
       "id": "research-paleo-reu",
       "page": 2,
       "label": "Paleoceanographic REU",
-      "region": {
-        "left": 21,
-        "top": 83.0,
-        "width": 71,
-        "height": 7.7
-      },
       "popup": {
         "title": "Paleoceanographic Modeling \u2014 REU",
         "description": "NSF-REU at Shannon Point Marine Center (Summer 2025). Python paleoceanographic modeling and multi-taper spectral analysis with Dr. Nina Whitney.",
@@ -490,18 +518,18 @@ window.CV_HOTSPOTS_CONFIG = {
         "files": [],
         "links": []
       },
-      "group": "research-paleo-reu"
+      "group": "research-paleo-reu",
+      "region": {
+        "left": 21,
+        "top": 81.3,
+        "width": 71,
+        "height": 9.4
+      }
     },
     {
       "id": "research-paleo-reu-cont",
       "page": 3,
       "label": "Paleoceanographic REU (cont.)",
-      "region": {
-        "left": 21,
-        "top": 8.8,
-        "width": 71,
-        "height": 6.7
-      },
       "popup": {
         "title": "Paleoceanographic Modeling \u2014 REU",
         "description": "Presented at symposiums; skills include Pyleoclim, climate data wrangling, and multi-taper spectral analysis.",
@@ -509,162 +537,162 @@ window.CV_HOTSPOTS_CONFIG = {
         "files": [],
         "links": []
       },
-      "group": "research-paleo-reu"
+      "group": "research-paleo-reu",
+      "region": {
+        "left": 21,
+        "top": 9.0,
+        "width": 71,
+        "height": 4.8
+      }
     },
     {
       "id": "research-noaa-workshop",
       "page": 3,
       "label": "NOAA workshop",
-      "region": {
-        "left": 21,
-        "top": 16.5,
-        "width": 71,
-        "height": 8.2
-      },
       "popup": {
         "title": "NOAA Real-Time Analysis Workshop",
         "description": "May 2024. Real-time environmental data analysis with NOAA scientists through simulations and case studies.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 15.0,
+        "width": 71,
+        "height": 7.9
       }
     },
     {
       "id": "research-bioacoustics",
       "page": 3,
       "label": "Bioacoustics \u2014 Meyer-Gutbrod",
-      "region": {
-        "left": 21,
-        "top": 25.5,
-        "width": 71,
-        "height": 15.7
-      },
       "popup": {
         "title": "Bioacoustic Data Analysis",
         "description": "USC SEOE with Dr. Erin Meyer-Gutbrod (March 2024\u2013Present). Baleen whale acoustic detection with Python, Raven, R, and LFDCS; real-time processing and conservation-focused evaluation.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 24.1,
+        "width": 71,
+        "height": 15.4
       }
     },
     {
       "id": "research-jellyfish",
       "page": 3,
       "label": "Jellyfish bioremediation",
-      "region": {
-        "left": 21,
-        "top": 42.2,
-        "width": 71,
-        "height": 14.7
-      },
       "popup": {
         "title": "Jellyfish Bioremediation",
         "description": "Thomas Jefferson HS with Dr. Shawn Stickler (2021\u20132023). Tank maintenance, water quality monitoring, and aquatic ecosystem restoration experiments.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 40.7,
+        "width": 71,
+        "height": 13.9
       }
     },
     {
       "id": "community-theta-tau",
       "page": 3,
       "label": "Theta Tau service",
-      "region": {
-        "left": 21,
-        "top": 57.1,
-        "width": 71,
-        "height": 6.7
-      },
       "popup": {
         "title": "Theta Tau \u2014 Service & DEI Chair",
         "description": "Spring/Fall 2024. Co-led service and equity committees; managed project budgets and funding.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 55.3,
+        "width": 71,
+        "height": 6.4
       }
     },
     {
       "id": "community-tech-camp",
       "page": 3,
       "label": "Technology Adventure Camp",
-      "region": {
-        "left": 21,
-        "top": 64.6,
-        "width": 71,
-        "height": 9.4
-      },
       "popup": {
         "title": "Technology Adventure Camp Instructor",
         "description": "July 2024, Fairfax County Public Schools. Taught robotics, coding, and sensors to children.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 62.9,
+        "width": 71,
+        "height": 9.4
       }
     },
     {
       "id": "community-touch-tank",
       "page": 3,
       "label": "Library touch tank",
-      "region": {
-        "left": 21,
-        "top": 74.7,
-        "width": 71,
-        "height": 3.7
-      },
       "popup": {
         "title": "Public Library Touch Tank",
         "description": "July 2025, Anacortes & Oak Harbor. Marine habitat learning experience for 100+ children.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 73.0,
+        "width": 71,
+        "height": 3.4
       }
     },
     {
       "id": "community-guardianes",
       "page": 3,
       "label": "Guardianes Del Mar",
-      "region": {
-        "left": 21,
-        "top": 79.2,
-        "width": 71,
-        "height": 3.7
-      },
       "popup": {
         "title": "Guardianes Del Mar STEM Program",
         "description": "June 2025. Intertidal zone and microscopy workshop for middle-school students.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 77.5,
+        "width": 71,
+        "height": 3.4
       }
     },
     {
       "id": "community-narw-festival",
       "page": 3,
       "label": "Right Whale Festival",
-      "region": {
-        "left": 21,
-        "top": 83.8,
-        "width": 71,
-        "height": 3.8
-      },
       "popup": {
         "title": "North Atlantic Right Whale Festival",
         "description": "November 2024. Bioacoustics activities for 300+ visitors.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 82.1,
+        "width": 71,
+        "height": 3.3
       }
     },
     {
       "id": "project-pathways",
       "page": 3,
       "label": "Pathways platform",
-      "region": {
-        "left": 21,
-        "top": 87.8,
-        "width": 71,
-        "height": 4.2
-      },
       "popup": {
         "title": "Pathways: Campus Connection Made Easy",
         "description": "Full-stack student platform: campus navigation, events, courses, calendars, and career tools.",
@@ -672,18 +700,18 @@ window.CV_HOTSPOTS_CONFIG = {
         "files": [],
         "links": []
       },
-      "group": "project-pathways"
+      "group": "project-pathways",
+      "region": {
+        "left": 21,
+        "top": 86.2,
+        "width": 71,
+        "height": 4.9
+      }
     },
     {
       "id": "project-pathways-cont",
       "page": 4,
       "label": "Pathways (continued)",
-      "region": {
-        "left": 21,
-        "top": 8.8,
-        "width": 71,
-        "height": 5.2
-      },
       "popup": {
         "title": "Pathways: Campus Connection Made Easy",
         "description": "Built with React, Django REST Framework, Docker, Redis, Celery, and GitHub Actions.",
@@ -696,18 +724,18 @@ window.CV_HOTSPOTS_CONFIG = {
           }
         ]
       },
-      "group": "project-pathways"
+      "group": "project-pathways",
+      "region": {
+        "left": 21,
+        "top": 8.9,
+        "width": 71,
+        "height": 3.4
+      }
     },
     {
       "id": "project-degreebetter",
       "page": 4,
       "label": "DegreeBetter",
-      "region": {
-        "left": 21,
-        "top": 15.0,
-        "width": 71,
-        "height": 6.7
-      },
       "popup": {
         "title": "DegreeBetter Academic Management System",
         "description": "Java/JavaFX degree planning system with backend for requirements and degree tracking.",
@@ -719,18 +747,18 @@ window.CV_HOTSPOTS_CONFIG = {
             "url": "https://github.com/sorayarem"
           }
         ]
+      },
+      "region": {
+        "left": 21,
+        "top": 13.5,
+        "width": 71,
+        "height": 6.4
       }
     },
     {
       "id": "project-portfolio",
       "page": 4,
       "label": "Personal website",
-      "region": {
-        "left": 21,
-        "top": 22.8,
-        "width": 71,
-        "height": 5.0
-      },
       "popup": {
         "title": "Personal Website and Portfolio",
         "description": "Responsive portfolio with HTML, CSS, and JavaScript; hosted on GitHub Pages.",
@@ -742,18 +770,18 @@ window.CV_HOTSPOTS_CONFIG = {
             "url": "index.html"
           }
         ]
+      },
+      "region": {
+        "left": 21,
+        "top": 21.0,
+        "width": 71,
+        "height": 4.9
       }
     },
     {
       "id": "project-riscv",
       "page": 4,
       "label": "Tiny RISC-V OS",
-      "region": {
-        "left": 21,
-        "top": 28.8,
-        "width": 71,
-        "height": 7.0
-      },
       "popup": {
         "title": "Tiny RISC-V Operating System",
         "description": "Bare-metal RISC-V OS in C and assembly: program loader, in-memory filesystem, spinlocks, and permissions.",
@@ -765,18 +793,18 @@ window.CV_HOTSPOTS_CONFIG = {
             "url": "https://github.com/sorayarem"
           }
         ]
+      },
+      "region": {
+        "left": 21,
+        "top": 27.1,
+        "width": 71,
+        "height": 6.4
       }
     },
     {
       "id": "project-f1",
       "page": 4,
       "label": "Formula 1 analysis",
-      "region": {
-        "left": 21,
-        "top": 36.0,
-        "width": 71,
-        "height": 8.2
-      },
       "popup": {
         "title": "Formula 1 Data Analysis",
         "description": "R analysis of constructor performance, race geography, and championship trends.",
@@ -788,78 +816,84 @@ window.CV_HOTSPOTS_CONFIG = {
             "url": "https://github.com/sorayarem"
           }
         ]
+      },
+      "region": {
+        "left": 21,
+        "top": 34.6,
+        "width": 71,
+        "height": 7.9
       }
     },
     {
       "id": "skills-french",
       "page": 4,
       "label": "French",
-      "region": {
-        "left": 21,
-        "top": 45.1,
-        "width": 71,
-        "height": 1.5
-      },
       "popup": {
         "title": "French",
         "description": "Professional working proficiency; Virginia State Seal of Biliteracy.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 43.3,
+        "width": 71,
+        "height": 1.8
       }
     },
     {
       "id": "skills-darija",
       "page": 4,
       "label": "Algerian Darija",
-      "region": {
-        "left": 21,
-        "top": 46.6,
-        "width": 71,
-        "height": 1.5
-      },
       "popup": {
         "title": "Algerian Darija",
         "description": "Limited working proficiency; Johns Hopkins CTY courses.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 44.8,
+        "width": 71,
+        "height": 1.8
       }
     },
     {
       "id": "skills-technical",
       "page": 4,
       "label": "Technical skills",
-      "region": {
-        "left": 21,
-        "top": 48.0,
-        "width": 71,
-        "height": 3.1
-      },
       "popup": {
         "title": "Technical Skills",
         "description": "R/RStudio, Python, C++, Java/JavaFX, SQL, Git & GitHub, Raven, HTML/CSS, FXML, LFDCS, Echoview, MATLAB.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 46.3,
+        "width": 71,
+        "height": 3.3
       }
     },
     {
       "id": "skills-certifications",
       "page": 4,
       "label": "CITI & USC certifications",
-      "region": {
-        "left": 21,
-        "top": 51.0,
-        "width": 71,
-        "height": 3.1
-      },
       "popup": {
         "title": "Research & AI Certifications",
         "description": "CITI physical and social/behavioral RCR; USC Garnet AI Fluency.",
         "images": [],
         "files": [],
         "links": []
+      },
+      "region": {
+        "left": 21,
+        "top": 49.3,
+        "width": 71,
+        "height": 3.4
       }
     }
   ]

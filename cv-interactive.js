@@ -52,6 +52,10 @@
     let pagesRoot = null;
 
     let renderToken = 0;
+    let activePopupImages = [];
+    let activePopupImageIndex = 0;
+    let popupGalleryEl = null;
+    let popupCarouselAnimating = false;
 
 
 
@@ -84,6 +88,10 @@
                 <img src="${FALLBACK_IMAGE}" alt="CV preview" width="900" loading="lazy">
 
             </a>`;
+
+        if (typeof window.applyImageFadeIn === 'function') {
+            window.applyImageFadeIn(container);
+        }
 
     }
 
@@ -651,9 +659,223 @@
 
     }
 
+    function waitForPopupImageSrc(src) {
+        return new Promise((resolve) => {
+            const pre = new Image();
+            const finish = () => resolve();
+            pre.addEventListener('load', finish, { once: true });
+            pre.addEventListener('error', finish, { once: true });
+            pre.src = src;
+            if (pre.complete) {
+                queueMicrotask(finish);
+            }
+        });
+    }
+
+    function revealPopupMedia(mediaEl) {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                mediaEl.classList.add('cv-popup-media--ready');
+            });
+        });
+    }
+
+    function buildPopupMediaNode(img) {
+        const media = document.createElement('div');
+        media.className = 'cv-popup-media';
+
+        const el = document.createElement('img');
+        el.alt = img.alt || '';
+        el.decoding = 'async';
+        el.src = img.src;
+
+        if (img.url) {
+            const imageLink = document.createElement('a');
+            imageLink.className = 'cv-modal-image-link';
+            imageLink.href = img.url;
+            const hoverText = img.hoverText || 'Open linked file';
+            imageLink.title = hoverText;
+            imageLink.setAttribute('aria-label', hoverText);
+            if (img.url.startsWith('http') || img.url.endsWith('.pdf')) {
+                imageLink.target = '_blank';
+                imageLink.rel = 'noopener noreferrer';
+            }
+            imageLink.appendChild(el);
+            const overlay = document.createElement('span');
+            overlay.className = 'cv-modal-image-overlay';
+            const cta = document.createElement('span');
+            cta.className = 'cv-modal-image-cta';
+            cta.textContent = hoverText;
+            overlay.appendChild(cta);
+            imageLink.appendChild(overlay);
+            media.appendChild(imageLink);
+        } else {
+            media.appendChild(el);
+        }
+
+        revealPopupMedia(media);
+        return media;
+    }
+
+    async function buildPopupImageFigure(img) {
+        await waitForPopupImageSrc(img.src);
+
+        const figure = document.createElement('figure');
+        figure.className = 'cv-modal-figure';
+        figure.appendChild(buildPopupMediaNode(img));
+
+        if (img.captionHtml || img.caption) {
+            const cap = document.createElement('figcaption');
+            cap.className = 'cv-modal-caption';
+            if (img.captionHtml) {
+                cap.innerHTML = img.captionHtml;
+                cap.querySelectorAll('a[href]').forEach((a) => {
+                    if (a.href.startsWith('http')) {
+                        a.target = '_blank';
+                        a.rel = 'noopener noreferrer';
+                    }
+                });
+            } else {
+                cap.textContent = img.caption;
+            }
+            figure.appendChild(cap);
+        }
+
+        return figure;
+    }
+
+    async function setPopupSlideContent(slideEl, imgData) {
+        slideEl.innerHTML = '';
+        slideEl.appendChild(await buildPopupImageFigure(imgData));
+    }
+
+    function getPopupCarouselCountEl() {
+        return popupGalleryEl?.querySelector('.cv-detail-carousel-count') || null;
+    }
+
+    function getPopupCarouselSlide() {
+        return popupGalleryEl?.querySelector('.cv-detail-carousel-viewport .cv-popup-slide');
+    }
+
+    async function renderPopupImageCarousel() {
+        if (!popupGalleryEl || !activePopupImages.length) return;
+        popupCarouselAnimating = false;
+        popupGalleryEl.innerHTML = '';
+
+        const slide = document.createElement('div');
+        slide.className = 'cv-popup-slide';
+
+        if (activePopupImages.length > 1) {
+            const shell = document.createElement('div');
+            shell.className = 'cv-detail-carousel-shell';
+
+            const prev = document.createElement('button');
+            prev.type = 'button';
+            prev.className = 'cv-detail-carousel-btn';
+            prev.setAttribute('aria-label', 'Previous image');
+            prev.textContent = '‹';
+            prev.addEventListener('click', () => shiftPopupImage(-1));
+
+            const next = document.createElement('button');
+            next.type = 'button';
+            next.className = 'cv-detail-carousel-btn';
+            next.setAttribute('aria-label', 'Next image');
+            next.textContent = '›';
+            next.addEventListener('click', () => shiftPopupImage(1));
+
+            const viewport = document.createElement('div');
+            viewport.className = 'cv-detail-carousel-viewport';
+            viewport.appendChild(slide);
+
+            shell.appendChild(prev);
+            shell.appendChild(viewport);
+            shell.appendChild(next);
+            popupGalleryEl.appendChild(shell);
+
+            const countViewport = document.createElement('div');
+            countViewport.className = 'cv-detail-carousel-count-viewport';
+            const count = document.createElement('p');
+            count.className = 'cv-detail-carousel-count cv-popup-slide';
+            count.textContent = `${activePopupImageIndex + 1} / ${activePopupImages.length}`;
+            countViewport.appendChild(count);
+            popupGalleryEl.appendChild(countViewport);
+        } else {
+            popupGalleryEl.appendChild(slide);
+        }
+
+        await setPopupSlideContent(slide, activePopupImages[activePopupImageIndex]);
+    }
+
+    function shiftPopupImage(delta) {
+        if (!activePopupImages.length || activePopupImages.length < 2) return;
+        const slide = getPopupCarouselSlide();
+        if (!slide || popupCarouselAnimating) return;
+
+        const len = activePopupImages.length;
+        const newIndex =
+            ((activePopupImageIndex + delta) % len + len) % len;
+        if (newIndex === activePopupImageIndex) return;
+
+        popupCarouselAnimating = true;
+        const countEl = getPopupCarouselCountEl();
+        const nextFigurePromise = buildPopupImageFigure(activePopupImages[newIndex]);
+        const outClass =
+            delta > 0 ? 'cv-popup-slide--out-left' : 'cv-popup-slide--out-right';
+        const fromClass =
+            delta > 0 ? 'cv-popup-slide--from-right' : 'cv-popup-slide--from-left';
+
+        const safety = window.setTimeout(() => {
+            popupCarouselAnimating = false;
+        }, 600);
+
+        const animateIn = (el) => {
+            if (!el) return;
+            el.classList.remove(outClass);
+            el.classList.add(fromClass);
+            void el.offsetWidth;
+            el.classList.remove(fromClass);
+        };
+
+        const finishIn = async () => {
+            const figure = await nextFigurePromise;
+            slide.replaceChildren(figure);
+            if (countEl) {
+                countEl.textContent = `${newIndex + 1} / ${len}`;
+            }
+            activePopupImageIndex = newIndex;
+            animateIn(slide);
+            animateIn(countEl);
+            slide.addEventListener(
+                'transitionend',
+                (e) => {
+                    if (e.propertyName !== 'transform') return;
+                    window.clearTimeout(safety);
+                    popupCarouselAnimating = false;
+                },
+                { once: true }
+            );
+        };
+
+        slide.classList.add(outClass);
+        if (countEl) countEl.classList.add(outClass);
+        slide.addEventListener(
+            'transitionend',
+            (e) => {
+                if (e.propertyName !== 'transform') return;
+                finishIn();
+            },
+            { once: true }
+        );
+    }
+
 
 
     function openDetailPanel(hotspot) {
+        const wasHidden = detailPanel.hidden;
+        activePopupImages = [];
+        activePopupImageIndex = 0;
+        popupGalleryEl = null;
+        popupCarouselAnimating = false;
 
         const popup = hotspot.popup || {};
 
@@ -680,37 +902,11 @@
             const gallery = document.createElement('div');
 
             gallery.className = 'cv-modal-gallery';
-
-            popup.images.forEach((img) => {
-                const figure = document.createElement('figure');
-                figure.className = 'cv-modal-figure';
-
-                const el = document.createElement('img');
-                el.src = img.src;
-                el.alt = img.alt || '';
-                figure.appendChild(el);
-
-                if (img.captionHtml || img.caption) {
-                    const cap = document.createElement('figcaption');
-                    cap.className = 'cv-modal-caption';
-                    if (img.captionHtml) {
-                        cap.innerHTML = img.captionHtml;
-                        cap.querySelectorAll('a[href]').forEach((a) => {
-                            if (a.href.startsWith('http')) {
-                                a.target = '_blank';
-                                a.rel = 'noopener noreferrer';
-                            }
-                        });
-                    } else {
-                        cap.textContent = img.caption;
-                    }
-                    figure.appendChild(cap);
-                }
-
-                gallery.appendChild(figure);
-            });
-
+            activePopupImages = popup.images.slice();
+            activePopupImageIndex = 0;
+            popupGalleryEl = gallery;
             detailBody.appendChild(gallery);
+            void renderPopupImageCarousel();
 
         }
 
@@ -749,12 +945,23 @@
 
 
         if (popup.links && popup.links.length) {
+            const imageLinkUrls = new Set(
+                (popup.images || [])
+                    .map((img) => (img && img.url ? String(img.url) : ''))
+                    .filter(Boolean)
+            );
+            const visibleLinks = popup.links.filter(
+                (link) => !(link && link.url && imageLinkUrls.has(String(link.url)))
+            );
+            if (!visibleLinks.length) {
+                /* Link already available on image hover/click. */
+            } else {
 
             const links = document.createElement('ul');
 
             links.className = 'cv-modal-links';
 
-            popup.links.forEach((link) => {
+            visibleLinks.forEach((link) => {
 
                 const li = document.createElement('li');
 
@@ -779,6 +986,7 @@
             });
 
             detailBody.appendChild(links);
+            }
 
         }
 
@@ -798,15 +1006,21 @@
 
         layout.classList.add('cv-layout--open');
 
-        scheduleRerender();
-
-        detailClose.focus();
+        if (wasHidden) {
+            scheduleRerender();
+            detailClose.focus();
+        }
 
     }
 
 
 
     function closeDetailPanel() {
+        if (detailPanel.hidden) return;
+        activePopupImages = [];
+        activePopupImageIndex = 0;
+        popupGalleryEl = null;
+        popupCarouselAnimating = false;
 
         detailPanel.hidden = true;
 
@@ -917,6 +1131,8 @@
         document.addEventListener('keydown', (e) => {
 
             if (e.key === 'Escape' && !detailPanel.hidden) closeDetailPanel();
+            if (e.key === 'ArrowLeft' && !detailPanel.hidden) shiftPopupImage(-1);
+            if (e.key === 'ArrowRight' && !detailPanel.hidden) shiftPopupImage(1);
 
         });
 
