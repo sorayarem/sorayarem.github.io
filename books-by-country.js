@@ -1,7 +1,7 @@
-/**
- * Books keyed by ISO 3166-1 alpha-2 (GeoJSON ISO_A2) or Natural Earth ADMIN name.
- * Edit this file to add your own reads.
- */
+
+
+
+
 window.BOOKS_BY_COUNTRY = {
     US: [
         {
@@ -268,17 +268,6 @@ window.BOOKS_BY_COUNTRY = {
         cover: 'https://m.media-amazon.com/images/I/812l2Ztj99L.jpg',
         blurb: 'A sweet, doomed nerd and the curse of fukú across generations.'
     },
-    PS: [
-        {
-            country: 'Palestine',
-            title: 'Minor Detail',
-            author: 'Adania Shibli',
-            year: 2017,
-            stars: 4,
-            cover: 'https://m.media-amazon.com/images/I/512zKzT7DfL.jpg',
-            blurb: 'A brutal 1949 incident echoes into a present-day investigation.'
-        }
-    ],
     CY: {
         country: 'Cyprus',
         title: 'The Island of Missing Trees',
@@ -290,10 +279,10 @@ window.BOOKS_BY_COUNTRY = {
     }
 };
 
-/**
- * Shown in the panel when no country is selected (not on the globe book list).
- * Multiple entries with the same iso/country show as a carousel in the panel.
- */
+
+
+
+
 window.CURRENT_STOP = [
     {
         iso: 'SL',
@@ -301,13 +290,6 @@ window.CURRENT_STOP = [
         title: 'A Long Way Gone',
         author: 'Ishmael Beah',
         cover: 'https://m.media-amazon.com/images/I/81ZLZRpqAUL._UF1000,1000_QL80_.jpg'
-    },
-    {
-        iso: 'BY',
-        country: 'Belarus',
-        title: "King Stakh's Wild Hunt",
-        author: 'Uladzimir Karatkievich',
-        cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1353422518i/16161256.jpg'
     }
 ];
 
@@ -325,18 +307,11 @@ window.getCurrentStopBooks = function getCurrentStopBooks(properties) {
     return currentStopEntries().filter((entry) => matchesReadingQueueEntry(entry, properties));
 };
 
-/**
- * Queued reads — highlighted on the globe but not in BOOKS_BY_COUNTRY until finished.
- * Multiple entries with the same iso/country show as a carousel in the panel.
- */
+
+
+
+
 window.ON_THE_DOCKET = [
-    {
-        iso: 'IL',
-        country: 'Israel',
-        title: 'Sadness Is a White Bird',
-        author: 'Moriel Rothman-Zecher',
-        cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1502042251i/35297191.jpg'
-    },
     {
         iso: 'AF',
         country: 'Afghanistan',
