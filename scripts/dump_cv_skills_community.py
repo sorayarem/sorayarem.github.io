@@ -2,7 +2,7 @@ import fitz
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
-doc = fitz.open(root / "cv.pdf")
+doc = fitz.open(root / "assets/cv.pdf")
 for pno in [2, 3]:
     page = doc[pno]
     ph = page.rect.height

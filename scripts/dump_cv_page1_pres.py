@@ -2,7 +2,7 @@ import fitz
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
-page = fitz.open(root / "cv.pdf")[0]
+page = fitz.open(root / "assets/cv.pdf")[0]
 ph = page.rect.height
 pw = page.rect.width
 print(f"page size: {pw}x{ph}")

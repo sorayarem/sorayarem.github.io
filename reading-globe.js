@@ -22,7 +22,10 @@
     const MAX_ZOOM_FACTOR = 3;
 
     const ALLOWED_COUNTRY_TYPES = new Set(['Sovereign country', 'Country']);
-    const ALLOWED_ADMIN_EXCEPTIONS = new Set(['Palestine']);
+    const ALLOWED_ADMIN_EXCEPTIONS = new Set([]);
+    const COUNTRY_SEARCH_ALIASES = {
+        somaliland: 'somalia'
+    };
     const EXCLUDED_ADMIN = new Set([
         'Northern Cyprus',
         'French Southern and Antarctic Lands',
@@ -42,7 +45,6 @@
     let panelBookIndex = 0;
     let panelBookAnimating = false;
     let panelBooksMode = 'visited';
-    /** GeoJSON properties for the active panel (null = full current-stop carousel). */
     let panelContextProperties = null;
 
     function initReadingGlobe() {
@@ -60,7 +62,8 @@
                 return res.json();
             })
             .then((countries) => {
-                const features = countries.features.filter(isValidCountryFeature);
+                const mergedFeatures = combineSeparatedCountryRegions(countries.features);
+                const features = mergedFeatures.filter(isValidCountryFeature);
 
                 countryIndex = features
                     .map((feature) => buildIndexEntry(feature, true))
@@ -78,7 +81,7 @@
                     .polygonAltitude(() => POLYGON_ALT)
                     .polygonCapColor((feat) => capColor(feat))
                     .polygonSideColor(() => 'rgba(0,0,0,0)')
-                    .polygonStrokeColor(() => STROKE_COLOR)
+                    .polygonStrokeColor((feat) => strokeColor(feat))
                     .polygonLabel(() => '')
                     .onPolygonHover((hoverD) => {
                         if (selectedFeature) return;
@@ -141,6 +144,42 @@
         return Boolean(iso && iso !== 'AQ');
     }
 
+    function combineSeparatedCountryRegions(features) {
+        const somalia = features.find((feature) => feature.properties?.ADMIN === 'Somalia');
+        const somaliland = features.find((feature) => feature.properties?.ADMIN === 'Somaliland');
+        if (!somalia || !somaliland) return features;
+
+        somalia.geometry = mergeCountryGeometry(somalia.geometry, somaliland.geometry);
+        return features;
+    }
+
+    function mergeCountryGeometry(mainGeometry, extraGeometry) {
+        const polygons = [
+            ...geometryPolygons(mainGeometry),
+            ...geometryPolygons(extraGeometry)
+        ];
+
+        if (polygons.length === 0) return mainGeometry;
+        if (polygons.length === 1) {
+            return {
+                type: 'Polygon',
+                coordinates: polygons[0]
+            };
+        }
+
+        return {
+            type: 'MultiPolygon',
+            coordinates: polygons
+        };
+    }
+
+    function geometryPolygons(geometry) {
+        if (!geometry) return [];
+        if (geometry.type === 'Polygon') return [geometry.coordinates];
+        if (geometry.type === 'MultiPolygon') return geometry.coordinates;
+        return [];
+    }
+
     function indexKey(iso, name) {
         return `${iso || ''}|${name || ''}`;
     }
@@ -186,7 +225,6 @@
                 );
             })
             .catch(() => {
-                /* Globe and 110m search still work if supplement fails */
             });
     }
 
@@ -227,6 +265,11 @@
     function findCountry(query) {
         const q = query.trim().toLowerCase();
         if (!q) return null;
+        const alias = COUNTRY_SEARCH_ALIASES[q];
+        if (alias) {
+            const aliasMatch = countryIndex.find((c) => c.name.toLowerCase() === alias);
+            if (aliasMatch) return aliasMatch;
+        }
 
         const exact = countryIndex.find((c) => c.name.toLowerCase() === q);
         if (exact) return exact;
@@ -323,6 +366,11 @@
         if (isCurrentStop) return CAP_CURRENT_STOP;
         if (isOnTheDocket) return CAP_ON_THE_DOCKET;
         return window.countryHasBook(props) ? CAP_HAS_BOOK : CAP_NO_BOOK;
+    }
+
+    function strokeColor(feat) {
+        if (feat.properties?.ADMIN === 'Somalia') return 'rgba(0,0,0,0)';
+        return STROKE_COLOR;
     }
 
     function clearBookPanel(panelEl) {

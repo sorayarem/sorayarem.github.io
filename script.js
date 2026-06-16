@@ -4,7 +4,7 @@ function currentNavPage(pathname) {
     return segment;
 }
 
-// Navigation Active State Management with sliding indicator
+
 function updateActiveNavLink() {
     const currentPage = currentNavPage(window.location.pathname);
     const navLinks = document.querySelectorAll('.nav-pill a:not([target="_blank"])');
@@ -19,7 +19,7 @@ function updateActiveNavLink() {
             link.classList.remove('text-neutral-400');
             link.classList.add('text-neutral-900');
             
-            // Update sliding indicator position
+            
             if (indicator) {
                 const linkRect = link.getBoundingClientRect();
                 const containerRect = link.parentElement.getBoundingClientRect();
@@ -34,7 +34,7 @@ function updateActiveNavLink() {
     });
 }
 
-// Add hover effects for navigation
+
 function initNavHoverEffects() {
     const navLinks = document.querySelectorAll('.nav-pill a:not([target="_blank"])');
     const indicator = document.querySelector('.nav-pill .absolute');
@@ -57,12 +57,12 @@ function initNavHoverEffects() {
     const navContainer = document.querySelector('.nav-pill');
     if (navContainer) {
         navContainer.addEventListener('mouseleave', () => {
-            updateActiveNavLink(); // Reset to active state
+            updateActiveNavLink(); 
         });
     }
 }
 
-// Smooth scrolling for anchor links
+
 function initSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -78,7 +78,7 @@ function initSmoothScrolling() {
     });
 }
 
-// Project filtering functionality
+
 function initProjectFiltering() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
@@ -89,11 +89,11 @@ function initProjectFiltering() {
         button.addEventListener('click', () => {
             const filter = button.getAttribute('data-filter');
             
-            // Update active button
+            
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             
-            // Filter projects
+            
             projectCards.forEach(card => {
                 const categories = card.getAttribute('data-category').split(' ');
                 
@@ -115,7 +115,7 @@ function initProjectFiltering() {
     });
 }
 
-// Contact form — opens the visitor's email app addressed to Soraya
+
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
@@ -144,7 +144,7 @@ function initContactForm() {
     });
 }
 
-const SITE_LOGO_SRC = 'logo2.png';
+const SITE_LOGO_SRC = 'assets/logo2.png';
 
 function initSiteLogo() {
     let logo = document.querySelector('.site-logo');
@@ -199,7 +199,7 @@ function applyImageFadeIn(root = document) {
         .forEach(bindImageFadeIn);
 }
 
-// Intersection Observer for animations
+
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
@@ -215,7 +215,7 @@ function initScrollAnimations() {
         });
     }, observerOptions);
     
-    // Observe elements for animation
+    
     const animateElements = document.querySelectorAll('.about-card, .activity-item, .publication-item, .project-card, .interest-card');
     animateElements.forEach(el => {
         el.style.opacity = '0';
@@ -225,7 +225,7 @@ function initScrollAnimations() {
     });
 }
 
-// Letter drop-in for hero title (no empty flash before animation)
+
 function initHeroTitleAnimation() {
     const heroTitle = document.querySelector('.hero-title');
     if (!heroTitle || heroTitle.classList.contains('hero-title--ready')) return;
@@ -254,7 +254,7 @@ function initHeroTitleAnimation() {
     });
 }
 
-// Floating elements animation
+
 function initFloatingElements() {
     const elements = document.querySelectorAll('.element');
     
@@ -266,7 +266,7 @@ function initFloatingElements() {
     });
 }
 
-// Mobile menu toggle (if needed)
+
 function initMobileMenu() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -278,7 +278,7 @@ function initMobileMenu() {
         navToggle.classList.toggle('active');
     });
     
-    // Close menu when clicking outside
+    
     document.addEventListener('click', (e) => {
         if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
             navMenu.classList.remove('active');
@@ -287,16 +287,16 @@ function initMobileMenu() {
     });
 }
 
-// Theme toggle
+
 function initThemeToggle() {
-    // Check for saved theme preference or default to light
+    
     const currentTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', currentTheme);
     
-    // You can add a theme toggle button if desired
+    
 }
 
-// Initialize everything when DOM is loaded
+
 document.addEventListener('DOMContentLoaded', function() {
     initSiteLogo();
     updateActiveNavLink();
@@ -315,13 +315,13 @@ document.addEventListener('DOMContentLoaded', function() {
 window.applyImageFadeIn = applyImageFadeIn;
 window.bindImageFadeIn = bindImageFadeIn;
 
-// Update active nav link when page changes
+
 window.addEventListener('popstate', updateActiveNavLink);
 window.addEventListener('load', updateActiveNavLink);
 
-// Add some utility functions
+
 const utils = {
-    // Debounce function for performance
+    
     debounce: function(func, wait) {
         let timeout;
         return function executedFunction(...args) {
@@ -334,7 +334,7 @@ const utils = {
         };
     },
     
-    // Check if element is in viewport
+    
     isInViewport: function(element) {
         const rect = element.getBoundingClientRect();
         return (
@@ -345,7 +345,7 @@ const utils = {
         );
     },
     
-    // Smooth scroll to top
+    
     scrollToTop: function() {
         window.scrollTo({
             top: 0,
@@ -354,7 +354,7 @@ const utils = {
     }
 };
 
-// Add scroll-to-top button functionality
+
 function initScrollToTop() {
     const scrollBtn = document.createElement('button');
     scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
@@ -379,7 +379,7 @@ function initScrollToTop() {
     
     document.body.appendChild(scrollBtn);
     
-    // Show/hide button based on scroll position
+    
     window.addEventListener('scroll', utils.debounce(() => {
         if (window.scrollY > 300) {
             scrollBtn.style.opacity = '1';
@@ -390,13 +390,13 @@ function initScrollToTop() {
         }
     }, 100));
     
-    // Scroll to top when clicked
+    
     scrollBtn.addEventListener('click', utils.scrollToTop);
 }
 
-// Initialize scroll-to-top button
+
 initScrollToTop();
 
-// Console welcome message
+
 console.log('%c🌱 Welcome to Soraya\'s Digital Garden!', 'color: #10b981; font-size: 16px; font-weight: bold;');
 console.log('%cFeel free to explore the code and get inspired!', 'color: #2563eb; font-size: 12px;');

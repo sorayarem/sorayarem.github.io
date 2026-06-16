@@ -2,7 +2,7 @@ import fitz
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
-page = fitz.open(root / "cv.pdf")[3]
+page = fitz.open(root / "assets/cv.pdf")[3]
 ph = page.rect.height
 print("=== PAGE 4 ===")
 for block in page.get_text("dict")["blocks"]:

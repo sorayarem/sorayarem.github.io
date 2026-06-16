@@ -1,17 +1,15 @@
-"""Generate cv-hotspots.json from cv.pdf layout. Run: python scripts/generate-cv-hotspots.py"""
+"""Generate cv-hotspots.json from assets/cv.pdf layout. Run: python scripts/generate-cv-hotspots.py"""
 import json
 from pathlib import Path
 
 import fitz
 
 ROOT = Path(__file__).resolve().parents[1]
-PDF = ROOT / "cv.pdf"
+PDF = ROOT / "assets/cv.pdf"
 OUT = ROOT / "cv-hotspots.json"
 
-# Body text starts ~22%; longest lines/dates extend to ~91% (see scripts/dump_cv_page1.py)
 LEFT, WIDTH = 21, 71
 BOTTOM_PAD = 0.2
-# Slight gap above first line for Posters/Presentations and everything below
 TOP_PAD = 0.4
 _TOP_PAD_PREFIXES = ("pres-", "research-", "community-", "project-", "skills-")
 
@@ -37,6 +35,7 @@ def item(
     images=None,
     width=None,
     group=None,
+    caption_html=None,
 ):
     entry = {
         "id": item_id,
@@ -48,6 +47,7 @@ def item(
             "images": images or [],
             "files": [],
             "links": links or [],
+            "captionHtml": caption_html,
         },
     }
     if group:
@@ -57,18 +57,25 @@ def item(
     return entry
 
 
-# Hand-tuned from PDF text positions (scripts/extract_cv_p234.py)
 hotspots = [
-    # --- Education (page 1) ---
     item(
         "edu-usc",
         1,
         "USC Honors College",
         13.7,
         6.4,
-        "University of South Carolina Honors College",
-        "B.S. in Computer Science, Statistics, and Biology with Honors. Expected May 2027. GPA 4.0/4.0.",
-        [{"label": "USC Honors College", "url": "https://www.sc.edu"}],
+        "B.S.: University of South Carolina",
+        "B.S.: University of South Carolina",
+        images=[
+            {
+                "src": "assets/uscarticle.png",
+                "url": "https://sc.edu/study/colleges_schools/engineering_and_computing/news_events/news/2026/soraya_remaili_student_feature.php",
+                "alt": "USC student feature article about Soraya Remaili",
+                "hoverText": "View Article",
+                "caption": "Read more about my time at USC!",
+                "size": "small",
+            }
+        ],
     ),
     item(
         "edu-tjhsst",
@@ -85,10 +92,15 @@ hotspots = [
         "Sciences Po",
         29.2,
         6.5,
-        "Sciences Po — Paris",
-        "Summer Certification, July 2022. Final grade 17.75/20. Focus on international negotiation and affairs.",
+        "sciencespo summer school",
+        "sciencespo summer school",
+        images=[
+            {
+                "src": "assets/sciencespo.png",
+                "alt": "Sciences Po summer school certificate",
+            }
+        ],
     ),
-    # --- Honors (page 1) ---
     item("honor-presidents-list", 1, "President's List", 36.0, 1.6, "President's List", "University of South Carolina President's List, 2023–Present."),
     item("honor-excellence-scholar", 1, "Academic Excellence Scholar", 37.5, 1.6, "Academic Excellence Scholar", "University of South Carolina Academic Excellence Scholar, $2,000/year."),
     item("honor-undergrad-scholarship", 1, "Undergraduate Scholarship", 39.0, 1.6, "Undergraduate Scholarship", "University of South Carolina Undergraduate Scholarship, $25,000/year."),
@@ -107,7 +119,7 @@ hotspots = [
         "SEAMAMMS26 Runner-Up Award",
         images=[
             {
-                "src": "IMG_6203.jpg",
+                "src": "assets/IMG_6203.jpg",
                 "alt": "Soraya Remaili and mentor Abby Kreuser at the SEAMAMMS awards ceremony",
                 "captionHtml": (
                     'My amazing mentor <a href="https://abigailkreuser.weebly.com/">'
@@ -116,7 +128,6 @@ hotspots = [
             }
         ],
     ),
-    # --- Presentations page 1 (top/height from cv.pdf via scripts/dump_cv_page1_pres.py) ---
     item(
         "pres-isc-gulf-maine",
         1,
@@ -128,8 +139,8 @@ hotspots = [
         [],
         images=[
             {
-                "src": "ISC26Wanamaker.png",
-                "url": "ISC26Wanamaker.pdf",
+                "src": "assets/ISC26Wanamaker.png",
+                "url": "assets/ISC26Wanamaker.pdf",
                 "hoverText": "View Abstract",
             }
         ],
@@ -145,8 +156,8 @@ hotspots = [
         [],
         images=[
             {
-                "src": "ISC26Thatcher.png",
-                "url": "ISC26Thatcher.pdf",
+                "src": "assets/ISC26Thatcher.png",
+                "url": "assets/ISC26Thatcher.pdf",
                 "hoverText": "View Abstract",
             }
         ],
@@ -162,8 +173,8 @@ hotspots = [
         [],
         images=[
             {
-                "src": "ISC26Whitney.png",
-                "url": "ISC26Whitney.pdf",
+                "src": "assets/ISC26Whitney.png",
+                "url": "assets/ISC26Whitney.pdf",
                 "hoverText": "View Abstract",
             }
         ],
@@ -179,8 +190,8 @@ hotspots = [
         [{"label": "Research page", "url": "research.html"}],
         images=[
             {
-                "src": "SEAMAMMS26.png",
-                "url": "SEAMAMMS26.pdf",
+                "src": "assets/SEAMAMMS26.png",
+                "url": "assets/SEAMAMMS26.pdf",
                 "hoverText": "View Abstract",
             }
         ],
@@ -197,8 +208,8 @@ hotspots = [
         [{"label": "Research page", "url": "research.html"}],
         images=[
             {
-                "src": "SEAMAMMS26.png",
-                "url": "SEAMAMMS26.pdf",
+                "src": "assets/SEAMAMMS26.png",
+                "url": "assets/SEAMAMMS26.pdf",
                 "hoverText": "View Abstract",
             }
         ],
@@ -214,13 +225,13 @@ hotspots = [
         "Discover USC26: Remaili et al.",
         images=[
             {
-                "src": "SEAMAMMS26.png",
-                "url": "SEAMAMMS26.pdf",
+                "src": "assets/SEAMAMMS26.png",
+                "url": "assets/SEAMAMMS26.pdf",
                 "hoverText": "View Abstract",
             },
             {
-                "src": "discoverUSC26.png",
-                "url": "discoverUSC26.pdf",
+                "src": "assets/discoverUSC26.png",
+                "url": "assets/discoverUSC26.pdf",
                 "hoverText": "View Poster",
             },
         ],
@@ -235,13 +246,13 @@ hotspots = [
         "AGU25: Remaili et al.",
         images=[
             {
-                "src": "AGU25.png",
-                "url": "AGU25.pdf",
+                "src": "assets/AGU25.png",
+                "url": "assets/AGU25.pdf",
                 "hoverText": "View Abstract",
             },
             {
-                "src": "AGU25Poster.png",
-                "url": "AGU25Poster.pdf",
+                "src": "assets/AGU25Poster.png",
+                "url": "assets/AGU25Poster.pdf",
                 "hoverText": "View Poster",
             },
         ],
@@ -256,13 +267,13 @@ hotspots = [
         "Discover USC25: Remaili et al.",
         images=[
             {
-                "src": "DiscoverUSC25.png",
-                "url": "DiscoverUSC25.pdf",
+                "src": "assets/DiscoverUSC25.png",
+                "url": "assets/DiscoverUSC25.pdf",
                 "hoverText": "View Abstract",
             },
             {
-                "src": "discoverUSC25Poster.png",
-                "url": "discoverUSC25Poster.pdf",
+                "src": "assets/discoverUSC25Poster.png",
+                "url": "assets/discoverUSC25Poster.pdf",
                 "hoverText": "View Poster",
             },
         ],
@@ -277,13 +288,12 @@ hotspots = [
         "NARWC24: Meyer-Gutbrod et al.",
         images=[
             {
-                "src": "NARWC24.png",
-                "url": "NARWC24.pdf",
+                "src": "assets/NARWC24.png",
+                "url": "assets/NARWC24.pdf",
                 "hoverText": "View Poster",
             }
         ],
     ),
-    # --- Research experience (pages 2–3; top = entry title y0, height = last line y1 − top) ---
     item(
         "research-active-acoustic",
         2,
@@ -292,6 +302,7 @@ hotspots = [
         16.4,
         "Active Acoustic ID of Arctic Fauna",
         "Fulbright Canada–Mitacs internship at Memorial University (May 2026–Present). WBAT acoustic profiles, Echoview/Python processing, unsupervised classification of fish and zooplankton.",
+        [{"label": "View more information here", "url": "research.html#arctic-fauna-heading"}],
     ),
     item(
         "research-water-billing",
@@ -299,8 +310,9 @@ hotspots = [
         "Nairobi water typologies",
         68.1,
         11.8,
-        "Water and Bill Payment Typologies",
+        "Water Supply and Bill Payment Typologies",
         "USC SEOE with Dr. David Fuente (Feb 2026–Present). Modeled Nairobi billing/payment behavior; Gaussian mixture models for customer typologies.",
+        [{"label": "View more information here", "url": "research.html#water-payment-heading"}],
     ),
     item(
         "research-paleo-reu",
@@ -308,8 +320,9 @@ hotspots = [
         "Paleoceanographic REU",
         81.7,
         8.8,
-        "Paleoceanographic Modeling — REU",
+        "Paleoceanographic Proxy Modeling",
         "NSF-REU at Shannon Point Marine Center (Summer 2025). Python paleoceanographic modeling and multi-taper spectral analysis with Dr. Nina Whitney.",
+        [{"label": "View more information here", "url": "research.html#proxy-modeling-heading"}],
         group="research-paleo-reu",
     ),
     item(
@@ -318,8 +331,9 @@ hotspots = [
         "Paleoceanographic REU (cont.)",
         9.4,
         4.2,
-        "Paleoceanographic Modeling — REU",
+        "Paleoceanographic Proxy Modeling",
         "Presented at symposiums; skills include Pyleoclim, climate data wrangling, and multi-taper spectral analysis.",
+        [{"label": "View more information here", "url": "research.html#proxy-modeling-heading"}],
         group="research-paleo-reu",
     ),
     item(
@@ -337,8 +351,9 @@ hotspots = [
         "Bioacoustics — Meyer-Gutbrod",
         24.5,
         14.8,
-        "Bioacoustic Data Analysis",
+        "Real-Time Bioacoustic Monitoring",
         "USC SEOE with Dr. Erin Meyer-Gutbrod (March 2024–Present). Baleen whale acoustic detection with Python, Raven, R, and LFDCS; real-time processing and conservation-focused evaluation.",
+        [{"label": "View more information here", "url": "research.html#bioacoustics-heading"}],
     ),
     item(
         "research-jellyfish",
@@ -349,7 +364,6 @@ hotspots = [
         "Jellyfish Bioremediation",
         "Thomas Jefferson HS with Dr. Shawn Stickler (2021–2023). Tank maintenance, water quality monitoring, and aquatic ecosystem restoration experiments.",
     ),
-    # --- Community (page 3; tops/heights from cv.pdf page 3 text bounds) ---
     item(
         "community-theta-tau",
         3,
@@ -395,15 +409,24 @@ hotspots = [
         "North Atlantic Right Whale Festival",
         "November 2024. Bioacoustics activities for 300+ visitors.",
     ),
-    # --- Projects (pages 3–4) ---
     item(
         "project-pathways",
         3,
         "Pathways platform",
         86.6,
         4.3,
-        "Pathways: Campus Connection Made Easy",
-        "Full-stack student platform: campus navigation, events, courses, calendars, and career tools.",
+        "pathways webapp",
+        "pathways webapp",
+        images=[
+            {
+                "src": "assets/csce492thesis.png",
+                "url": "assets/csce492thesis.pdf",
+                "alt": "CSCE 492 thesis for the Pathways webapp",
+                "hoverText": "View Thesis",
+                "captionHtml": 'This is the <a class="cv-caption-green-link" href="https://capstone.cse.sc.edu/video/2026/Pathways/">webapp</a> I made for my computing honors thesis.',
+                "size": "tiny",
+            }
+        ],
         group="project-pathways",
     ),
     item(
@@ -412,9 +435,18 @@ hotspots = [
         "Pathways (continued)",
         9.3,
         2.8,
-        "Pathways: Campus Connection Made Easy",
-        "Built with React, Django REST Framework, Docker, Redis, Celery, and GitHub Actions.",
-        [{"label": "GitHub", "url": "https://github.com/sorayarem"}],
+        "pathways webapp",
+        "pathways webapp",
+        images=[
+            {
+                "src": "assets/csce492thesis.png",
+                "url": "assets/csce492thesis.pdf",
+                "alt": "CSCE 492 thesis for the Pathways webapp",
+                "hoverText": "View Thesis",
+                "captionHtml": 'This is the <a class="cv-caption-green-link" href="https://capstone.cse.sc.edu/video/2026/Pathways/">webapp</a> I made for my computing honors thesis.',
+                "size": "tiny",
+            }
+        ],
         group="project-pathways",
     ),
     item(
@@ -433,9 +465,9 @@ hotspots = [
         "Personal website",
         21.4,
         4.3,
-        "Personal Website and Portfolio",
-        "Responsive portfolio with HTML, CSS, and JavaScript; hosted on GitHub Pages.",
-        [{"label": "This site", "url": "index.html"}],
+        "personal website",
+        "personal website",
+        caption_html='You&apos;re in the right place!<br>Check out the repo for it <a class="cv-caption-green-link" href="https://github.com/sorayarem/sorayarem.github.io">here</a>.',
     ),
     item(
         "project-riscv",
@@ -453,11 +485,19 @@ hotspots = [
         "Formula 1 analysis",
         35.0,
         7.3,
-        "Formula 1 Data Analysis",
-        "R analysis of constructor performance, race geography, and championship trends.",
-        [{"label": "GitHub", "url": "https://github.com/sorayarem"}],
+        "formula 1 analytics",
+        "formula 1 analytics",
+        images=[
+            {
+                "src": "assets/stat542.png",
+                "url": "assets/stat542.pdf",
+                "alt": "STAT 542 Formula 1 analytics report",
+                "hoverText": "View Report",
+                "captionHtml": 'I&apos;m a big fan of Formula 1! Here&apos;s a <a class="cv-caption-green-link" href="https://github.com/sorayarem/formula1analysis">project</a> I did in R for one of my classes on F1 analytics.',
+                "size": "small",
+            }
+        ],
     ),
-    # --- Skills (page 4; from cv.pdf page 4 text bounds) ---
     item("skills-french", 4, "French", 43.7, 1.2, "French", "Professional working proficiency; Virginia State Seal of Biliteracy."),
     item("skills-darija", 4, "Algerian Darija", 45.2, 1.2, "Algerian Darija", "Limited working proficiency; Johns Hopkins CTY courses."),
     item(
@@ -466,8 +506,9 @@ hotspots = [
         "Technical skills",
         46.7,
         2.7,
-        "Technical Skills",
-        "R/RStudio, Python, C++, Java/JavaFX, SQL, Git & GitHub, Raven, HTML/CSS, FXML, LFDCS, Echoview, MATLAB.",
+        "technical skills",
+        "technical skills",
+        caption_html='Check out my projects and <a href="https://github.com/sorayarem">GitHub</a> for some examples of my code. Some of my research-related repos are private, but check out the <a href="research.html">Research</a> page for more.',
     ),
     item(
         "skills-certifications",
@@ -475,8 +516,29 @@ hotspots = [
         "CITI & USC certifications",
         49.7,
         2.8,
-        "Research & AI Certifications",
-        "CITI physical and social/behavioral RCR; USC Garnet AI Fluency.",
+        "CITI & USC Certifications",
+        "CITI & USC Certifications",
+        images=[
+            {
+                "src": "assets/citi1.png",
+                "url": "assets/citi1.pdf",
+                "alt": "CITI physical sciences certification",
+                "hoverText": "View Certificate",
+                "caption": "Physical Science",
+            },
+            {
+                "src": "assets/citi2.png",
+                "url": "assets/citi2.pdf",
+                "alt": "CITI social and behavioral certification",
+                "hoverText": "View Certificate",
+                "caption": "Social and Behavioral",
+            },
+            {
+                "src": "assets/garnetai.png",
+                "alt": "Garnet AI Fluency certification",
+                "caption": "Garnet AI Fluency",
+            },
+        ],
     ),
 ]
 
@@ -484,7 +546,6 @@ config = {"hotspots": hotspots}
 OUT.write_text(json.dumps(config, indent=2) + "\n", encoding="utf-8")
 data_js = ROOT / "cv-hotspots-data.js"
 data_js.write_text(
-    "/** Auto-generated by scripts/generate-cv-hotspots.py — do not edit by hand. */\n"
     "window.CV_HOTSPOTS_CONFIG = "
     + json.dumps(config, indent=2)
     + ";\n",

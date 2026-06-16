@@ -5,16 +5,21 @@
       "page": 1,
       "label": "USC Honors College",
       "popup": {
-        "title": "University of South Carolina Honors College",
-        "description": "B.S. in Computer Science, Statistics, and Biology with Honors. Expected May 2027. GPA 4.0/4.0.",
-        "images": [],
-        "files": [],
-        "links": [
+        "title": "B.S.: University of South Carolina",
+        "description": "B.S.: University of South Carolina",
+        "images": [
           {
-            "label": "USC Honors College",
-            "url": "https://www.sc.edu"
+            "src": "assets/uscarticle.png",
+            "url": "https://sc.edu/study/colleges_schools/engineering_and_computing/news_events/news/2026/soraya_remaili_student_feature.php",
+            "alt": "USC student feature article about Soraya Remaili",
+            "hoverText": "View Article",
+            "caption": "Read more about my time at USC!",
+            "size": "small"
           }
-        ]
+        ],
+        "files": [],
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -32,7 +37,8 @@
         "description": "High School Diploma, June 2023. GPA 4.45 (weighted). AP Scholar with Honor.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -46,11 +52,17 @@
       "page": 1,
       "label": "Sciences Po",
       "popup": {
-        "title": "Sciences Po \u2014 Paris",
-        "description": "Summer Certification, July 2022. Final grade 17.75/20. Focus on international negotiation and affairs.",
-        "images": [],
+        "title": "sciencespo summer school",
+        "description": "sciencespo summer school",
+        "images": [
+          {
+            "src": "assets/sciencespo.png",
+            "alt": "Sciences Po summer school certificate"
+          }
+        ],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -68,7 +80,8 @@
         "description": "University of South Carolina President's List, 2023\u2013Present.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -86,7 +99,8 @@
         "description": "University of South Carolina Academic Excellence Scholar, $2,000/year.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -104,7 +118,8 @@
         "description": "University of South Carolina Undergraduate Scholarship, $25,000/year.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -122,7 +137,8 @@
         "description": "South Carolina Honors College Undergraduate Research Grant, 2024\u20132026, $6,000.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -140,7 +156,8 @@
         "description": "Carter Bays Endowed Scholarship for Computer Science, 2024\u20132025, $1,000.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -158,7 +175,8 @@
         "description": "Vlahoplus Engineering Honors Scholarship, 2025\u20132026, $1,000.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -176,7 +194,8 @@
         "description": "Provost AI Undergraduate Fellowship, 2026, $5,000.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -194,7 +213,8 @@
         "description": "Magellan Mini Research Grant, 2026, $750.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -212,13 +232,14 @@
         "description": "SEAMAMMS26 Runner-Up Award",
         "images": [
           {
-            "src": "IMG_6203.jpg",
+            "src": "assets/IMG_6203.jpg",
             "alt": "Soraya Remaili and mentor Abby Kreuser at the SEAMAMMS awards ceremony",
             "captionHtml": "My amazing mentor <a href=\"https://abigailkreuser.weebly.com/\">Abby</a> and I after the awards ceremony!"
           }
         ],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -236,13 +257,14 @@
         "description": "ISC26: Wanamaker et al.",
         "images": [
           {
-            "src": "ISC26Wanamaker.png",
-            "url": "ISC26Wanamaker.pdf",
+            "src": "assets/ISC26Wanamaker.png",
+            "url": "assets/ISC26Wanamaker.pdf",
             "hoverText": "View Abstract"
           }
         ],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -260,13 +282,14 @@
         "description": "ISC26: Thatcher et al.",
         "images": [
           {
-            "src": "ISC26Thatcher.png",
-            "url": "ISC26Thatcher.pdf",
+            "src": "assets/ISC26Thatcher.png",
+            "url": "assets/ISC26Thatcher.pdf",
             "hoverText": "View Abstract"
           }
         ],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -284,13 +307,14 @@
         "description": "ISC26 keynote speaker: Whitney et al.",
         "images": [
           {
-            "src": "ISC26Whitney.png",
-            "url": "ISC26Whitney.pdf",
+            "src": "assets/ISC26Whitney.png",
+            "url": "assets/ISC26Whitney.pdf",
             "hoverText": "View Abstract"
           }
         ],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -308,8 +332,8 @@
         "description": "SEAMAMMS26 talk: Remaili et al.",
         "images": [
           {
-            "src": "SEAMAMMS26.png",
-            "url": "SEAMAMMS26.pdf",
+            "src": "assets/SEAMAMMS26.png",
+            "url": "assets/SEAMAMMS26.pdf",
             "hoverText": "View Abstract"
           }
         ],
@@ -319,7 +343,8 @@
             "label": "Research page",
             "url": "research.html"
           }
-        ]
+        ],
+        "captionHtml": null
       },
       "group": "pres-seamamms",
       "region": {
@@ -338,8 +363,8 @@
         "description": "SEAMAMMS26 talk: Remaili et al.",
         "images": [
           {
-            "src": "SEAMAMMS26.png",
-            "url": "SEAMAMMS26.pdf",
+            "src": "assets/SEAMAMMS26.png",
+            "url": "assets/SEAMAMMS26.pdf",
             "hoverText": "View Abstract"
           }
         ],
@@ -349,7 +374,8 @@
             "label": "Research page",
             "url": "research.html"
           }
-        ]
+        ],
+        "captionHtml": null
       },
       "group": "pres-seamamms",
       "region": {
@@ -368,18 +394,19 @@
         "description": "Discover USC26: Remaili et al.",
         "images": [
           {
-            "src": "SEAMAMMS26.png",
-            "url": "SEAMAMMS26.pdf",
+            "src": "assets/SEAMAMMS26.png",
+            "url": "assets/SEAMAMMS26.pdf",
             "hoverText": "View Abstract"
           },
           {
-            "src": "discoverUSC26.png",
-            "url": "discoverUSC26.pdf",
+            "src": "assets/discoverUSC26.png",
+            "url": "assets/discoverUSC26.pdf",
             "hoverText": "View Poster"
           }
         ],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -397,18 +424,19 @@
         "description": "AGU25: Remaili et al.",
         "images": [
           {
-            "src": "AGU25.png",
-            "url": "AGU25.pdf",
+            "src": "assets/AGU25.png",
+            "url": "assets/AGU25.pdf",
             "hoverText": "View Abstract"
           },
           {
-            "src": "AGU25Poster.png",
-            "url": "AGU25Poster.pdf",
+            "src": "assets/AGU25Poster.png",
+            "url": "assets/AGU25Poster.pdf",
             "hoverText": "View Poster"
           }
         ],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -426,18 +454,19 @@
         "description": "Discover USC25: Remaili et al.",
         "images": [
           {
-            "src": "DiscoverUSC25.png",
-            "url": "DiscoverUSC25.pdf",
+            "src": "assets/DiscoverUSC25.png",
+            "url": "assets/DiscoverUSC25.pdf",
             "hoverText": "View Abstract"
           },
           {
-            "src": "discoverUSC25Poster.png",
-            "url": "discoverUSC25Poster.pdf",
+            "src": "assets/discoverUSC25Poster.png",
+            "url": "assets/discoverUSC25Poster.pdf",
             "hoverText": "View Poster"
           }
         ],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -455,13 +484,14 @@
         "description": "NARWC24: Meyer-Gutbrod et al.",
         "images": [
           {
-            "src": "NARWC24.png",
-            "url": "NARWC24.pdf",
+            "src": "assets/NARWC24.png",
+            "url": "assets/NARWC24.pdf",
             "hoverText": "View Poster"
           }
         ],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -479,7 +509,13 @@
         "description": "Fulbright Canada\u2013Mitacs internship at Memorial University (May 2026\u2013Present). WBAT acoustic profiles, Echoview/Python processing, unsupervised classification of fish and zooplankton.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [
+          {
+            "label": "View more information here",
+            "url": "research.html#arctic-fauna-heading"
+          }
+        ],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -493,11 +529,17 @@
       "page": 2,
       "label": "Nairobi water typologies",
       "popup": {
-        "title": "Water and Bill Payment Typologies",
+        "title": "Water Supply and Bill Payment Typologies",
         "description": "USC SEOE with Dr. David Fuente (Feb 2026\u2013Present). Modeled Nairobi billing/payment behavior; Gaussian mixture models for customer typologies.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [
+          {
+            "label": "View more information here",
+            "url": "research.html#water-payment-heading"
+          }
+        ],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -511,11 +553,17 @@
       "page": 2,
       "label": "Paleoceanographic REU",
       "popup": {
-        "title": "Paleoceanographic Modeling \u2014 REU",
+        "title": "Paleoceanographic Proxy Modeling",
         "description": "NSF-REU at Shannon Point Marine Center (Summer 2025). Python paleoceanographic modeling and multi-taper spectral analysis with Dr. Nina Whitney.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [
+          {
+            "label": "View more information here",
+            "url": "research.html#proxy-modeling-heading"
+          }
+        ],
+        "captionHtml": null
       },
       "group": "research-paleo-reu",
       "region": {
@@ -530,11 +578,17 @@
       "page": 3,
       "label": "Paleoceanographic REU (cont.)",
       "popup": {
-        "title": "Paleoceanographic Modeling \u2014 REU",
+        "title": "Paleoceanographic Proxy Modeling",
         "description": "Presented at symposiums; skills include Pyleoclim, climate data wrangling, and multi-taper spectral analysis.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [
+          {
+            "label": "View more information here",
+            "url": "research.html#proxy-modeling-heading"
+          }
+        ],
+        "captionHtml": null
       },
       "group": "research-paleo-reu",
       "region": {
@@ -553,7 +607,8 @@
         "description": "May 2024. Real-time environmental data analysis with NOAA scientists through simulations and case studies.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -567,11 +622,17 @@
       "page": 3,
       "label": "Bioacoustics \u2014 Meyer-Gutbrod",
       "popup": {
-        "title": "Bioacoustic Data Analysis",
+        "title": "Real-Time Bioacoustic Monitoring",
         "description": "USC SEOE with Dr. Erin Meyer-Gutbrod (March 2024\u2013Present). Baleen whale acoustic detection with Python, Raven, R, and LFDCS; real-time processing and conservation-focused evaluation.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [
+          {
+            "label": "View more information here",
+            "url": "research.html#bioacoustics-heading"
+          }
+        ],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -589,7 +650,8 @@
         "description": "Thomas Jefferson HS with Dr. Shawn Stickler (2021\u20132023). Tank maintenance, water quality monitoring, and aquatic ecosystem restoration experiments.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -607,7 +669,8 @@
         "description": "Spring/Fall 2024. Co-led service and equity committees; managed project budgets and funding.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -625,7 +688,8 @@
         "description": "July 2024, Fairfax County Public Schools. Taught robotics, coding, and sensors to children.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -643,7 +707,8 @@
         "description": "July 2025, Anacortes & Oak Harbor. Marine habitat learning experience for 100+ children.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -661,7 +726,8 @@
         "description": "June 2025. Intertidal zone and microscopy workshop for middle-school students.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -679,7 +745,8 @@
         "description": "November 2024. Bioacoustics activities for 300+ visitors.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -693,11 +760,21 @@
       "page": 3,
       "label": "Pathways platform",
       "popup": {
-        "title": "Pathways: Campus Connection Made Easy",
-        "description": "Full-stack student platform: campus navigation, events, courses, calendars, and career tools.",
-        "images": [],
+        "title": "pathways webapp",
+        "description": "pathways webapp",
+        "images": [
+          {
+            "src": "assets/csce492thesis.png",
+            "url": "assets/csce492thesis.pdf",
+            "alt": "CSCE 492 thesis for the Pathways webapp",
+            "hoverText": "View Thesis",
+            "captionHtml": "This is the <a class=\"cv-caption-green-link\" href=\"https://capstone.cse.sc.edu/video/2026/Pathways/\">webapp</a> I made for my computing honors thesis.",
+            "size": "tiny"
+          }
+        ],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "group": "project-pathways",
       "region": {
@@ -712,16 +789,21 @@
       "page": 4,
       "label": "Pathways (continued)",
       "popup": {
-        "title": "Pathways: Campus Connection Made Easy",
-        "description": "Built with React, Django REST Framework, Docker, Redis, Celery, and GitHub Actions.",
-        "images": [],
-        "files": [],
-        "links": [
+        "title": "pathways webapp",
+        "description": "pathways webapp",
+        "images": [
           {
-            "label": "GitHub",
-            "url": "https://github.com/sorayarem"
+            "src": "assets/csce492thesis.png",
+            "url": "assets/csce492thesis.pdf",
+            "alt": "CSCE 492 thesis for the Pathways webapp",
+            "hoverText": "View Thesis",
+            "captionHtml": "This is the <a class=\"cv-caption-green-link\" href=\"https://capstone.cse.sc.edu/video/2026/Pathways/\">webapp</a> I made for my computing honors thesis.",
+            "size": "tiny"
           }
-        ]
+        ],
+        "files": [],
+        "links": [],
+        "captionHtml": null
       },
       "group": "project-pathways",
       "region": {
@@ -745,7 +827,8 @@
             "label": "GitHub",
             "url": "https://github.com/sorayarem"
           }
-        ]
+        ],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -759,16 +842,12 @@
       "page": 4,
       "label": "Personal website",
       "popup": {
-        "title": "Personal Website and Portfolio",
-        "description": "Responsive portfolio with HTML, CSS, and JavaScript; hosted on GitHub Pages.",
+        "title": "personal website",
+        "description": "personal website",
         "images": [],
         "files": [],
-        "links": [
-          {
-            "label": "This site",
-            "url": "index.html"
-          }
-        ]
+        "links": [],
+        "captionHtml": "You&apos;re in the right place!<br>Check out the repo for it <a class=\"cv-caption-green-link\" href=\"https://github.com/sorayarem/sorayarem.github.io\">here</a>."
       },
       "region": {
         "left": 21,
@@ -791,7 +870,8 @@
             "label": "GitHub",
             "url": "https://github.com/sorayarem"
           }
-        ]
+        ],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -805,16 +885,21 @@
       "page": 4,
       "label": "Formula 1 analysis",
       "popup": {
-        "title": "Formula 1 Data Analysis",
-        "description": "R analysis of constructor performance, race geography, and championship trends.",
-        "images": [],
-        "files": [],
-        "links": [
+        "title": "formula 1 analytics",
+        "description": "formula 1 analytics",
+        "images": [
           {
-            "label": "GitHub",
-            "url": "https://github.com/sorayarem"
+            "src": "assets/stat542.png",
+            "url": "assets/stat542.pdf",
+            "alt": "STAT 542 Formula 1 analytics report",
+            "hoverText": "View Report",
+            "captionHtml": "I&apos;m a big fan of Formula 1! Here&apos;s a <a class=\"cv-caption-green-link\" href=\"https://github.com/sorayarem/formula1analysis\">project</a> I did in R for one of my classes on F1 analytics.",
+            "size": "small"
           }
-        ]
+        ],
+        "files": [],
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -832,7 +917,8 @@
         "description": "Professional working proficiency; Virginia State Seal of Biliteracy.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -850,7 +936,8 @@
         "description": "Limited working proficiency; Johns Hopkins CTY courses.",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,
@@ -864,11 +951,12 @@
       "page": 4,
       "label": "Technical skills",
       "popup": {
-        "title": "Technical Skills",
-        "description": "R/RStudio, Python, C++, Java/JavaFX, SQL, Git & GitHub, Raven, HTML/CSS, FXML, LFDCS, Echoview, MATLAB.",
+        "title": "technical skills",
+        "description": "technical skills",
         "images": [],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": "Check out my projects and <a href=\"https://github.com/sorayarem\">GitHub</a> for some examples of my code. Some of my research-related repos are private, but check out the <a href=\"research.html\">Research</a> page for more."
       },
       "region": {
         "left": 21,
@@ -882,11 +970,32 @@
       "page": 4,
       "label": "CITI & USC certifications",
       "popup": {
-        "title": "Research & AI Certifications",
-        "description": "CITI physical and social/behavioral RCR; USC Garnet AI Fluency.",
-        "images": [],
+        "title": "CITI & USC Certifications",
+        "description": "CITI & USC Certifications",
+        "images": [
+          {
+            "src": "assets/citi1.png",
+            "url": "assets/citi1.pdf",
+            "alt": "CITI physical sciences certification",
+            "hoverText": "View Certificate",
+            "caption": "Physical Science"
+          },
+          {
+            "src": "assets/citi2.png",
+            "url": "assets/citi2.pdf",
+            "alt": "CITI social and behavioral certification",
+            "hoverText": "View Certificate",
+            "caption": "Social and Behavioral"
+          },
+          {
+            "src": "assets/garnetai.png",
+            "alt": "Garnet AI Fluency certification",
+            "caption": "Garnet AI Fluency"
+          }
+        ],
         "files": [],
-        "links": []
+        "links": [],
+        "captionHtml": null
       },
       "region": {
         "left": 21,

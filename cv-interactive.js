@@ -1,22 +1,22 @@
-/**
 
- * Interactive CV: renders cv.pdf and overlays clickable hotspots.
 
- * Hotspots: cv-hotspots-data.js (local) or fetch cv-hotspots.json (HTTP).
 
- * Regenerate: python scripts/generate-cv-hotspots.py
 
- */
+
+
+
+
+
 
 (function () {
 
-    const PDF_URL = 'cv.pdf';
+    const PDF_URL = 'assets/cv.pdf';
 
     const HOTSPOTS_URL = 'cv-hotspots.json';
 
     const WORKER_URL = 'pdf.worker.min.js';
 
-    const FALLBACK_IMAGE = 'cv-preview.png';
+    const FALLBACK_IMAGE = 'assets/cv-preview.png';
 
     const CV_PAGE_MAX_WIDTH = 900;
     const SCROLLBAR_GUTTER = 16;
@@ -69,7 +69,7 @@
 
     function showError(message) {
 
-        container.innerHTML = `<p class="cv-error">${message} <a href="cv.pdf" class="method-link">Open the PDF</a> instead.</p>`;
+        container.innerHTML = `<p class="cv-error">${message} <a href="assets/cv.pdf" class="method-link">Open the PDF</a> instead.</p>`;
 
     }
 
@@ -81,9 +81,9 @@
 
             <p class="cv-error">${message}</p>
 
-            <p class="cv-interactive-hint">Static preview below. <a href="cv.pdf" class="method-link">Open the PDF</a> for the full document.</p>
+            <p class="cv-interactive-hint">Static preview below. <a href="assets/cv.pdf" class="method-link">Open the PDF</a> for the full document.</p>
 
-            <a href="cv.pdf" class="cv-fallback-preview" target="_blank" rel="noopener noreferrer">
+            <a href="assets/cv.pdf" class="cv-fallback-preview" target="_blank" rel="noopener noreferrer">
 
                 <img src="${FALLBACK_IMAGE}" alt="CV preview" width="900" loading="lazy">
 
@@ -591,6 +591,48 @@
 
     }
 
+    function normalizedHashTarget() {
+        const params = new URLSearchParams(window.location.search);
+        const target = params.get('open') || (window.location.hash || '').replace(/^#/, '');
+        return decodeURIComponent(target).trim();
+    }
+
+    function findHashHotspot(target) {
+        if (!target) return null;
+        return (
+            hotspots.find((hotspot) => hotspot.id === target) ||
+            hotspots.find((hotspot) => hotspot.group === target) ||
+            null
+        );
+    }
+
+    function scrollHashHotspotIntoView(hotspot) {
+        if (!hotspot || !hotspot.id) return;
+
+        const btn = container.querySelector(`.cv-hotspot[data-hotspot-id="${hotspot.id}"]`);
+        if (!btn) return;
+
+        btn.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'center'
+        });
+
+        if (hotspot.group) {
+            setGroupHover(hotspot.group, true);
+        } else {
+            btn.classList.add('cv-hotspot--group-active');
+        }
+    }
+
+    function openHashHotspot() {
+        const hotspot = findHashHotspot(normalizedHashTarget());
+        if (!hotspot) return;
+
+        openDetailPanel(hotspot);
+        requestAnimationFrame(() => scrollHashHotspotIntoView(hotspot));
+    }
+
     function bindHotspot(btn, hotspot) {
 
         btn.addEventListener('click', () => openDetailPanel(hotspot));
@@ -638,6 +680,8 @@
                 btn.type = 'button';
 
                 btn.className = 'cv-hotspot';
+
+                if (hotspot.id) btn.dataset.hotspotId = hotspot.id;
 
                 btn.setAttribute('aria-label', hotspot.label || 'More information');
 
@@ -692,6 +736,11 @@
         if (img.url) {
             const imageLink = document.createElement('a');
             imageLink.className = 'cv-modal-image-link';
+            if (img.size === 'small') {
+                imageLink.classList.add('cv-modal-image-link--small');
+            } else if (img.size === 'tiny') {
+                imageLink.classList.add('cv-modal-image-link--tiny');
+            }
             imageLink.href = img.url;
             const hoverText = img.hoverText || 'Open linked file';
             imageLink.title = hoverText;
@@ -881,7 +930,17 @@
 
         detailBody.innerHTML = '';
 
-        const eyebrowText = popup.description || popup.title || hotspot.label || '';
+        const researchTitleOnlyHotspots = new Set([
+            'research-bioacoustics',
+            'research-paleo-reu',
+            'research-paleo-reu-cont',
+            'research-active-acoustic',
+            'research-water-billing',
+            'research-jellyfish',
+        ]);
+        const eyebrowText = researchTitleOnlyHotspots.has(hotspot.id)
+            ? popup.title || popup.description || hotspot.label || ''
+            : popup.description || popup.title || hotspot.label || '';
 
         if (eyebrowText) {
 
@@ -954,7 +1013,7 @@
                 (link) => !(link && link.url && imageLinkUrls.has(String(link.url)))
             );
             if (!visibleLinks.length) {
-                /* Link already available on image hover/click. */
+                
             } else {
 
             const links = document.createElement('ul');
@@ -969,7 +1028,19 @@
 
                 a.href = link.url;
 
-                a.textContent = link.label || link.url;
+                if (link.label === 'View more information here') {
+
+                    li.className = 'cv-modal-link-sentence';
+
+                    li.appendChild(document.createTextNode('View more information '));
+
+                    a.textContent = 'here';
+
+                } else {
+
+                    a.textContent = link.label || link.url;
+
+                }
 
                 if (link.url.startsWith('http')) {
 
@@ -987,6 +1058,39 @@
 
             detailBody.appendChild(links);
             }
+
+        }
+
+
+        if (popup.captionHtml || popup.caption) {
+
+            const caption = document.createElement('p');
+
+            caption.className = 'cv-modal-caption';
+
+            if (popup.captionHtml) {
+
+                caption.innerHTML = popup.captionHtml;
+
+                caption.querySelectorAll('a[href]').forEach((a) => {
+
+                    if (a.href.startsWith('http')) {
+
+                        a.target = '_blank';
+
+                        a.rel = 'noopener noreferrer';
+
+                    }
+
+                });
+
+            } else {
+
+                caption.textContent = popup.caption;
+
+            }
+
+            detailBody.appendChild(caption);
 
         }
 
@@ -1044,6 +1148,23 @@
 
 
 
+        let config;
+
+        try {
+
+            config = await loadHotspots();
+
+            hotspots = config.hotspots || [];
+            openHashHotspot();
+
+        } catch {
+
+            showError('Could not load hotspot configuration.');
+
+            return;
+
+        }
+
         let lib;
 
         try {
@@ -1061,24 +1182,6 @@
 
 
         lib.GlobalWorkerOptions.workerSrc = workerSrc();
-
-
-
-        let config;
-
-        try {
-
-            config = await loadHotspots();
-
-            hotspots = config.hotspots || [];
-
-        } catch {
-
-            showError('Could not load hotspot configuration.');
-
-            return;
-
-        }
 
 
 
@@ -1101,6 +1204,8 @@
             pdfDoc = await loadPdf(lib);
 
             await renderAllPages();
+
+            openHashHotspot();
 
         } catch (err) {
 
@@ -1128,6 +1233,8 @@
 
         detailClose.addEventListener('click', closeDetailPanel);
 
+        window.addEventListener('hashchange', openHashHotspot);
+
         document.addEventListener('keydown', (e) => {
 
             if (e.key === 'Escape' && !detailPanel.hidden) closeDetailPanel();
@@ -1151,5 +1258,3 @@
     }
 
 })();
-
-
