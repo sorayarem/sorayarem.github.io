@@ -759,7 +759,7 @@ window.CV_HOTSPOTS_CONFIG = {
         "images": [],
         "files": [],
         "links": [],
-        "captionHtml": "See more <a class=\"cv-caption-green-link\" href=\"https://www.thesalishseaschool.org/guardians-of-the-sea\">here</a> about the program"
+        "captionHtml": "See more <a class=\"cv-caption-green-link\" href=\"https://www.thesalishseaschool.org/guardians-of-the-sea\">here</a> about the program."
       },
       "region": {
         "left": 21,

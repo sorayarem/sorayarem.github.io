@@ -226,35 +226,6 @@ function initScrollAnimations() {
 }
 
 
-function initHeroTitleAnimation() {
-    const heroTitle = document.querySelector('.hero-title');
-    if (!heroTitle || heroTitle.classList.contains('hero-title--ready')) return;
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        heroTitle.classList.add('hero-title--ready');
-        return;
-    }
-
-    const text = heroTitle.textContent.trim();
-    heroTitle.textContent = '';
-    heroTitle.setAttribute('aria-label', text);
-
-    const fragment = document.createDocumentFragment();
-    [...text].forEach((char, index) => {
-        const span = document.createElement('span');
-        span.className = 'hero-title-char';
-        span.textContent = char === ' ' ? '\u00a0' : char;
-        span.style.setProperty('--char-delay', `${index * 0.035}s`);
-        fragment.appendChild(span);
-    });
-
-    heroTitle.appendChild(fragment);
-    requestAnimationFrame(() => {
-        heroTitle.classList.add('hero-title--ready');
-    });
-}
-
-
 function initFloatingElements() {
     const elements = document.querySelectorAll('.element');
     
@@ -305,7 +276,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initProjectFiltering();
     initContactForm();
     initScrollAnimations();
-    initHeroTitleAnimation();
     initFloatingElements();
     initMobileMenu();
     initThemeToggle();

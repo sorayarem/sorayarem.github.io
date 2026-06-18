@@ -508,7 +508,7 @@ hotspots = [
         2.8,
         "guardianes del mar",
         "guardianes del mar",
-        caption_html='See more <a class="cv-caption-green-link" href="https://www.thesalishseaschool.org/guardians-of-the-sea">here</a> about the program',
+        caption_html='See more <a class="cv-caption-green-link" href="https://www.thesalishseaschool.org/guardians-of-the-sea">here</a> about the program.',
     ),
     item(
         "community-narw-festival",
