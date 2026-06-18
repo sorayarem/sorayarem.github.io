@@ -260,7 +260,7 @@
 
         hint.className = 'cv-interactive-hint';
 
-        hint.appendChild(document.createTextNode('Hover highlighted areas for details. View a PDF version '));
+        hint.appendChild(document.createTextNode('Click highlighted areas for details. View a PDF version '));
 
         const pdfLink = document.createElement('a');
 
@@ -740,6 +740,8 @@
                 imageLink.classList.add('cv-modal-image-link--small');
             } else if (img.size === 'tiny') {
                 imageLink.classList.add('cv-modal-image-link--tiny');
+            } else if (img.size === 'page-fit') {
+                imageLink.classList.add('cv-modal-image-link--page-fit');
             }
             imageLink.href = img.url;
             const hoverText = img.hoverText || 'Open linked file';
@@ -845,7 +847,7 @@
             countViewport.className = 'cv-detail-carousel-count-viewport';
             const count = document.createElement('p');
             count.className = 'cv-detail-carousel-count cv-popup-slide';
-            count.textContent = `${activePopupImageIndex + 1} / ${activePopupImages.length}`;
+            count.textContent = `${activePopupImageIndex + 1}/${activePopupImages.length}`;
             countViewport.appendChild(count);
             popupGalleryEl.appendChild(countViewport);
         } else {
@@ -889,7 +891,7 @@
             const figure = await nextFigurePromise;
             slide.replaceChildren(figure);
             if (countEl) {
-                countEl.textContent = `${newIndex + 1} / ${len}`;
+                countEl.textContent = `${newIndex + 1}/${len}`;
             }
             activePopupImageIndex = newIndex;
             animateIn(slide);

@@ -13,7 +13,7 @@ window.CV_HOTSPOTS_CONFIG = {
             "url": "https://sc.edu/study/colleges_schools/engineering_and_computing/news_events/news/2026/soraya_remaili_student_feature.php",
             "alt": "USC student feature article about Soraya Remaili",
             "hoverText": "View Article",
-            "caption": "Read more about my time at USC!",
+            "captionHtml": "Read more about my time at USC<br>(and a little about TJ)!",
             "size": "small"
           }
         ],
@@ -21,6 +21,7 @@ window.CV_HOTSPOTS_CONFIG = {
         "links": [],
         "captionHtml": null
       },
+      "group": "edu-usc-tjhsst",
       "region": {
         "left": 21,
         "top": 13.7,
@@ -40,6 +41,7 @@ window.CV_HOTSPOTS_CONFIG = {
         "links": [],
         "captionHtml": null
       },
+      "group": "edu-usc-tjhsst",
       "region": {
         "left": 21,
         "top": 21.5,
@@ -74,14 +76,14 @@ window.CV_HOTSPOTS_CONFIG = {
     {
       "id": "honor-presidents-list",
       "page": 1,
-      "label": "President's List",
+      "label": "USC president's list",
       "popup": {
-        "title": "President's List",
-        "description": "University of South Carolina President's List, 2023\u2013Present.",
+        "title": "USC president's list",
+        "description": "USC president's list",
         "images": [],
         "files": [],
         "links": [],
-        "captionHtml": null
+        "captionHtml": "<a href=\"https://sc.edu/about/offices_and_divisions/registrar/transcripts_and_records/honor_lists/\">Honor</a> given to students with a 4.0 GPA."
       },
       "region": {
         "left": 21,
@@ -93,14 +95,14 @@ window.CV_HOTSPOTS_CONFIG = {
     {
       "id": "honor-excellence-scholar",
       "page": 1,
-      "label": "Academic Excellence Scholar",
+      "label": "usc academic excellence scholar",
       "popup": {
-        "title": "Academic Excellence Scholar",
-        "description": "University of South Carolina Academic Excellence Scholar, $2,000/year.",
+        "title": "usc academic excellence scholar",
+        "description": "usc academic excellence scholar",
         "images": [],
         "files": [],
         "links": [],
-        "captionHtml": null
+        "captionHtml": "<a href=\"https://sc.edu/about/offices_and_divisions/undergraduate_admissions/tuition_scholarships/nonresidents/#accordion-group-10-item-5-content\">Scholarship</a> awarding $2000/year."
       },
       "region": {
         "left": 21,
@@ -112,14 +114,14 @@ window.CV_HOTSPOTS_CONFIG = {
     {
       "id": "honor-undergrad-scholarship",
       "page": 1,
-      "label": "Undergraduate Scholarship",
+      "label": "usc undergraduate scholarship",
       "popup": {
-        "title": "Undergraduate Scholarship",
-        "description": "University of South Carolina Undergraduate Scholarship, $25,000/year.",
+        "title": "usc undergraduate scholarship",
+        "description": "usc undergraduate scholarship",
         "images": [],
         "files": [],
         "links": [],
-        "captionHtml": null
+        "captionHtml": "<a href=\"https://sc.edu/about/offices_and_divisions/undergraduate_admissions/tuition_scholarships/nonresidents/#accordion-group-10-item-5-content\">Scholarship</a> awarding in-state tuition."
       },
       "region": {
         "left": 21,
@@ -131,14 +133,14 @@ window.CV_HOTSPOTS_CONFIG = {
     {
       "id": "honor-honors-research-grant",
       "page": 1,
-      "label": "Honors Research Grant",
+      "label": "schc research grant",
       "popup": {
-        "title": "Honors College Research Grant",
-        "description": "South Carolina Honors College Undergraduate Research Grant, 2024\u20132026, $6,000.",
+        "title": "schc research grant",
+        "description": "schc research grant",
         "images": [],
         "files": [],
         "links": [],
-        "captionHtml": null
+        "captionHtml": "Two years ($3000/cycle) of <a href=\"https://sc.edu/study/colleges_schools/honors_college/internal/beyond_the_classroom/undergraduate_research/honorscollege_researchgrants/\">funding</a> for my bioacoustics work with Dr. Meyer-Gutbrod."
       },
       "region": {
         "left": 21,
@@ -150,14 +152,14 @@ window.CV_HOTSPOTS_CONFIG = {
     {
       "id": "honor-carter-bays",
       "page": 1,
-      "label": "Carter Bays Scholarship",
+      "label": "carter bays endowed scholar",
       "popup": {
-        "title": "Carter Bays Scholarship",
-        "description": "Carter Bays Endowed Scholarship for Computer Science, 2024\u20132025, $1,000.",
+        "title": "carter bays endowed scholar",
+        "description": "carter bays endowed scholar",
         "images": [],
         "files": [],
         "links": [],
-        "captionHtml": null
+        "captionHtml": "<a href=\"https://sc.edu/study/colleges_schools/engineering_and_computing/docs/student_services/2025-2026_mcec_scholarship_list.pdf\">Awarded</a> to undergraduate students majoring in computer science."
       },
       "region": {
         "left": 21,
@@ -169,14 +171,14 @@ window.CV_HOTSPOTS_CONFIG = {
     {
       "id": "honor-vlahoplus",
       "page": 1,
-      "label": "Vlahoplus Scholarship",
+      "label": "vlahoplus honors scholar",
       "popup": {
-        "title": "Vlahoplus Engineering Honors Scholarship",
-        "description": "Vlahoplus Engineering Honors Scholarship, 2025\u20132026, $1,000.",
+        "title": "vlahoplus honors scholar",
+        "description": "vlahoplus honors scholar",
         "images": [],
         "files": [],
         "links": [],
-        "captionHtml": null
+        "captionHtml": "<a href=\"https://sc.edu/study/colleges_schools/engineering_and_computing/docs/student_services/2025-2026_mcec_scholarship_list.pdf\">Awarded</a> to an Honors College student in the MCEC."
       },
       "region": {
         "left": 21,
@@ -188,14 +190,14 @@ window.CV_HOTSPOTS_CONFIG = {
     {
       "id": "honor-provost-ai",
       "page": 1,
-      "label": "Provost AI Fellowship",
+      "label": "provost undergraduate ai fellow",
       "popup": {
-        "title": "Provost AI Undergraduate Fellowship",
-        "description": "Provost AI Undergraduate Fellowship, 2026, $5,000.",
+        "title": "provost undergraduate ai fellow",
+        "description": "provost undergraduate ai fellow",
         "images": [],
         "files": [],
         "links": [],
-        "captionHtml": null
+        "captionHtml": "Fellowship <a href=\"https://sc.edu/study/colleges_schools/honors_college/internal/academic_advising/provost-ai-fellowship.php\">grant</a> for work on an AI-driven research <a href=\"research.html#water-payment-heading\">project</a>."
       },
       "region": {
         "left": 21,
@@ -207,14 +209,14 @@ window.CV_HOTSPOTS_CONFIG = {
     {
       "id": "honor-magellan-mini",
       "page": 1,
-      "label": "Magellan Mini Grant",
+      "label": "magellan mini-grant",
       "popup": {
-        "title": "Magellan Mini Research Grant",
-        "description": "Magellan Mini Research Grant, 2026, $750.",
+        "title": "magellan mini-grant",
+        "description": "magellan mini-grant",
         "images": [],
         "files": [],
         "links": [],
-        "captionHtml": null
+        "captionHtml": "Research <a href=\"https://sc.edu/about/offices_and_divisions/undergraduate_research/funding_opportunities/our_funding/mini-grants/\">grant</a> to continue my bioacoustics work with Dr. Meyer-Gutbrod."
       },
       "region": {
         "left": 21,
@@ -603,9 +605,15 @@ window.CV_HOTSPOTS_CONFIG = {
       "page": 3,
       "label": "NOAA workshop",
       "popup": {
-        "title": "NOAA Real-Time Analysis Workshop",
-        "description": "May 2024. Real-time environmental data analysis with NOAA scientists through simulations and case studies.",
-        "images": [],
+        "title": "noaa workshop",
+        "description": "noaa workshop",
+        "images": [
+          {
+            "src": "assets/pitchtrack.png",
+            "alt": "Real-time pitch track example",
+            "caption": "An example of a real-time pitch track."
+          }
+        ],
         "files": [],
         "links": [],
         "captionHtml": null
@@ -646,9 +654,15 @@ window.CV_HOTSPOTS_CONFIG = {
       "page": 3,
       "label": "Jellyfish bioremediation",
       "popup": {
-        "title": "Jellyfish Bioremediation",
-        "description": "Thomas Jefferson HS with Dr. Shawn Stickler (2021\u20132023). Tank maintenance, water quality monitoring, and aquatic ecosystem restoration experiments.",
-        "images": [],
+        "title": "senior research",
+        "description": "senior research",
+        "images": [
+          {
+            "src": "assets/jellyfish.jpg",
+            "alt": "Jellyfish research project",
+            "captionHtml": "Here's the project that first got me interested in marine science! It's a very rudimentary effort, especially since it was in high school, but you can check out the journal I kept for it <a href=\"https://quickest-toque-d54.notion.site/Jellyfish-Tracking-Journal-6e53f19e5f6c44aba5377431b07d2add\">here</a>."
+          }
+        ],
         "files": [],
         "links": [],
         "captionHtml": null
@@ -665,9 +679,15 @@ window.CV_HOTSPOTS_CONFIG = {
       "page": 3,
       "label": "Theta Tau service",
       "popup": {
-        "title": "Theta Tau \u2014 Service & DEI Chair",
-        "description": "Spring/Fall 2024. Co-led service and equity committees; managed project budgets and funding.",
-        "images": [],
+        "title": "service/dei chair",
+        "description": "service/dei chair",
+        "images": [
+          {
+            "src": "assets/pumpkin.jpg",
+            "alt": "Pumpkin painting mental health night",
+            "caption": "Pumpkin painting mental health night!"
+          }
+        ],
         "files": [],
         "links": [],
         "captionHtml": null
@@ -684,9 +704,15 @@ window.CV_HOTSPOTS_CONFIG = {
       "page": 3,
       "label": "Technology Adventure Camp",
       "popup": {
-        "title": "Technology Adventure Camp Instructor",
-        "description": "July 2024, Fairfax County Public Schools. Taught robotics, coding, and sensors to children.",
-        "images": [],
+        "title": "fcps tech camp",
+        "description": "fcps tech camp",
+        "images": [
+          {
+            "src": "assets/maze.jpg",
+            "alt": "Maze built for students to race robots in",
+            "caption": "A maze I built for students to race their robots in."
+          }
+        ],
         "files": [],
         "links": [],
         "captionHtml": null
@@ -703,9 +729,15 @@ window.CV_HOTSPOTS_CONFIG = {
       "page": 3,
       "label": "Library touch tank",
       "popup": {
-        "title": "Public Library Touch Tank",
-        "description": "July 2025, Anacortes & Oak Harbor. Marine habitat learning experience for 100+ children.",
-        "images": [],
+        "title": "touch tank outreach",
+        "description": "touch tank outreach",
+        "images": [
+          {
+            "src": "assets/oakharbor.jpg",
+            "alt": "REU cohort running the touch tank outreach event",
+            "caption": "My REU cohort and I running the touch tank!"
+          }
+        ],
         "files": [],
         "links": [],
         "captionHtml": null
@@ -722,12 +754,12 @@ window.CV_HOTSPOTS_CONFIG = {
       "page": 3,
       "label": "Guardianes Del Mar",
       "popup": {
-        "title": "Guardianes Del Mar STEM Program",
-        "description": "June 2025. Intertidal zone and microscopy workshop for middle-school students.",
+        "title": "guardianes del mar",
+        "description": "guardianes del mar",
         "images": [],
         "files": [],
         "links": [],
-        "captionHtml": null
+        "captionHtml": "See more <a class=\"cv-caption-green-link\" href=\"https://www.thesalishseaschool.org/guardians-of-the-sea\">here</a> about the program"
       },
       "region": {
         "left": 21,
@@ -741,9 +773,15 @@ window.CV_HOTSPOTS_CONFIG = {
       "page": 3,
       "label": "Right Whale Festival",
       "popup": {
-        "title": "North Atlantic Right Whale Festival",
-        "description": "November 2024. Bioacoustics activities for 300+ visitors.",
-        "images": [],
+        "title": "narw festival",
+        "description": "narw festival",
+        "images": [
+          {
+            "src": "assets/narwfestival.jpg",
+            "alt": "North Atlantic right whale festival booth visitors listening to sounds",
+            "caption": "Showing off some sounds to booth visitors!"
+          }
+        ],
         "files": [],
         "links": [],
         "captionHtml": null
@@ -818,16 +856,27 @@ window.CV_HOTSPOTS_CONFIG = {
       "page": 4,
       "label": "DegreeBetter",
       "popup": {
-        "title": "DegreeBetter Academic Management System",
-        "description": "Java/JavaFX degree planning system with backend for requirements and degree tracking.",
-        "images": [],
-        "files": [],
-        "links": [
+        "title": "degreebetter",
+        "description": "degreebetter",
+        "images": [
           {
-            "label": "GitHub",
-            "url": "https://github.com/sorayarem"
+            "src": "assets/csce247-design-document.png",
+            "url": "assets/csce247-design-document.pdf",
+            "alt": "DegreeBetter design document",
+            "hoverText": "View Design",
+            "caption": "My first SWE project and an initial foray into UX design. Sadly, the repo must stay private, but check out our design layout and UML diagram!",
+            "size": "page-fit"
+          },
+          {
+            "src": "assets/uml-diagram.png",
+            "url": "assets/uml-diagram.pdf",
+            "alt": "DegreeBetter UML diagram",
+            "hoverText": "View UML",
+            "caption": "My first SWE project and an initial foray into UX design. Sadly, the repo must stay private, but check out our design layout and UML diagram!"
           }
         ],
+        "files": [],
+        "links": [],
         "captionHtml": null
       },
       "region": {
@@ -861,17 +910,12 @@ window.CV_HOTSPOTS_CONFIG = {
       "page": 4,
       "label": "Tiny RISC-V OS",
       "popup": {
-        "title": "Tiny RISC-V Operating System",
-        "description": "Bare-metal RISC-V OS in C and assembly: program loader, in-memory filesystem, spinlocks, and permissions.",
+        "title": "tiny riscv os",
+        "description": "tiny riscv os",
         "images": [],
         "files": [],
-        "links": [
-          {
-            "label": "GitHub",
-            "url": "https://github.com/sorayarem"
-          }
-        ],
-        "captionHtml": null
+        "links": [],
+        "captionHtml": "My first venture into C and OS coding, but also my first real test with (professor-mandated) prompt engineering. See the output <a class=\"cv-caption-green-link\" href=\"https://github.com/sorayarem/csce311program2\">here</a>."
       },
       "region": {
         "left": 21,
@@ -911,39 +955,20 @@ window.CV_HOTSPOTS_CONFIG = {
     {
       "id": "skills-french",
       "page": 4,
-      "label": "French",
+      "label": "French & Arabic",
       "popup": {
-        "title": "French",
-        "description": "Professional working proficiency; Virginia State Seal of Biliteracy.",
+        "title": "French & Arabic",
+        "description": "French & Arabic",
         "images": [],
         "files": [],
         "links": [],
-        "captionHtml": null
+        "captionHtml": "My parents are French and Algerian, so I dabble in some of the local languages. I'm always trying to improve though, particularly through some great French TV shows!"
       },
       "region": {
         "left": 21,
         "top": 43.3,
         "width": 71,
-        "height": 1.8
-      }
-    },
-    {
-      "id": "skills-darija",
-      "page": 4,
-      "label": "Algerian Darija",
-      "popup": {
-        "title": "Algerian Darija",
-        "description": "Limited working proficiency; Johns Hopkins CTY courses.",
-        "images": [],
-        "files": [],
-        "links": [],
-        "captionHtml": null
-      },
-      "region": {
-        "left": 21,
-        "top": 44.8,
-        "width": 71,
-        "height": 1.8
+        "height": 3.3
       }
     },
     {
