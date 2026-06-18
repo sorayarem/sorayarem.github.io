@@ -1257,45 +1257,16 @@ body > .site-logo {
     max-width: 44rem;
 }
 
-.research-inline-tooltip-link {
-    position: relative;
+.research-inline-link {
     color: var(--inline-link);
     font-weight: 600;
     text-decoration: none;
-    white-space: nowrap;
 }
 
-.research-inline-tooltip-link:hover,
-.research-inline-tooltip-link:focus-visible {
+.research-inline-link:hover,
+.research-inline-link:focus-visible {
     color: var(--inline-link-hover);
     outline: none;
-}
-
-.research-inline-tooltip {
-    position: absolute;
-    left: 50%;
-    bottom: calc(100% + 0.45rem);
-    z-index: 5;
-    min-width: max-content;
-    padding: 0.35rem 0.55rem;
-    border: 1px solid var(--accent-border);
-    border-radius: 0.25rem;
-    background: #fff;
-    box-shadow: var(--shadow-md);
-    color: var(--text-primary);
-    font-size: 0.78rem;
-    font-weight: 500;
-    line-height: 1.2;
-    opacity: 0;
-    pointer-events: none;
-    transform: translate(-50%, 0.25rem);
-    transition: opacity 0.18s ease, transform 0.18s ease;
-}
-
-.research-inline-tooltip-link:hover .research-inline-tooltip,
-.research-inline-tooltip-link:focus-visible .research-inline-tooltip {
-    opacity: 1;
-    transform: translate(-50%, 0);
 }
 
 .research-feature-presentations {
