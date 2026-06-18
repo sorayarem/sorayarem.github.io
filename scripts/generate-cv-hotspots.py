@@ -72,10 +72,11 @@ hotspots = [
                 "url": "https://sc.edu/study/colleges_schools/engineering_and_computing/news_events/news/2026/soraya_remaili_student_feature.php",
                 "alt": "USC student feature article about Soraya Remaili",
                 "hoverText": "View Article",
-                "caption": "Read more about my time at USC!",
+                "captionHtml": "Read more about my time at USC<br>(and a little about TJ)!",
                 "size": "small",
             }
         ],
+        group="edu-usc-tjhsst",
     ),
     item(
         "edu-tjhsst",
@@ -85,6 +86,7 @@ hotspots = [
         6.2,
         "Thomas Jefferson High School for Science and Technology",
         "High School Diploma, June 2023. GPA 4.45 (weighted). AP Scholar with Honor.",
+        group="edu-usc-tjhsst",
     ),
     item(
         "edu-sciences-po",
@@ -101,14 +103,86 @@ hotspots = [
             }
         ],
     ),
-    item("honor-presidents-list", 1, "President's List", 36.0, 1.6, "President's List", "University of South Carolina President's List, 2023–Present."),
-    item("honor-excellence-scholar", 1, "Academic Excellence Scholar", 37.5, 1.6, "Academic Excellence Scholar", "University of South Carolina Academic Excellence Scholar, $2,000/year."),
-    item("honor-undergrad-scholarship", 1, "Undergraduate Scholarship", 39.0, 1.6, "Undergraduate Scholarship", "University of South Carolina Undergraduate Scholarship, $25,000/year."),
-    item("honor-honors-research-grant", 1, "Honors Research Grant", 40.5, 1.6, "Honors College Research Grant", "South Carolina Honors College Undergraduate Research Grant, 2024–2026, $6,000."),
-    item("honor-carter-bays", 1, "Carter Bays Scholarship", 42.0, 1.6, "Carter Bays Scholarship", "Carter Bays Endowed Scholarship for Computer Science, 2024–2025, $1,000."),
-    item("honor-vlahoplus", 1, "Vlahoplus Scholarship", 43.5, 1.6, "Vlahoplus Engineering Honors Scholarship", "Vlahoplus Engineering Honors Scholarship, 2025–2026, $1,000."),
-    item("honor-provost-ai", 1, "Provost AI Fellowship", 45.0, 1.6, "Provost AI Undergraduate Fellowship", "Provost AI Undergraduate Fellowship, 2026, $5,000."),
-    item("honor-magellan-mini", 1, "Magellan Mini Grant", 46.5, 1.6, "Magellan Mini Research Grant", "Magellan Mini Research Grant, 2026, $750."),
+    item(
+        "honor-presidents-list",
+        1,
+        "USC president's list",
+        36.0,
+        1.6,
+        "USC president's list",
+        "USC president's list",
+        caption_html='<a href="https://sc.edu/about/offices_and_divisions/registrar/transcripts_and_records/honor_lists/">Honor</a> given to students with a 4.0 GPA.',
+    ),
+    item(
+        "honor-excellence-scholar",
+        1,
+        "usc academic excellence scholar",
+        37.5,
+        1.6,
+        "usc academic excellence scholar",
+        "usc academic excellence scholar",
+        caption_html='<a href="https://sc.edu/about/offices_and_divisions/undergraduate_admissions/tuition_scholarships/nonresidents/#accordion-group-10-item-5-content">Scholarship</a> awarding $2000/year.',
+    ),
+    item(
+        "honor-undergrad-scholarship",
+        1,
+        "usc undergraduate scholarship",
+        39.0,
+        1.6,
+        "usc undergraduate scholarship",
+        "usc undergraduate scholarship",
+        caption_html='<a href="https://sc.edu/about/offices_and_divisions/undergraduate_admissions/tuition_scholarships/nonresidents/#accordion-group-10-item-5-content">Scholarship</a> awarding in-state tuition.',
+    ),
+    item(
+        "honor-honors-research-grant",
+        1,
+        "schc research grant",
+        40.5,
+        1.6,
+        "schc research grant",
+        "schc research grant",
+        caption_html='Two years ($3000/cycle) of <a href="https://sc.edu/study/colleges_schools/honors_college/internal/beyond_the_classroom/undergraduate_research/honorscollege_researchgrants/">funding</a> for my bioacoustics work with Dr. Meyer-Gutbrod.',
+    ),
+    item(
+        "honor-carter-bays",
+        1,
+        "carter bays endowed scholar",
+        42.0,
+        1.6,
+        "carter bays endowed scholar",
+        "carter bays endowed scholar",
+        caption_html='<a href="https://sc.edu/study/colleges_schools/engineering_and_computing/docs/student_services/2025-2026_mcec_scholarship_list.pdf">Awarded</a> to undergraduate students majoring in computer science.',
+    ),
+    item(
+        "honor-vlahoplus",
+        1,
+        "vlahoplus honors scholar",
+        43.5,
+        1.6,
+        "vlahoplus honors scholar",
+        "vlahoplus honors scholar",
+        caption_html='<a href="https://sc.edu/study/colleges_schools/engineering_and_computing/docs/student_services/2025-2026_mcec_scholarship_list.pdf">Awarded</a> to an Honors College student in the MCEC.',
+    ),
+    item(
+        "honor-provost-ai",
+        1,
+        "provost undergraduate ai fellow",
+        45.0,
+        1.6,
+        "provost undergraduate ai fellow",
+        "provost undergraduate ai fellow",
+        caption_html='Fellowship <a href="https://sc.edu/study/colleges_schools/honors_college/internal/academic_advising/provost-ai-fellowship.php">grant</a> for work on an AI-driven research <a href="research.html#water-payment-heading">project</a>.',
+    ),
+    item(
+        "honor-magellan-mini",
+        1,
+        "magellan mini-grant",
+        46.5,
+        1.6,
+        "magellan mini-grant",
+        "magellan mini-grant",
+        caption_html='Research <a href="https://sc.edu/about/offices_and_divisions/undergraduate_research/funding_opportunities/our_funding/mini-grants/">grant</a> to continue my bioacoustics work with Dr. Meyer-Gutbrod.',
+    ),
     item(
         "honor-seamamms-award",
         1,
@@ -342,8 +416,15 @@ hotspots = [
         "NOAA workshop",
         15.4,
         7.3,
-        "NOAA Real-Time Analysis Workshop",
-        "May 2024. Real-time environmental data analysis with NOAA scientists through simulations and case studies.",
+        "noaa workshop",
+        "noaa workshop",
+        images=[
+            {
+                "src": "assets/pitchtrack.png",
+                "alt": "Real-time pitch track example",
+                "caption": "An example of a real-time pitch track.",
+            }
+        ],
     ),
     item(
         "research-bioacoustics",
@@ -361,8 +442,15 @@ hotspots = [
         "Jellyfish bioremediation",
         41.1,
         13.3,
-        "Jellyfish Bioremediation",
-        "Thomas Jefferson HS with Dr. Shawn Stickler (2021–2023). Tank maintenance, water quality monitoring, and aquatic ecosystem restoration experiments.",
+        "senior research",
+        "senior research",
+        images=[
+            {
+                "src": "assets/jellyfish.jpg",
+                "alt": "Jellyfish research project",
+                "captionHtml": "Here's the project that first got me interested in marine science! It's a very rudimentary effort, especially since it was in high school, but you can check out the journal I kept for it <a href=\"https://quickest-toque-d54.notion.site/Jellyfish-Tracking-Journal-6e53f19e5f6c44aba5377431b07d2add\">here</a>.",
+            }
+        ],
     ),
     item(
         "community-theta-tau",
@@ -370,8 +458,15 @@ hotspots = [
         "Theta Tau service",
         55.7,
         5.8,
-        "Theta Tau — Service & DEI Chair",
-        "Spring/Fall 2024. Co-led service and equity committees; managed project budgets and funding.",
+        "service/dei chair",
+        "service/dei chair",
+        images=[
+            {
+                "src": "assets/pumpkin.jpg",
+                "alt": "Pumpkin painting mental health night",
+                "caption": "Pumpkin painting mental health night!",
+            }
+        ],
     ),
     item(
         "community-tech-camp",
@@ -379,8 +474,15 @@ hotspots = [
         "Technology Adventure Camp",
         63.3,
         8.8,
-        "Technology Adventure Camp Instructor",
-        "July 2024, Fairfax County Public Schools. Taught robotics, coding, and sensors to children.",
+        "fcps tech camp",
+        "fcps tech camp",
+        images=[
+            {
+                "src": "assets/maze.jpg",
+                "alt": "Maze built for students to race robots in",
+                "caption": "A maze I built for students to race their robots in.",
+            }
+        ],
     ),
     item(
         "community-touch-tank",
@@ -388,8 +490,15 @@ hotspots = [
         "Library touch tank",
         73.4,
         2.8,
-        "Public Library Touch Tank",
-        "July 2025, Anacortes & Oak Harbor. Marine habitat learning experience for 100+ children.",
+        "touch tank outreach",
+        "touch tank outreach",
+        images=[
+            {
+                "src": "assets/oakharbor.jpg",
+                "alt": "REU cohort running the touch tank outreach event",
+                "caption": "My REU cohort and I running the touch tank!",
+            }
+        ],
     ),
     item(
         "community-guardianes",
@@ -397,8 +506,9 @@ hotspots = [
         "Guardianes Del Mar",
         77.9,
         2.8,
-        "Guardianes Del Mar STEM Program",
-        "June 2025. Intertidal zone and microscopy workshop for middle-school students.",
+        "guardianes del mar",
+        "guardianes del mar",
+        caption_html='See more <a class="cv-caption-green-link" href="https://www.thesalishseaschool.org/guardians-of-the-sea">here</a> about the program',
     ),
     item(
         "community-narw-festival",
@@ -406,8 +516,15 @@ hotspots = [
         "Right Whale Festival",
         82.5,
         2.7,
-        "North Atlantic Right Whale Festival",
-        "November 2024. Bioacoustics activities for 300+ visitors.",
+        "narw festival",
+        "narw festival",
+        images=[
+            {
+                "src": "assets/narwfestival.jpg",
+                "alt": "North Atlantic right whale festival booth visitors listening to sounds",
+                "caption": "Showing off some sounds to booth visitors!",
+            }
+        ],
     ),
     item(
         "project-pathways",
@@ -455,9 +572,25 @@ hotspots = [
         "DegreeBetter",
         13.9,
         5.8,
-        "DegreeBetter Academic Management System",
-        "Java/JavaFX degree planning system with backend for requirements and degree tracking.",
-        [{"label": "GitHub", "url": "https://github.com/sorayarem"}],
+        "degreebetter",
+        "degreebetter",
+        images=[
+            {
+                "src": "assets/csce247-design-document.png",
+                "url": "assets/csce247-design-document.pdf",
+                "alt": "DegreeBetter design document",
+                "hoverText": "View Design",
+                "caption": "My first SWE project and an initial foray into UX design. Sadly, the repo must stay private, but check out our design layout and UML diagram!",
+                "size": "page-fit",
+            },
+            {
+                "src": "assets/uml-diagram.png",
+                "url": "assets/uml-diagram.pdf",
+                "alt": "DegreeBetter UML diagram",
+                "hoverText": "View UML",
+                "caption": "My first SWE project and an initial foray into UX design. Sadly, the repo must stay private, but check out our design layout and UML diagram!",
+            },
+        ],
     ),
     item(
         "project-portfolio",
@@ -475,9 +608,9 @@ hotspots = [
         "Tiny RISC-V OS",
         27.5,
         5.8,
-        "Tiny RISC-V Operating System",
-        "Bare-metal RISC-V OS in C and assembly: program loader, in-memory filesystem, spinlocks, and permissions.",
-        [{"label": "GitHub", "url": "https://github.com/sorayarem"}],
+        "tiny riscv os",
+        "tiny riscv os",
+        caption_html='My first venture into C and OS coding, but also my first real test with (professor-mandated) prompt engineering. See the output <a class="cv-caption-green-link" href="https://github.com/sorayarem/csce311program2">here</a>.',
     ),
     item(
         "project-f1",
@@ -498,8 +631,16 @@ hotspots = [
             }
         ],
     ),
-    item("skills-french", 4, "French", 43.7, 1.2, "French", "Professional working proficiency; Virginia State Seal of Biliteracy."),
-    item("skills-darija", 4, "Algerian Darija", 45.2, 1.2, "Algerian Darija", "Limited working proficiency; Johns Hopkins CTY courses."),
+    item(
+        "skills-french",
+        4,
+        "French & Arabic",
+        43.7,
+        2.7,
+        "French & Arabic",
+        "French & Arabic",
+        caption_html="My parents are French and Algerian, so I dabble in some of the local languages. I'm always trying to improve though, particularly through some great French TV shows!",
+    ),
     item(
         "skills-technical",
         4,

@@ -22,7 +22,7 @@
     const MAX_ZOOM_FACTOR = 3;
 
     const ALLOWED_COUNTRY_TYPES = new Set(['Sovereign country', 'Country']);
-    const ALLOWED_ADMIN_EXCEPTIONS = new Set([]);
+    const ALLOWED_ADMIN_EXCEPTIONS = new Set(['Palestine']);
     const COUNTRY_SEARCH_ALIASES = {
         somaliland: 'somalia'
     };
