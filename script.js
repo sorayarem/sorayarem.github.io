@@ -366,7 +366,3 @@ function initScrollToTop() {
 
 
 initScrollToTop();
-
-
-console.log('%c🌱 Welcome to Soraya\'s Digital Garden!', 'color: #10b981; font-size: 16px; font-weight: bold;');
-console.log('%cFeel free to explore the code and get inspired!', 'color: #2563eb; font-size: 12px;');
