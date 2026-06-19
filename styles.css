@@ -2397,8 +2397,10 @@ body > .site-logo {
     text-decoration: none;
 }
 
-.cv-modal-caption a:hover {
+.cv-modal-caption a:hover,
+.cv-modal-caption a:focus-visible {
     color: var(--inline-link-hover);
+    outline: none;
     text-decoration: none;
 }
 
@@ -2413,7 +2415,8 @@ body > .site-logo {
 }
 
 .cv-modal-files a,
-.cv-modal-links a {
+.cv-modal-links a,
+.cv-modal-inline-link {
     color: var(--inline-link);
     font-weight: 600;
     text-decoration: none;
@@ -2422,7 +2425,9 @@ body > .site-logo {
 .cv-modal-files a:hover,
 .cv-modal-files a:focus-visible,
 .cv-modal-links a:hover,
-.cv-modal-links a:focus-visible {
+.cv-modal-links a:focus-visible,
+.cv-modal-inline-link:hover,
+.cv-modal-inline-link:focus-visible {
     color: var(--inline-link-hover);
     outline: none;
     text-decoration: none;
