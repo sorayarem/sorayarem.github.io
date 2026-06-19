@@ -261,7 +261,7 @@ hotspots = [
         5.8,
         "SEAMAMMS — Wilmington, NC (April 2026)",
         "SEAMAMMS26 talk: Remaili et al.",
-        [{"label": "Research page", "url": "research.html"}],
+        [],
         images=[
             {
                 "src": "assets/SEAMAMMS26.png",
@@ -279,7 +279,7 @@ hotspots = [
         1.2,
         "SEAMAMMS — Wilmington, NC (April 2026)",
         "SEAMAMMS26 talk: Remaili et al.",
-        [{"label": "Research page", "url": "research.html"}],
+        [],
         images=[
             {
                 "src": "assets/SEAMAMMS26.png",

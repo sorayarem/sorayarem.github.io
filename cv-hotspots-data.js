@@ -340,12 +340,7 @@ window.CV_HOTSPOTS_CONFIG = {
           }
         ],
         "files": [],
-        "links": [
-          {
-            "label": "Research page",
-            "url": "research.html"
-          }
-        ],
+        "links": [],
         "captionHtml": null
       },
       "group": "pres-seamamms",
@@ -371,12 +366,7 @@ window.CV_HOTSPOTS_CONFIG = {
           }
         ],
         "files": [],
-        "links": [
-          {
-            "label": "Research page",
-            "url": "research.html"
-          }
-        ],
+        "links": [],
         "captionHtml": null
       },
       "group": "pres-seamamms",

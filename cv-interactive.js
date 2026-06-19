@@ -1036,6 +1036,8 @@
 
                     li.appendChild(document.createTextNode('View more information '));
 
+                    a.className = 'cv-modal-inline-link';
+
                     a.textContent = 'here';
 
                 } else {
