@@ -260,7 +260,7 @@
 
         hint.className = 'cv-interactive-hint';
 
-        hint.appendChild(document.createTextNode('Click highlighted areas for details. View a PDF version '));
+        hint.appendChild(document.createTextNode('Welcome to my interactive CV! Click highlighted areas for details, or view a PDF version '));
 
         const pdfLink = document.createElement('a');
 
