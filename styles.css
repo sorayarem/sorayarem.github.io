@@ -2414,14 +2414,17 @@ body > .site-logo {
 
 .cv-modal-files a,
 .cv-modal-links a {
-    color: var(--moss-green);
-    font-weight: 500;
+    color: var(--inline-link);
+    font-weight: 600;
     text-decoration: none;
 }
 
 .cv-modal-files a:hover,
-.cv-modal-links a:hover {
-    color: var(--moss-green);
+.cv-modal-files a:focus-visible,
+.cv-modal-links a:hover,
+.cv-modal-links a:focus-visible {
+    color: var(--inline-link-hover);
+    outline: none;
     text-decoration: none;
 }
 
