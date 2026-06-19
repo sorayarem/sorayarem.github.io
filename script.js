@@ -144,7 +144,7 @@ function initContactForm() {
     });
 }
 
-const SITE_LOGO_SRC = 'assets/logo2.png';
+const SITE_LOGO_SRC = 'assets/earth-logo.png';
 
 function initSiteLogo() {
     let logo = document.querySelector('.site-logo');
@@ -155,7 +155,7 @@ function initSiteLogo() {
         logo.setAttribute('aria-label', 'Soraya Remaili — Home');
         const img = document.createElement('img');
         img.className = 'site-logo-img';
-        img.width = 180;
+        img.width = 36;
         img.height = 36;
         img.alt = '';
         logo.appendChild(img);
