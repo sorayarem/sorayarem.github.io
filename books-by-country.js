@@ -126,6 +126,15 @@ window.BOOKS_BY_COUNTRY = {
             blurb: 'A family story of identity, migration, and belonging.'
         }
     ],
+    LK: {
+        country: 'Sri Lanka',
+        title: 'The Seven Moons of Maali Almeida',
+        author: 'Shehan Karunatilaka',
+        year: 2022,
+        stars: 4,
+        cover: 'https://m.media-amazon.com/images/I/81dIimhG-EL.jpg',
+        blurb: 'A murdered war photographer gets seven moons to solve his own death.'
+    },
     FR: {
         country: 'France',
         title: 'Happening',
