@@ -285,6 +285,24 @@ window.BOOKS_BY_COUNTRY = {
         stars: 4,
         cover: 'https://m.media-amazon.com/images/I/81vi2LnSDuL.jpg',
         blurb: 'Love and grief across generations in Cyprus, rooted in fig trees and divided histories.'
+    },
+    AL: {
+        country: 'Albania',
+        title: 'She Who Remains',
+        author: 'Rene Karabash',
+        year: 2018,
+        stars: 3,
+        cover: 'https://m.media-amazon.com/images/I/71t0-aKcXeL._AC_UF1000,1000_QL80_.jpg',
+        blurb: 'In the Accursed Mountains, a sworn virgin’s vow remakes a life—and undoes a family.'
+    },
+    MX: {
+        country: 'Mexico',
+        title: 'Reservoir Dogs',
+        author: 'Dahlia de la Cerda',
+        year: 2022,
+        stars: 5,
+        cover: 'assets/mexico.png',
+        blurb: 'Linked stories of Mexican women navigating violence, class, and survival.'
     }
 };
 
