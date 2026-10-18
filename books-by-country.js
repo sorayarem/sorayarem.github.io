@@ -303,6 +303,15 @@ window.BOOKS_BY_COUNTRY = {
         stars: 5,
         cover: 'assets/mexico.png',
         blurb: 'Linked stories of Mexican women navigating violence, class, and survival.'
+    },
+    BR: {
+        country: 'Brazil',
+        title: 'Liar\'s Dice',
+        author: 'Juliet Faithfull',
+        year: 2026,
+        stars: 3,
+        cover: 'https://m.media-amazon.com/images/I/91VAFuqX6eL._AC_UF1000,1000_QL80_.jpg',
+        blurb: 'A teenage girl in 1970s Brazil fights to get her twin sister back.'
     }
 };
 
@@ -389,7 +398,8 @@ const BOOK_ISO_ALIASES = {
     ITA: 'IT',
     USA: 'US',
     GBR: 'GB',
-    KOR: 'KR'
+    KOR: 'KR',
+    BRA: 'BR'
 };
 
 function booksEntryForKey(key) {
