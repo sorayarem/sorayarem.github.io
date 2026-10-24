@@ -312,6 +312,15 @@ window.BOOKS_BY_COUNTRY = {
         stars: 3,
         cover: 'https://m.media-amazon.com/images/I/91VAFuqX6eL._AC_UF1000,1000_QL80_.jpg',
         blurb: 'A teenage girl in 1970s Brazil fights to get her twin sister back.'
+    },
+    NL: {
+        country: 'Netherlands',
+        title: 'Confrontations',
+        author: 'Simone Atangana Bekono',
+        year: 2020,
+        stars: 2,
+        cover: 'https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360,c_scale,dpr_1.5/jackets/9781639730919.jpg',
+        blurb: 'A biracial Dutch teen in juvenile detention reckons with rage, race, and home.'
     }
 };
 
