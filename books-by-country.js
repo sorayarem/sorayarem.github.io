@@ -321,6 +321,15 @@ window.BOOKS_BY_COUNTRY = {
         stars: 2,
         cover: 'https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360,c_scale,dpr_1.5/jackets/9781639730919.jpg',
         blurb: 'A biracial Dutch teen in juvenile detention reckons with rage, race, and home.'
+    },
+    BE: {
+        country: 'Belgium',
+        title: 'I Who Have Never Known Men',
+        author: 'Jacqueline Harpman',
+        year: 1995,
+        stars: 3,
+        cover: 'https://images-us.bookshop.org/ingram/9781945492600.jpg?v=a4196ba2d4ef8858d3e610d888095ae5',
+        blurb: 'Forty women wake underground; one of them climbs into a strange, empty world.'
     }
 };
 
