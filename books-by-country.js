@@ -330,6 +330,15 @@ window.BOOKS_BY_COUNTRY = {
         stars: 3,
         cover: 'https://images-us.bookshop.org/ingram/9781945492600.jpg?v=a4196ba2d4ef8858d3e610d888095ae5',
         blurb: 'Forty women wake underground; one of them climbs into a strange, empty world.'
+    },
+    PK: {
+        country: 'Pakistan',
+        title: 'A Splintering',
+        author: 'Dur e Aziz Amna',
+        year: 2024,
+        stars: 4,
+        cover: 'https://static1.squarespace.com/static/63dc1a06d026547abe61910f/63dc1a6bf785bd60a470242f/68e7fba9aff7620a7b7186d6/1791820720735/9781938603778_FC.jpg?format=1500w',
+        blurb: 'A young Pakistani woman pushes against family, class, and the life expected of her.'
     }
 };
 
