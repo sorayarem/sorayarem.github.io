@@ -187,21 +187,21 @@ window.BOOKS_BY_COUNTRY = {
     KR: [
         {
             country: 'South Korea',
-            title: 'The Vegetarian',
-            author: 'Han Kang',
-            year: 2007,
-            stars: 1,
-            cover: 'https://m.media-amazon.com/images/I/711AQBvoGKL._AC_UF1000,1000_QL80_.jpg',
-            blurb: 'Dreams, refusal, and fracture in three acts.'
-        },
-        {
-            country: 'South Korea',
             title: 'Crying in H Mart',
             author: 'Michelle Zauner',
             year: 2021,
             stars: 4,
             cover: 'https://m.media-amazon.com/images/I/81aS9JndklL._AC_UF1000,1000_QL80_.jpg',
             blurb: 'A memoir of grief, family, and Korean food.'
+        },
+        {
+            country: 'South Korea',
+            title: 'The Vegetarian',
+            author: 'Han Kang',
+            year: 2007,
+            stars: 1,
+            cover: 'https://m.media-amazon.com/images/I/711AQBvoGKL._AC_UF1000,1000_QL80_.jpg',
+            blurb: 'Dreams, refusal, and fracture in three acts.'
         }
     ],
     IT: {
@@ -339,6 +339,15 @@ window.BOOKS_BY_COUNTRY = {
         stars: 4,
         cover: 'https://static1.squarespace.com/static/63dc1a06d026547abe61910f/63dc1a6bf785bd60a470242f/68e7fba9aff7620a7b7186d6/1791820720735/9781938603778_FC.jpg?format=1500w',
         blurb: 'A young Pakistani woman pushes against family, class, and the life expected of her.'
+    },
+    CN: {
+        country: 'China',
+        title: "A Lover's Discourse",
+        author: 'Xiaolu Guo',
+        year: 2020,
+        stars: 2,
+        cover: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg1uxCvetvnlrZ4SGPm3McsTRjFM_FXBJXBhFGR-kJjmtCb2fotgk2cOGT&s=10',
+        blurb: 'A Chinese woman in London maps love, language, and belonging in fragments.'
     }
 };
 
