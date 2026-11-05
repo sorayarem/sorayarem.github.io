@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Soraya Remaili</title>
-    <link rel="stylesheet" href="styles.css?v=20260618-hero-cleanup">
+    <link rel="stylesheet" href="styles.css?v=20261105-home-article">
     <link rel="icon" type="image/png" href="assets/earth-logo.png?v=20260619">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -20,7 +20,7 @@
                 <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-400" href="about.html">About Me</a>
                 <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-400" href="research.html">Research</a>
                 <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-400" href="contact.html">Contact</a>
-                <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-400" href="cv.html" aria-label="CV">CV</a>
+                <a class="rounded py-1 px-2 text-sm tracking-tight transition-colors focus-visible:ring-4 focus-visible:ring-blue-200 focus:text-neutral-900 hover:text-neutral-900 text-neutral-400" href="assets/cv.pdf" target="_blank" rel="noopener noreferrer" aria-label="CV">CV</a>
             </div>
         </div>
     </nav>
@@ -40,9 +40,12 @@
                     </p>
                 </div>
                 <div class="hero-visual">
-                    <div class="photo-gallery">
+                    <a href="https://sc.edu/study/colleges_schools/engineering_and_computing/news_events/news/2026/soraya_remaili_student_feature.php" class="photo-gallery photo-article-link" target="_blank" rel="noopener noreferrer" aria-label="View article about Soraya Remaili">
                         <img src="assets/pic1.jpg" alt="Soraya" class="photo photo-1">
-                    </div>
+                        <span class="cv-preview-overlay" aria-hidden="true">
+                            <span class="cv-preview-cta">View Article</span>
+                        </span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -66,6 +69,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=20260619-earth-logo-final"></script>
+    <script src="script.js?v=20261105-no-scroll-arrow"></script>
 </body>
 </html>

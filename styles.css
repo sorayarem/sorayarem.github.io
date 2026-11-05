@@ -332,6 +332,7 @@ body > .site-logo {
 
 
 .photo-gallery {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -342,6 +343,21 @@ body > .site-logo {
     border-radius: 1rem;
     border: 3px solid var(--sandstone);
     box-shadow: var(--shadow-md);
+}
+
+.photo-article-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.photo-article-link:hover,
+.photo-article-link:focus-visible {
+    outline: none;
+}
+
+.photo-article-link:hover .cv-preview-overlay,
+.photo-article-link:focus-visible .cv-preview-overlay {
+    opacity: 1;
 }
 
 .photo {
